@@ -35,12 +35,20 @@ import typings.three.three.lights.*
 
 @js.native
 sealed trait Shader extends js.Object:
-	val uniforms: objectType41 = js.native;
-	val vertexShader: String = js.native;
-	val fragmentShader: String = js.native;
-val ShaderLib: objectType42 = js.native;
-val ShaderChunk: objectType43 = js.native;
+	var uniforms: objectType39 = js.native;
+	var vertexShader: String = js.native;
+	var fragmentShader: String = js.native;
+@js.native
+@JSGlobal("THREE.ShaderLib")
+val ShaderLib: objectType40 = js.native;
+@js.native
+@JSGlobal("THREE.ShaderChunk")
+val ShaderChunk: objectType41 = js.native;
+@js.native
+@JSGlobal("THREE.cloneUniforms")
 def cloneUniforms(uniforms_src: js.Any): js.Any = js.native
+@js.native
+@JSGlobal("THREE.mergeUniforms")
 def mergeUniforms(uniforms: js.Array[js.Any]): js.Any = js.native
 
 @js.native
@@ -49,172 +57,174 @@ object UniformsUtils extends js.Object
 
 @js.native
 sealed trait IUniform[TValue] extends js.Object:
-	val value: TValue = js.native;
-val UniformsLib: objectType44 = js.native;
+	var value: TValue = js.native;
+@js.native
+@JSGlobal("THREE.UniformsLib")
+val UniformsLib: objectType42 = js.native;
 
 @js.native
-sealed trait objectType41 extends js.Object:
+sealed trait objectType39 extends js.Object:
 	@JSBracketAccess
 	def apply(uniform: String): IUniform[js.Any] = js.native
 
 @js.native
-sealed trait objectType42 extends js.Object:
-	val basic: Shader = js.native;
-	val lambert: Shader = js.native;
-	val phong: Shader = js.native;
-	val standard: Shader = js.native;
-	val matcap: Shader = js.native;
-	val points: Shader = js.native;
-	val dashed: Shader = js.native;
-	val depth: Shader = js.native;
-	val normal: Shader = js.native;
-	val sprite: Shader = js.native;
-	val background: Shader = js.native;
-	val cube: Shader = js.native;
-	val equirect: Shader = js.native;
-	val distanceRGBA: Shader = js.native;
-	val shadow: Shader = js.native;
-	val physical: Shader = js.native;
+sealed trait objectType40 extends js.Object:
+	var basic: Shader = js.native;
+	var lambert: Shader = js.native;
+	var phong: Shader = js.native;
+	var standard: Shader = js.native;
+	var matcap: Shader = js.native;
+	var points: Shader = js.native;
+	var dashed: Shader = js.native;
+	var depth: Shader = js.native;
+	var normal: Shader = js.native;
+	var sprite: Shader = js.native;
+	var background: Shader = js.native;
+	var cube: Shader = js.native;
+	var equirect: Shader = js.native;
+	var distanceRGBA: Shader = js.native;
+	var shadow: Shader = js.native;
+	var physical: Shader = js.native;
 	@JSBracketAccess
 	def apply(name: String): Shader = js.native
 
 @js.native
-sealed trait objectType44 extends js.Object:
-	val common: objectType45 = js.native;
-	val specularmap: objectType46 = js.native;
-	val envmap: objectType47 = js.native;
-	val aomap: objectType48 = js.native;
-	val lightmap: objectType49 = js.native;
-	val emissivemap: objectType50 = js.native;
-	val bumpmap: objectType51 = js.native;
-	val normalmap: objectType52 = js.native;
-	val displacementmap: objectType53 = js.native;
-	val roughnessmap: objectType54 = js.native;
-	val metalnessmap: objectType55 = js.native;
-	val gradientmap: objectType56 = js.native;
-	val fog: objectType57 = js.native;
-	val lights: objectType58 = js.native;
-	val points: objectType59 = js.native;
+sealed trait objectType42 extends js.Object:
+	var common: objectType43 = js.native;
+	var specularmap: objectType44 = js.native;
+	var envmap: objectType45 = js.native;
+	var aomap: objectType46 = js.native;
+	var lightmap: objectType47 = js.native;
+	var emissivemap: objectType48 = js.native;
+	var bumpmap: objectType49 = js.native;
+	var normalmap: objectType50 = js.native;
+	var displacementmap: objectType51 = js.native;
+	var roughnessmap: objectType52 = js.native;
+	var metalnessmap: objectType53 = js.native;
+	var gradientmap: objectType54 = js.native;
+	var fog: objectType55 = js.native;
+	var lights: objectType56 = js.native;
+	var points: objectType57 = js.native;
 
 @js.native
-sealed trait objectType40 extends js.Object:
-	val enabled: Boolean = js.native;
+sealed trait objectType38 extends js.Object:
+	var enabled: Boolean = js.native;
 
 @js.native
-sealed trait objectType43 extends js.Object:
-	val alphamap_fragment: String = js.native;
-	val alphamap_pars_fragment: String = js.native;
-	val alphatest_fragment: String = js.native;
-	val aomap_fragment: String = js.native;
-	val aomap_pars_fragment: String = js.native;
-	val begin_vertex: String = js.native;
-	val beginnormal_vertex: String = js.native;
-	val bsdfs: String = js.native;
-	val bumpmap_pars_fragment: String = js.native;
-	val clipping_planes_fragment: String = js.native;
-	val clipping_planes_pars_fragment: String = js.native;
-	val clipping_planes_pars_vertex: String = js.native;
-	val clipping_planes_vertex: String = js.native;
-	val color_fragment: String = js.native;
-	val color_pars_fragment: String = js.native;
-	val color_pars_vertex: String = js.native;
-	val color_vertex: String = js.native;
-	val common: String = js.native;
-	val cube_frag: String = js.native;
-	val cube_vert: String = js.native;
-	val cube_uv_reflection_fragment: String = js.native;
-	val defaultnormal_vertex: String = js.native;
-	val depth_frag: String = js.native;
-	val depth_vert: String = js.native;
-	val distanceRGBA_frag: String = js.native;
-	val distanceRGBA_vert: String = js.native;
-	val displacementmap_vertex: String = js.native;
-	val displacementmap_pars_vertex: String = js.native;
-	val emissivemap_fragment: String = js.native;
-	val emissivemap_pars_fragment: String = js.native;
-	val encodings_pars_fragment: String = js.native;
-	val encodings_fragment: String = js.native;
-	val envmap_fragment: String = js.native;
-	val envmap_common_pars_fragment: String = js.native;
-	val envmap_pars_fragment: String = js.native;
-	val envmap_pars_vertex: String = js.native;
-	val envmap_vertex: String = js.native;
-	val equirect_frag: String = js.native;
-	val equirect_vert: String = js.native;
-	val fog_fragment: String = js.native;
-	val fog_pars_fragment: String = js.native;
-	val linedashed_frag: String = js.native;
-	val linedashed_vert: String = js.native;
-	val lightmap_fragment: String = js.native;
-	val lightmap_pars_fragment: String = js.native;
-	val lights_lambert_vertex: String = js.native;
-	val lights_pars_begin: String = js.native;
-	val envmap_physical_pars_fragment: String = js.native;
-	val lights_pars_map: String = js.native;
-	val lights_phong_fragment: String = js.native;
-	val lights_phong_pars_fragment: String = js.native;
-	val lights_physical_fragment: String = js.native;
-	val lights_physical_pars_fragment: String = js.native;
-	val lights_fragment_begin: String = js.native;
-	val lights_fragment_maps: String = js.native;
-	val lights_fragment_end: String = js.native;
-	val logdepthbuf_fragment: String = js.native;
-	val logdepthbuf_pars_fragment: String = js.native;
-	val logdepthbuf_pars_vertex: String = js.native;
-	val logdepthbuf_vertex: String = js.native;
-	val map_fragment: String = js.native;
-	val map_pars_fragment: String = js.native;
-	val map_particle_fragment: String = js.native;
-	val map_particle_pars_fragment: String = js.native;
-	val meshbasic_frag: String = js.native;
-	val meshbasic_vert: String = js.native;
-	val meshlambert_frag: String = js.native;
-	val meshlambert_vert: String = js.native;
-	val meshphong_frag: String = js.native;
-	val meshphong_vert: String = js.native;
-	val meshphysical_frag: String = js.native;
-	val meshphysical_vert: String = js.native;
-	val metalnessmap_fragment: String = js.native;
-	val metalnessmap_pars_fragment: String = js.native;
-	val morphnormal_vertex: String = js.native;
-	val morphtarget_pars_vertex: String = js.native;
-	val morphtarget_vertex: String = js.native;
-	val normal_flip: String = js.native;
-	val normal_frag: String = js.native;
-	val normal_fragment_begin: String = js.native;
-	val normal_fragment_maps: String = js.native;
-	val normal_vert: String = js.native;
-	val normalmap_pars_fragment: String = js.native;
-	val clearcoat_normal_fragment_begin: String = js.native;
-	val clearcoat_normal_fragment_maps: String = js.native;
-	val clearcoat_pars_fragment: String = js.native;
-	val packing: String = js.native;
-	val points_frag: String = js.native;
-	val points_vert: String = js.native;
-	val shadow_frag: String = js.native;
-	val shadow_vert: String = js.native;
-	val premultiplied_alpha_fragment: String = js.native;
-	val project_vertex: String = js.native;
-	val roughnessmap_fragment: String = js.native;
-	val roughnessmap_pars_fragment: String = js.native;
-	val shadowmap_pars_fragment: String = js.native;
-	val shadowmap_pars_vertex: String = js.native;
-	val shadowmap_vertex: String = js.native;
-	val shadowmask_pars_fragment: String = js.native;
-	val skinbase_vertex: String = js.native;
-	val skinning_pars_vertex: String = js.native;
-	val skinning_vertex: String = js.native;
-	val skinnormal_vertex: String = js.native;
-	val specularmap_fragment: String = js.native;
-	val specularmap_pars_fragment: String = js.native;
-	val tonemapping_fragment: String = js.native;
-	val tonemapping_pars_fragment: String = js.native;
-	val uv2_pars_fragment: String = js.native;
-	val uv2_pars_vertex: String = js.native;
-	val uv2_vertex: String = js.native;
-	val uv_pars_fragment: String = js.native;
-	val uv_pars_vertex: String = js.native;
-	val uv_vertex: String = js.native;
-	val worldpos_vertex: String = js.native;
+sealed trait objectType41 extends js.Object:
+	var alphamap_fragment: String = js.native;
+	var alphamap_pars_fragment: String = js.native;
+	var alphatest_fragment: String = js.native;
+	var aomap_fragment: String = js.native;
+	var aomap_pars_fragment: String = js.native;
+	var begin_vertex: String = js.native;
+	var beginnormal_vertex: String = js.native;
+	var bsdfs: String = js.native;
+	var bumpmap_pars_fragment: String = js.native;
+	var clipping_planes_fragment: String = js.native;
+	var clipping_planes_pars_fragment: String = js.native;
+	var clipping_planes_pars_vertex: String = js.native;
+	var clipping_planes_vertex: String = js.native;
+	var color_fragment: String = js.native;
+	var color_pars_fragment: String = js.native;
+	var color_pars_vertex: String = js.native;
+	var color_vertex: String = js.native;
+	var common: String = js.native;
+	var cube_frag: String = js.native;
+	var cube_vert: String = js.native;
+	var cube_uv_reflection_fragment: String = js.native;
+	var defaultnormal_vertex: String = js.native;
+	var depth_frag: String = js.native;
+	var depth_vert: String = js.native;
+	var distanceRGBA_frag: String = js.native;
+	var distanceRGBA_vert: String = js.native;
+	var displacementmap_vertex: String = js.native;
+	var displacementmap_pars_vertex: String = js.native;
+	var emissivemap_fragment: String = js.native;
+	var emissivemap_pars_fragment: String = js.native;
+	var encodings_pars_fragment: String = js.native;
+	var encodings_fragment: String = js.native;
+	var envmap_fragment: String = js.native;
+	var envmap_common_pars_fragment: String = js.native;
+	var envmap_pars_fragment: String = js.native;
+	var envmap_pars_vertex: String = js.native;
+	var envmap_vertex: String = js.native;
+	var equirect_frag: String = js.native;
+	var equirect_vert: String = js.native;
+	var fog_fragment: String = js.native;
+	var fog_pars_fragment: String = js.native;
+	var linedashed_frag: String = js.native;
+	var linedashed_vert: String = js.native;
+	var lightmap_fragment: String = js.native;
+	var lightmap_pars_fragment: String = js.native;
+	var lights_lambert_vertex: String = js.native;
+	var lights_pars_begin: String = js.native;
+	var envmap_physical_pars_fragment: String = js.native;
+	var lights_pars_map: String = js.native;
+	var lights_phong_fragment: String = js.native;
+	var lights_phong_pars_fragment: String = js.native;
+	var lights_physical_fragment: String = js.native;
+	var lights_physical_pars_fragment: String = js.native;
+	var lights_fragment_begin: String = js.native;
+	var lights_fragment_maps: String = js.native;
+	var lights_fragment_end: String = js.native;
+	var logdepthbuf_fragment: String = js.native;
+	var logdepthbuf_pars_fragment: String = js.native;
+	var logdepthbuf_pars_vertex: String = js.native;
+	var logdepthbuf_vertex: String = js.native;
+	var map_fragment: String = js.native;
+	var map_pars_fragment: String = js.native;
+	var map_particle_fragment: String = js.native;
+	var map_particle_pars_fragment: String = js.native;
+	var meshbasic_frag: String = js.native;
+	var meshbasic_vert: String = js.native;
+	var meshlambert_frag: String = js.native;
+	var meshlambert_vert: String = js.native;
+	var meshphong_frag: String = js.native;
+	var meshphong_vert: String = js.native;
+	var meshphysical_frag: String = js.native;
+	var meshphysical_vert: String = js.native;
+	var metalnessmap_fragment: String = js.native;
+	var metalnessmap_pars_fragment: String = js.native;
+	var morphnormal_vertex: String = js.native;
+	var morphtarget_pars_vertex: String = js.native;
+	var morphtarget_vertex: String = js.native;
+	var normal_flip: String = js.native;
+	var normal_frag: String = js.native;
+	var normal_fragment_begin: String = js.native;
+	var normal_fragment_maps: String = js.native;
+	var normal_vert: String = js.native;
+	var normalmap_pars_fragment: String = js.native;
+	var clearcoat_normal_fragment_begin: String = js.native;
+	var clearcoat_normal_fragment_maps: String = js.native;
+	var clearcoat_pars_fragment: String = js.native;
+	var packing: String = js.native;
+	var points_frag: String = js.native;
+	var points_vert: String = js.native;
+	var shadow_frag: String = js.native;
+	var shadow_vert: String = js.native;
+	var premultiplied_alpha_fragment: String = js.native;
+	var project_vertex: String = js.native;
+	var roughnessmap_fragment: String = js.native;
+	var roughnessmap_pars_fragment: String = js.native;
+	var shadowmap_pars_fragment: String = js.native;
+	var shadowmap_pars_vertex: String = js.native;
+	var shadowmap_vertex: String = js.native;
+	var shadowmask_pars_fragment: String = js.native;
+	var skinbase_vertex: String = js.native;
+	var skinning_pars_vertex: String = js.native;
+	var skinning_vertex: String = js.native;
+	var skinnormal_vertex: String = js.native;
+	var specularmap_fragment: String = js.native;
+	var specularmap_pars_fragment: String = js.native;
+	var tonemapping_fragment: String = js.native;
+	var tonemapping_pars_fragment: String = js.native;
+	var uv2_pars_fragment: String = js.native;
+	var uv2_pars_vertex: String = js.native;
+	var uv2_vertex: String = js.native;
+	var uv_pars_fragment: String = js.native;
+	var uv_pars_vertex: String = js.native;
+	var uv_vertex: String = js.native;
+	var worldpos_vertex: String = js.native;
 	@JSBracketAccess
 	def apply(name: String): String = js.native

@@ -38,22 +38,22 @@ sealed trait RenderTarget extends js.Object
 
 @js.native
 sealed trait RenderItem extends js.Object:
-	val id: Double = js.native;
-	val `object`: Object3D = js.native;
-	val geometry: BufferGeometry | Null = js.native;
-	val material: Material = js.native;
-	val program: WebGLProgram = js.native;
-	val groupOrder: Double = js.native;
-	val renderOrder: Double = js.native;
-	val z: Double = js.native;
-	val group: Group | Null = js.native;
+	var id: Double = js.native;
+	var `object`: Object3D = js.native;
+	var geometry: BufferGeometry | Null = js.native;
+	var material: Material = js.native;
+	var program: WebGLProgram = js.native;
+	var groupOrder: Double = js.native;
+	var renderOrder: Double = js.native;
+	var z: Double = js.native;
+	var group: Group | Null = js.native;
 
 @js.native
 @JSGlobal("THREE.WebGLRenderList")
 class WebGLRenderList extends js.Object:
 	def this(properties: WebGLProperties) = this()
-	val opaque: js.Array[RenderItem] = js.native;
-	val transparent: js.Array[RenderItem] = js.native;
+	var opaque: js.Array[RenderItem] = js.native;
+	var transparent: js.Array[RenderItem] = js.native;
 	def init(): Unit = js.native
 	def push(`object`: Object3D, geometry: BufferGeometry | Null, material: Material, groupOrder: Double, z: Double, group: Group | Null): Unit = js.native
 	def unshift(`object`: Object3D, geometry: BufferGeometry | Null, material: Material, groupOrder: Double, z: Double, group: Group | Null): Unit = js.native
@@ -71,18 +71,18 @@ class WebGLRenderLists extends js.Object:
 @JSGlobal("THREE.WebGLShadowMap")
 class WebGLShadowMap extends js.Object:
 	def this(_renderer: WebGLRenderer, _objects: WebGLObjects, _capabilities: WebGLCapabilities) = this()
-	val enabled: Boolean = js.native;
-	val autoUpdate: Boolean = js.native;
-	val needsUpdate: Boolean = js.native;
-	val `type`: ShadowMapType = js.native;
-	val cullFace: js.Any = js.native;
+	var enabled: Boolean = js.native;
+	var autoUpdate: Boolean = js.native;
+	var needsUpdate: Boolean = js.native;
+	var `type`: ShadowMapType = js.native;
+	var cullFace: js.Any = js.native;
 	def render(shadowsArray: js.Array[Light], scene: Scene, camera: Camera): Unit = js.native
 
 @js.native
 @JSGlobal("THREE.WebGLPrograms")
 class WebGLPrograms extends js.Object:
 	def this(renderer: WebGLRenderer, cubemaps: WebGLCubeMaps, extensions: WebGLExtensions, capabilities: WebGLCapabilities, bindingStates: WebGLBindingStates, clipping: WebGLClipping) = this()
-	val programs: js.Array[WebGLProgram] = js.native;
+	var programs: js.Array[WebGLProgram] = js.native;
 	def getParameters(material: Material, lights: js.Any, shadows: js.Array[js.Object], scene: Scene, `object`: js.Any): js.Any = js.native
 	def getProgramCacheKey(parameters: js.Any): String = js.native
 	def getUniforms(material: Material): js.Object = js.native
@@ -101,10 +101,10 @@ class WebGLExtensions extends js.Object:
 @JSGlobal("THREE.WebGLInfo")
 class WebGLInfo extends js.Object:
 	def this(gl: WebGLRenderingContext) = this()
-	val autoReset: Boolean = js.native;
-	val memory: objectType60 = js.native;
-	val programs: js.Array[WebGLProgram] | Null = js.native;
-	val render: objectType61 = js.native;
+	var autoReset: Boolean = js.native;
+	var memory: objectType58 = js.native;
+	var programs: js.Array[WebGLProgram] | Null = js.native;
+	var render: objectType59 = js.native;
 	def update(count: Double, mode: Double, instanceCount: Double): Unit = js.native
 	def reset(): Unit = js.native
 
@@ -120,15 +120,15 @@ class WebGLBufferRenderer extends js.Object:
 @JSGlobal("THREE.WebGLProgram")
 class WebGLProgram extends js.Object:
 	def this(renderer: WebGLRenderer, cacheKey: String, parameters: js.Object) = this()
-	val name: String = js.native;
-	val id: Double = js.native;
-	val cacheKey: String = js.native;
-	val usedTimes: Double = js.native;
-	val program: js.Any = js.native;
-	val vertexShader: WebGLShader = js.native;
-	val fragmentShader: WebGLShader = js.native;
-	val uniforms: js.Any = js.native;
-	val attributes: js.Any = js.native;
+	var name: String = js.native;
+	var id: Double = js.native;
+	var cacheKey: String = js.native;
+	var usedTimes: Double = js.native;
+	var program: js.Any = js.native;
+	var vertexShader: WebGLShader = js.native;
+	var fragmentShader: WebGLShader = js.native;
+	var uniforms: js.Any = js.native;
+	var attributes: js.Any = js.native;
 	def getUniforms(): WebGLUniforms = js.native
 	def getAttributes(): js.Any = js.native
 	def destroy(): Unit = js.native
@@ -151,7 +151,9 @@ class WebGLUniforms extends js.Object:
 
 
 
-object WebGLUniforms:
+@js.native
+@JSGlobal("THREE.WebGLUniforms")
+object WebGLUniforms extends js.Object:
 	def upload(gl: WebGLRenderingContext, seq: js.Any, values: js.Array[js.Any], textures: WebGLTextures): Unit = js.native
 	def seqWithValue(seq: js.Any, values: js.Array[js.Any]): js.Array[js.Any] = js.native
 
@@ -182,6 +184,8 @@ class WebGLProperties extends js.Object:
 class WebGLUtils extends js.Object:
 	def this(gl: WebGLRenderingContext | WebGL2RenderingContext, extensions: js.Any, capabilities: js.Any) = this()
 	def convert(p: js.Any): Unit = js.native
+@js.native
+@JSGlobal("THREE.WebGLShader")
 def WebGLShader(gl: WebGLRenderingContext, `type`: String, string: String): WebGLShader = js.native
 
 @js.native
@@ -202,27 +206,27 @@ class WebGLTextures extends js.Object:
 
 @js.native
 sealed trait WebGLCapabilitiesParameters extends js.Object:
-	val precision: js.UndefOr[String] = js.native;
-	val logarithmicDepthBuffer: js.UndefOr[Boolean] = js.native;
+	var precision: js.UndefOr[String] = js.native;
+	var logarithmicDepthBuffer: js.UndefOr[Boolean] = js.native;
 
 @js.native
 @JSGlobal("THREE.WebGLCapabilities")
 class WebGLCapabilities extends js.Object:
 	def this(gl: WebGLRenderingContext, extensions: js.Any, parameters: WebGLCapabilitiesParameters) = this()
-	var isWebGL2: Boolean = js.native;
-	val precision: String = js.native;
-	val logarithmicDepthBuffer: Boolean = js.native;
-	val maxTextures: Double = js.native;
-	val maxVertexTextures: Double = js.native;
-	val maxTextureSize: Double = js.native;
-	val maxCubemapSize: Double = js.native;
-	val maxAttributes: Double = js.native;
-	val maxVertexUniforms: Double = js.native;
-	val maxVaryings: Double = js.native;
-	val maxFragmentUniforms: Double = js.native;
-	val vertexTextures: Boolean = js.native;
-	val floatFragmentTextures: Boolean = js.native;
-	val floatVertexTextures: Boolean = js.native;
+	val isWebGL2: Boolean = js.native;
+	var precision: String = js.native;
+	var logarithmicDepthBuffer: Boolean = js.native;
+	var maxTextures: Double = js.native;
+	var maxVertexTextures: Double = js.native;
+	var maxTextureSize: Double = js.native;
+	var maxCubemapSize: Double = js.native;
+	var maxAttributes: Double = js.native;
+	var maxVertexUniforms: Double = js.native;
+	var maxVaryings: Double = js.native;
+	var maxFragmentUniforms: Double = js.native;
+	var vertexTextures: Boolean = js.native;
+	var floatFragmentTextures: Boolean = js.native;
+	var floatVertexTextures: Boolean = js.native;
 	def getMaxAnisotropy(): Double = js.native
 	def getMaxPrecision(precision: String): String = js.native
 
@@ -238,9 +242,9 @@ class WebGLGeometries extends js.Object:
 @JSGlobal("THREE.WebGLClipping")
 class WebGLClipping extends js.Object:
 	def this(properties: WebGLProperties) = this()
-	val uniform: objectType62 = js.native;
-	val numPlanes: Double = js.native;
-	val numIntersection: Double = js.native;
+	var uniform: objectType60 = js.native;
+	var numPlanes: Double = js.native;
+	var numIntersection: Double = js.native;
 	def init(planes: js.Array[js.Any], enableLocalClipping: Boolean, camera: Camera): Boolean = js.native
 	def beginShadows(): Unit = js.native
 	def endShadows(): Unit = js.native
@@ -250,7 +254,7 @@ class WebGLClipping extends js.Object:
 @JSGlobal("THREE.WebGLLights")
 class WebGLLights extends js.Object:
 	def this(extensions: WebGLExtensions, capabilities: WebGLCapabilities) = this()
-	val state: objectType63 = js.native;
+	var state: objectType61 = js.native;
 	def get(light: js.Any): js.Any = js.native
 	def setup(lights: js.Any): Unit = js.native
 	def setupView(lights: js.Any, camera: js.Any): Unit = js.native
@@ -259,7 +263,7 @@ class WebGLLights extends js.Object:
 @JSGlobal("THREE.WebGLAttributes")
 class WebGLAttributes extends js.Object:
 	def this(gl: WebGLRenderingContext | WebGL2RenderingContext, capabilities: WebGLCapabilities) = this()
-	def get(attribute: BufferAttribute | InterleavedBufferAttribute): objectType64 = js.native
+	def get(attribute: BufferAttribute | InterleavedBufferAttribute): objectType62 = js.native
 	def remove(attribute: BufferAttribute | InterleavedBufferAttribute): Unit = js.native
 	def update(attribute: BufferAttribute | InterleavedBufferAttribute, bufferType: Double): Unit = js.native
 
@@ -303,7 +307,7 @@ class WebGLStencilBuffer extends js.Object:
 @JSGlobal("THREE.WebGLState")
 class WebGLState extends js.Object:
 	def this(gl: WebGLRenderingContext, extensions: WebGLExtensions, capabilities: WebGLCapabilities) = this()
-	val buffers: objectType65 = js.native;
+	var buffers: objectType63 = js.native;
 	def initAttributes(): Unit = js.native
 	def enableAttribute(attribute: Double): Unit = js.native
 	def enableAttributeAndDivisor(attribute: Double, meshPerAttribute: Double): Unit = js.native
@@ -347,150 +351,150 @@ class WebGLObjects extends js.Object:
 	def dispose(): Unit = js.native
 
 @js.native
-sealed trait objectType58 extends js.Object:
-	val ambientLightColor: IUniform[js.Any] = js.native;
-	val directionalLights: objectType66 = js.native;
-	val directionalLightShadows: objectType67 = js.native;
-	val directionalShadowMap: IUniform[js.Any] = js.native;
-	val directionalShadowMatrix: IUniform[js.Any] = js.native;
-	val spotLights: objectType68 = js.native;
-	val spotLightShadows: objectType67 = js.native;
-	val spotShadowMap: IUniform[js.Any] = js.native;
-	val spotShadowMatrix: IUniform[js.Any] = js.native;
-	val pointLights: objectType69 = js.native;
-	val pointLightShadows: objectType67 = js.native;
-	val pointShadowMap: IUniform[js.Any] = js.native;
-	val pointShadowMatrix: IUniform[js.Any] = js.native;
-	val hemisphereLights: objectType70 = js.native;
-	val rectAreaLights: objectType71 = js.native;
-
-@js.native
-sealed trait objectType65 extends js.Object:
-	val color: WebGLColorBuffer = js.native;
-	val depth: WebGLDepthBuffer = js.native;
-	val stencil: WebGLStencilBuffer = js.native;
-
-@js.native
-sealed trait objectType55 extends js.Object:
-	val metalnessMap: IUniform[js.Any] = js.native;
-
-@js.native
-sealed trait objectType57 extends js.Object:
-	val fogDensity: IUniform[js.Any] = js.native;
-	val fogNear: IUniform[js.Any] = js.native;
-	val fogFar: IUniform[js.Any] = js.native;
-	val fogColor: IUniform[js.Any] = js.native;
-
-@js.native
-sealed trait objectType51 extends js.Object:
-	val bumpMap: IUniform[js.Any] = js.native;
-	val bumpScale: IUniform[js.Any] = js.native;
+sealed trait objectType56 extends js.Object:
+	var ambientLightColor: IUniform[js.Any] = js.native;
+	var directionalLights: objectType64 = js.native;
+	var directionalLightShadows: objectType65 = js.native;
+	var directionalShadowMap: IUniform[js.Any] = js.native;
+	var directionalShadowMatrix: IUniform[js.Any] = js.native;
+	var spotLights: objectType66 = js.native;
+	var spotLightShadows: objectType65 = js.native;
+	var spotShadowMap: IUniform[js.Any] = js.native;
+	var spotShadowMatrix: IUniform[js.Any] = js.native;
+	var pointLights: objectType67 = js.native;
+	var pointLightShadows: objectType65 = js.native;
+	var pointShadowMap: IUniform[js.Any] = js.native;
+	var pointShadowMatrix: IUniform[js.Any] = js.native;
+	var hemisphereLights: objectType68 = js.native;
+	var rectAreaLights: objectType69 = js.native;
 
 @js.native
 sealed trait objectType63 extends js.Object:
-	val version: Double = js.native;
-	val hash: objectType72 = js.native;
-	val ambient: js.Array[Double] = js.native;
-	val probe: js.Array[js.Any] = js.native;
-	val directional: js.Array[js.Any] = js.native;
-	val directionalShadow: js.Array[js.Any] = js.native;
-	val directionalShadowMap: js.Array[js.Any] = js.native;
-	val directionalShadowMatrix: js.Array[js.Any] = js.native;
-	val spot: js.Array[js.Any] = js.native;
-	val spotShadow: js.Array[js.Any] = js.native;
-	val spotShadowMap: js.Array[js.Any] = js.native;
-	val spotShadowMatrix: js.Array[js.Any] = js.native;
-	val rectArea: js.Array[js.Any] = js.native;
-	val point: js.Array[js.Any] = js.native;
-	val pointShadow: js.Array[js.Any] = js.native;
-	val pointShadowMap: js.Array[js.Any] = js.native;
-	val pointShadowMatrix: js.Array[js.Any] = js.native;
-	val hemi: js.Array[js.Any] = js.native;
-
-@js.native
-sealed trait objectType56 extends js.Object:
-	val gradientMap: IUniform[js.Any] = js.native;
-
-@js.native
-sealed trait objectType60 extends js.Object:
-	val geometries: Double = js.native;
-	val textures: Double = js.native;
-
-@js.native
-sealed trait objectType45 extends js.Object:
-	val diffuse: IUniform[js.Any] = js.native;
-	val opacity: IUniform[js.Any] = js.native;
-	val map: IUniform[js.Any] = js.native;
-	val uvTransform: IUniform[js.Any] = js.native;
-	val uv2Transform: IUniform[js.Any] = js.native;
-	val alphaMap: IUniform[js.Any] = js.native;
+	var color: WebGLColorBuffer = js.native;
+	var depth: WebGLDepthBuffer = js.native;
+	var stencil: WebGLStencilBuffer = js.native;
 
 @js.native
 sealed trait objectType53 extends js.Object:
-	val displacementMap: IUniform[js.Any] = js.native;
-	val displacementScale: IUniform[js.Any] = js.native;
-	val displacementBias: IUniform[js.Any] = js.native;
+	var metalnessMap: IUniform[js.Any] = js.native;
 
 @js.native
-sealed trait objectType62 extends js.Object:
-	val value: js.Any = js.native;
-	val needsUpdate: Boolean = js.native;
-
-@js.native
-sealed trait objectType48 extends js.Object:
-	val aoMap: IUniform[js.Any] = js.native;
-	val aoMapIntensity: IUniform[js.Any] = js.native;
+sealed trait objectType55 extends js.Object:
+	var fogDensity: IUniform[js.Any] = js.native;
+	var fogNear: IUniform[js.Any] = js.native;
+	var fogFar: IUniform[js.Any] = js.native;
+	var fogColor: IUniform[js.Any] = js.native;
 
 @js.native
 sealed trait objectType49 extends js.Object:
-	val lightMap: IUniform[js.Any] = js.native;
-	val lightMapIntensity: IUniform[js.Any] = js.native;
-
-@js.native
-sealed trait objectType54 extends js.Object:
-	val roughnessMap: IUniform[js.Any] = js.native;
+	var bumpMap: IUniform[js.Any] = js.native;
+	var bumpScale: IUniform[js.Any] = js.native;
 
 @js.native
 sealed trait objectType61 extends js.Object:
-	val calls: Double = js.native;
-	val frame: Double = js.native;
-	val lines: Double = js.native;
-	val points: Double = js.native;
-	val triangles: Double = js.native;
+	var version: Double = js.native;
+	var hash: objectType70 = js.native;
+	var ambient: js.Array[Double] = js.native;
+	var probe: js.Array[js.Any] = js.native;
+	var directional: js.Array[js.Any] = js.native;
+	var directionalShadow: js.Array[js.Any] = js.native;
+	var directionalShadowMap: js.Array[js.Any] = js.native;
+	var directionalShadowMatrix: js.Array[js.Any] = js.native;
+	var spot: js.Array[js.Any] = js.native;
+	var spotShadow: js.Array[js.Any] = js.native;
+	var spotShadowMap: js.Array[js.Any] = js.native;
+	var spotShadowMatrix: js.Array[js.Any] = js.native;
+	var rectArea: js.Array[js.Any] = js.native;
+	var point: js.Array[js.Any] = js.native;
+	var pointShadow: js.Array[js.Any] = js.native;
+	var pointShadowMap: js.Array[js.Any] = js.native;
+	var pointShadowMatrix: js.Array[js.Any] = js.native;
+	var hemi: js.Array[js.Any] = js.native;
+
+@js.native
+sealed trait objectType54 extends js.Object:
+	var gradientMap: IUniform[js.Any] = js.native;
+
+@js.native
+sealed trait objectType58 extends js.Object:
+	var geometries: Double = js.native;
+	var textures: Double = js.native;
+
+@js.native
+sealed trait objectType43 extends js.Object:
+	var diffuse: IUniform[js.Any] = js.native;
+	var opacity: IUniform[js.Any] = js.native;
+	var map: IUniform[js.Any] = js.native;
+	var uvTransform: IUniform[js.Any] = js.native;
+	var uv2Transform: IUniform[js.Any] = js.native;
+	var alphaMap: IUniform[js.Any] = js.native;
+
+@js.native
+sealed trait objectType51 extends js.Object:
+	var displacementMap: IUniform[js.Any] = js.native;
+	var displacementScale: IUniform[js.Any] = js.native;
+	var displacementBias: IUniform[js.Any] = js.native;
+
+@js.native
+sealed trait objectType60 extends js.Object:
+	var value: js.Any = js.native;
+	var needsUpdate: Boolean = js.native;
 
 @js.native
 sealed trait objectType46 extends js.Object:
-	val specularMap: IUniform[js.Any] = js.native;
+	var aoMap: IUniform[js.Any] = js.native;
+	var aoMapIntensity: IUniform[js.Any] = js.native;
 
 @js.native
 sealed trait objectType47 extends js.Object:
-	val envMap: IUniform[js.Any] = js.native;
-	val flipEnvMap: IUniform[js.Any] = js.native;
-	val reflectivity: IUniform[js.Any] = js.native;
-	val refractionRatio: IUniform[js.Any] = js.native;
-	val maxMipLevel: IUniform[js.Any] = js.native;
-
-@js.native
-sealed trait objectType59 extends js.Object:
-	val diffuse: IUniform[js.Any] = js.native;
-	val opacity: IUniform[js.Any] = js.native;
-	val size: IUniform[js.Any] = js.native;
-	val scale: IUniform[js.Any] = js.native;
-	val map: IUniform[js.Any] = js.native;
-	val uvTransform: IUniform[js.Any] = js.native;
-
-@js.native
-sealed trait objectType50 extends js.Object:
-	val emissiveMap: IUniform[js.Any] = js.native;
-
-@js.native
-sealed trait objectType64 extends js.Object:
-	val buffer: WebGLBuffer = js.native;
-	val `type`: Double = js.native;
-	val bytesPerElement: Double = js.native;
-	val version: Double = js.native;
+	var lightMap: IUniform[js.Any] = js.native;
+	var lightMapIntensity: IUniform[js.Any] = js.native;
 
 @js.native
 sealed trait objectType52 extends js.Object:
-	val normalMap: IUniform[js.Any] = js.native;
-	val normalScale: IUniform[js.Any] = js.native;
+	var roughnessMap: IUniform[js.Any] = js.native;
+
+@js.native
+sealed trait objectType59 extends js.Object:
+	var calls: Double = js.native;
+	var frame: Double = js.native;
+	var lines: Double = js.native;
+	var points: Double = js.native;
+	var triangles: Double = js.native;
+
+@js.native
+sealed trait objectType44 extends js.Object:
+	var specularMap: IUniform[js.Any] = js.native;
+
+@js.native
+sealed trait objectType45 extends js.Object:
+	var envMap: IUniform[js.Any] = js.native;
+	var flipEnvMap: IUniform[js.Any] = js.native;
+	var reflectivity: IUniform[js.Any] = js.native;
+	var refractionRatio: IUniform[js.Any] = js.native;
+	var maxMipLevel: IUniform[js.Any] = js.native;
+
+@js.native
+sealed trait objectType57 extends js.Object:
+	var diffuse: IUniform[js.Any] = js.native;
+	var opacity: IUniform[js.Any] = js.native;
+	var size: IUniform[js.Any] = js.native;
+	var scale: IUniform[js.Any] = js.native;
+	var map: IUniform[js.Any] = js.native;
+	var uvTransform: IUniform[js.Any] = js.native;
+
+@js.native
+sealed trait objectType48 extends js.Object:
+	var emissiveMap: IUniform[js.Any] = js.native;
+
+@js.native
+sealed trait objectType62 extends js.Object:
+	var buffer: WebGLBuffer = js.native;
+	var `type`: Double = js.native;
+	var bytesPerElement: Double = js.native;
+	var version: Double = js.native;
+
+@js.native
+sealed trait objectType50 extends js.Object:
+	var normalMap: IUniform[js.Any] = js.native;
+	var normalScale: IUniform[js.Any] = js.native;

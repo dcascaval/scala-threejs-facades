@@ -37,37 +37,37 @@ import typings.three.three.lights.*
 @JSGlobal("THREE.Shape")
 class Shape extends Path:
 	def this(points: js.UndefOr[js.Array[Vector2]]) = this()
-	val `type`: String = js.native;
-	val uuid: String = js.native;
-	val holes: js.Array[Path] = js.native;
+
+	var uuid: String = js.native;
+	var holes: js.Array[Path] = js.native;
 	def getPointsHoles(divisions: Double): js.Array[js.Array[Vector2]] = js.native
-	def extractPoints(divisions: Double): objectType5 = js.native
+	def extractPoints(divisions: Double): objectType4 = js.native
 
 @js.native
 @JSGlobal("THREE.Font")
 class Font extends js.Object:
 	def this(jsondata: js.Any) = this()
-	val `type`: String = js.native;
-	val data: String = js.native;
+	var `type`: String = js.native;
+	var data: String = js.native;
 	def generateShapes(text: String, size: Double): js.Array[Shape] = js.native
 
 @js.native
 @JSGlobal("THREE.CurvePath")
 class CurvePath[T <: Vector] extends Curve[T]:
-	val `type`: String = js.native;
-	val curves: Array[Curve[T]] = js.native;
-	val autoClose: Boolean = js.native;
+
+	var curves: Array[Curve[T]] = js.native;
+	var autoClose: Boolean = js.native;
 	def add(curve: Curve[T]): Unit = js.native
 	def closePath(): Unit = js.native
-	def getPoint(t: Double): T = js.native
+
 	def getCurveLengths(): js.Array[Double] = js.native
 
 @js.native
 @JSGlobal("THREE.Path")
 class Path extends CurvePath[Vector2]:
 	def this(points: js.UndefOr[js.Array[Vector2]]) = this()
-	val `type`: String = js.native;
-	val currentPoint: Vector2 = js.native;
+
+	var currentPoint: Vector2 = js.native;
 	def fromPoints(vectors: js.Array[Vector2]): this.type = js.native
 	def setFromPoints(vectors: js.Array[Vector2]): this.type = js.native
 	def moveTo(x: Double, y: Double): this.type = js.native
@@ -83,8 +83,8 @@ class Path extends CurvePath[Vector2]:
 @js.native
 @JSGlobal("THREE.Curve")
 class Curve[T <: Vector] extends js.Object:
-	val `type`: String = js.native;
-	val arcLengthDivisions: Double = js.native;
+	var `type`: String = js.native;
+	var arcLengthDivisions: Double = js.native;
 	def getPoint(t: Double, optionalTarget: js.UndefOr[T]): T = js.native
 	def getPointAt(u: Double, optionalTarget: js.UndefOr[T]): T = js.native
 	def getPoints(divisions: js.UndefOr[Double]): js.Array[T] = js.native
@@ -95,23 +95,26 @@ class Curve[T <: Vector] extends js.Object:
 	def getUtoTmapping(u: Double, distance: Double): Double = js.native
 	def getTangent(t: Double, optionalTarget: js.UndefOr[T]): T = js.native
 	def getTangentAt(u: Double, optionalTarget: js.UndefOr[T]): T = js.native
-	def computeFrenetFrames(segments: Double, closed: js.UndefOr[Boolean]): objectType6 = js.native
-	def clone(): this.type = js.native
+	def computeFrenetFrames(segments: Double, closed: js.UndefOr[Boolean]): objectType5 = js.native
+	@JSName("clone")
+	def jsClone(): this.type = js.native
 	def copy(source: Curve[T]): this.type = js.native
 	def toJSON(): js.Object = js.native
 	def fromJSON(json: js.Object): this.type = js.native
 
 
-object Curve:
+@js.native
+@JSGlobal("THREE.Curve")
+object Curve extends js.Object:
 	def create(constructorFunc: js.Function0[Unit], getPointFunc: js.Function0[Unit]): js.Function0[Unit] = js.native
 
 @js.native
 @JSGlobal("THREE.ShapePath")
 class ShapePath extends js.Object:
-	val `type`: String = js.native;
-	val color: Color = js.native;
-	val subPaths: js.Array[js.Any] = js.native;
-	val currentPath: js.Any = js.native;
+	var `type`: String = js.native;
+	var color: Color = js.native;
+	var subPaths: js.Array[js.Any] = js.native;
+	var currentPath: js.Any = js.native;
 	def moveTo(x: Double, y: Double): this.type = js.native
 	def lineTo(x: Double, y: Double): this.type = js.native
 	def quadraticCurveTo(aCPx: Double, aCPy: Double, aX: Double, aY: Double): this.type = js.native
@@ -120,12 +123,12 @@ class ShapePath extends js.Object:
 	def toShapes(isCCW: Boolean, noHoles: js.UndefOr[Boolean]): js.Array[Shape] = js.native
 
 @js.native
-sealed trait objectType6 extends js.Object:
-	val tangents: js.Array[Vector3] = js.native;
-	val normals: js.Array[Vector3] = js.native;
-	val binormals: js.Array[Vector3] = js.native;
+sealed trait objectType5 extends js.Object:
+	var tangents: js.Array[Vector3] = js.native;
+	var normals: js.Array[Vector3] = js.native;
+	var binormals: js.Array[Vector3] = js.native;
 
 @js.native
-sealed trait objectType5 extends js.Object:
-	val shape: js.Array[Vector2] = js.native;
-	val holes: js.Array[js.Array[Vector2]] = js.native;
+sealed trait objectType4 extends js.Object:
+	var shape: js.Array[Vector2] = js.native;
+	var holes: js.Array[js.Array[Vector2]] = js.native;

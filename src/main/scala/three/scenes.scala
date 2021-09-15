@@ -35,86 +35,87 @@ import typings.three.three.lights.*
 
 @js.native
 sealed trait FogBase extends js.Object:
-	val name: String = js.native;
-	val color: Color = js.native;
-	def clone(): FogBase = js.native
+	var name: String = js.native;
+	var color: Color = js.native;
+	@JSName("clone")
+	def jsClone(): FogBase = js.native
 	def toJSON(): js.Any = js.native
 
 @js.native
 @JSGlobal("THREE.Fog")
 class Fog extends FogBase:
 	def this(color: ColorRepresentation, near: js.UndefOr[Double], far: js.UndefOr[Double]) = this()
-	val name: String = js.native;
-	val color: Color = js.native;
-	val near: Double = js.native;
-	val far: Double = js.native;
-	var isFog: Boolean = js.native;
-	def clone(): Fog = js.native
-	def toJSON(): js.Any = js.native
+
+
+	var near: Double = js.native;
+	var far: Double = js.native;
+	val isFog: Boolean = js.native;
+
+
 
 @js.native
 @JSGlobal("THREE.Scene")
 class Scene extends Object3D:
-	val `type`: String = js.native;
-	val fog: FogBase | Null = js.native;
-	val overrideMaterial: Material | Null = js.native;
-	val autoUpdate: Boolean = js.native;
-	val background: Null | Color | Texture = js.native;
-	val environment: Null | Texture = js.native;
-	var isScene: Boolean = js.native;
-	val onBeforeRender: js.Function4[WebGLRenderer,Scene,Camera,js.Any,Unit] = js.native;
-	val onAfterRender: js.Function3[WebGLRenderer,Scene,Camera,Unit] = js.native;
-	def toJSON(meta: js.UndefOr[js.Any]): js.Any = js.native
+
+	var fog: FogBase | Null = js.native;
+	var overrideMaterial: Material | Null = js.native;
+	var autoUpdate: Boolean = js.native;
+	var background: Null | Color | Texture = js.native;
+	var environment: Null | Texture = js.native;
+	val isScene: Boolean = js.native;
+
+
+
 
 @js.native
 @JSGlobal("THREE.FogExp2")
 class FogExp2 extends FogBase:
 	def this(hex: Double | String, density: js.UndefOr[Double]) = this()
-	val name: String = js.native;
-	val color: Color = js.native;
-	val density: Double = js.native;
-	var isFogExp2: Boolean = js.native;
-	def clone(): FogExp2 = js.native
-	def toJSON(): js.Any = js.native
 
-@js.native
-sealed trait objectType92 extends js.Object:
-	val color: objectType93 = js.native;
-	val position: objectType93 = js.native;
-	val direction: objectType93 = js.native;
-	val distance: objectType93 = js.native;
-	val coneCos: objectType93 = js.native;
-	val penumbraCos: objectType93 = js.native;
-	val decay: objectType93 = js.native;
 
-@js.native
-sealed trait objectType87 extends js.Object:
-	val direction: objectType93 = js.native;
-	val color: objectType93 = js.native;
+	var density: Double = js.native;
+	val isFogExp2: Boolean = js.native;
 
-@js.native
-sealed trait objectType91 extends js.Object:
-	val color: objectType93 = js.native;
-	val position: objectType93 = js.native;
-	val decay: objectType93 = js.native;
-	val distance: objectType93 = js.native;
+
 
 @js.native
 sealed trait objectType90 extends js.Object:
-	val shadowBias: objectType93 = js.native;
-	val shadowNormalBias: objectType93 = js.native;
-	val shadowRadius: objectType93 = js.native;
-	val shadowMapSize: objectType93 = js.native;
+	var color: objectType91 = js.native;
+	var position: objectType91 = js.native;
+	var direction: objectType91 = js.native;
+	var distance: objectType91 = js.native;
+	var coneCos: objectType91 = js.native;
+	var penumbraCos: objectType91 = js.native;
+	var decay: objectType91 = js.native;
 
 @js.native
-sealed trait objectType88 extends js.Object:
-	val direction: objectType93 = js.native;
-	val skycolor: objectType93 = js.native;
-	val groundColor: objectType93 = js.native;
+sealed trait objectType85 extends js.Object:
+	var direction: objectType91 = js.native;
+	var color: objectType91 = js.native;
 
 @js.native
 sealed trait objectType89 extends js.Object:
-	val color: objectType93 = js.native;
-	val position: objectType93 = js.native;
-	val width: objectType93 = js.native;
-	val height: objectType93 = js.native;
+	var color: objectType91 = js.native;
+	var position: objectType91 = js.native;
+	var decay: objectType91 = js.native;
+	var distance: objectType91 = js.native;
+
+@js.native
+sealed trait objectType88 extends js.Object:
+	var shadowBias: objectType91 = js.native;
+	var shadowNormalBias: objectType91 = js.native;
+	var shadowRadius: objectType91 = js.native;
+	var shadowMapSize: objectType91 = js.native;
+
+@js.native
+sealed trait objectType86 extends js.Object:
+	var direction: objectType91 = js.native;
+	var skycolor: objectType91 = js.native;
+	var groundColor: objectType91 = js.native;
+
+@js.native
+sealed trait objectType87 extends js.Object:
+	var color: objectType91 = js.native;
+	var position: objectType91 = js.native;
+	var width: objectType91 = js.native;
+	var height: objectType91 = js.native;

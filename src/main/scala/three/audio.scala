@@ -36,25 +36,25 @@ import typings.three.three.lights.*
 @js.native
 @JSGlobal("THREE.AudioListener")
 class AudioListener extends Object3D:
-	val `type`: String = js.native;
-	val context: AudioContext = js.native;
-	val gain: GainNode = js.native;
-	val filter: js.Any = js.native;
-	val timeDelta: Double = js.native;
+
+	var context: AudioContext = js.native;
+	var gain: GainNode = js.native;
+	var filter: js.Any = js.native;
+	var timeDelta: Double = js.native;
 	def getInput(): GainNode = js.native
 	def removeFilter(): this.type = js.native
 	def setFilter(value: js.Any): this.type = js.native
 	def getFilter(): js.Any = js.native
 	def setMasterVolume(value: Double): this.type = js.native
 	def getMasterVolume(): Double = js.native
-	def updateMatrixWorld(force: js.UndefOr[Boolean]): Unit = js.native
+
 
 @js.native
 @JSGlobal("THREE.PositionalAudio")
 class PositionalAudio extends Audio[PannerNode]:
 	def this(listener: AudioListener) = this()
-	val panner: PannerNode = js.native;
-	def getOutput(): PannerNode = js.native
+	var panner: PannerNode = js.native;
+
 	def setRefDistance(value: Double): this.type = js.native
 	def getRefDistance(): Double = js.native
 	def setRolloffFactor(value: Double): this.type = js.native
@@ -64,30 +64,30 @@ class PositionalAudio extends Audio[PannerNode]:
 	def setMaxDistance(value: Double): this.type = js.native
 	def getMaxDistance(): Double = js.native
 	def setDirectionalCone(coneInnerAngle: Double, coneOuterAngle: Double, coneOuterGain: Double): this.type = js.native
-	def updateMatrixWorld(force: js.UndefOr[Boolean]): Unit = js.native
+
 
 @js.native
 @JSGlobal("THREE.Audio")
 class Audio[NodeType <: AudioNode] extends Object3D:
 	def this(listener: AudioListener) = this()
-	val `type`: String = js.native;
-	val listener: AudioListener = js.native;
-	val context: AudioContext = js.native;
-	val gain: GainNode = js.native;
-	val autoplay: Boolean = js.native;
-	val buffer: Null | AudioBuffer = js.native;
-	val detune: Double = js.native;
-	val loop: Boolean = js.native;
-	val loopStart: Double = js.native;
-	val loopEnd: Double = js.native;
-	val offset: Double = js.native;
-	val duration: js.UndefOr[Double] = js.native;
-	val playbackRate: Double = js.native;
-	val isPlaying: Boolean = js.native;
-	val hasPlaybackControl: Boolean = js.native;
-	val sourceType: String = js.native;
-	val source: Null | AudioBufferSourceNode = js.native;
-	val filters: js.Array[AudioNode] = js.native;
+
+	var listener: AudioListener = js.native;
+	var context: AudioContext = js.native;
+	var gain: GainNode = js.native;
+	var autoplay: Boolean = js.native;
+	var buffer: Null | AudioBuffer = js.native;
+	var detune: Double = js.native;
+	var loop: Boolean = js.native;
+	var loopStart: Double = js.native;
+	var loopEnd: Double = js.native;
+	var offset: Double = js.native;
+	var duration: js.UndefOr[Double] = js.native;
+	var playbackRate: Double = js.native;
+	var isPlaying: Boolean = js.native;
+	var hasPlaybackControl: Boolean = js.native;
+	var sourceType: String = js.native;
+	var source: Null | AudioBufferSourceNode = js.native;
+	var filters: js.Array[AudioNode] = js.native;
 	def getOutput(): NodeType = js.native
 	def setNodeSource(audioNode: AudioBufferSourceNode): this.type = js.native
 	def setMediaElementSource(mediaElement: HTMLMediaElement): this.type = js.native
@@ -125,8 +125,8 @@ object AudioContext extends js.Object:
 @JSGlobal("THREE.AudioAnalyser")
 class AudioAnalyser extends js.Object:
 	def this(audio: Audio[AudioNode], fftSize: js.UndefOr[Double]) = this()
-	val analyser: AnalyserNode = js.native;
-	val data: Uint8Array = js.native;
+	var analyser: AnalyserNode = js.native;
+	var data: Uint8Array = js.native;
 	def getFrequencyData(): Uint8Array = js.native
 	def getAverageFrequency(): Double = js.native
 	def getData(file: js.Any): js.Any = js.native

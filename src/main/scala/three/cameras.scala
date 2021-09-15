@@ -36,47 +36,47 @@ import typings.three.three.lights.*
 @js.native
 @JSGlobal("THREE.Camera")
 class Camera extends Object3D:
-	val matrixWorldInverse: Matrix4 = js.native;
-	val projectionMatrix: Matrix4 = js.native;
-	val projectionMatrixInverse: Matrix4 = js.native;
-	var isCamera: Boolean = js.native;
-	def getWorldDirection(target: Vector3): Vector3 = js.native
-	def updateMatrixWorld(force: js.UndefOr[Boolean]): Unit = js.native
+	var matrixWorldInverse: Matrix4 = js.native;
+	var projectionMatrix: Matrix4 = js.native;
+	var projectionMatrixInverse: Matrix4 = js.native;
+	val isCamera: Boolean = js.native;
+
+
 
 @js.native
 @JSGlobal("THREE.OrthographicCamera")
 class OrthographicCamera extends Camera:
 	def this(left: Double, right: Double, top: Double, bottom: Double, near: js.UndefOr[Double], far: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	var isOrthographicCamera: Boolean = js.native;
-	val zoom: Double = js.native;
-	val view: Null | objectType15 = js.native;
-	val left: Double = js.native;
-	val right: Double = js.native;
-	val top: Double = js.native;
-	val bottom: Double = js.native;
-	val near: Double = js.native;
-	val far: Double = js.native;
+
+	val isOrthographicCamera: Boolean = js.native;
+	var zoom: Double = js.native;
+	var view: Null | objectType14 = js.native;
+	var left: Double = js.native;
+	var right: Double = js.native;
+	var top: Double = js.native;
+	var bottom: Double = js.native;
+	var near: Double = js.native;
+	var far: Double = js.native;
 	def updateProjectionMatrix(): Unit = js.native
 	def setViewOffset(fullWidth: Double, fullHeight: Double, offsetX: Double, offsetY: Double, width: Double, height: Double): Unit = js.native
 	def clearViewOffset(): Unit = js.native
-	def toJSON(meta: js.UndefOr[js.Any]): js.Any = js.native
+
 
 @js.native
 @JSGlobal("THREE.PerspectiveCamera")
 class PerspectiveCamera extends Camera:
 	def this(fov: js.UndefOr[Double], aspect: js.UndefOr[Double], near: js.UndefOr[Double], far: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	var isPerspectiveCamera: Boolean = js.native;
-	val zoom: Double = js.native;
-	val fov: Double = js.native;
-	val aspect: Double = js.native;
-	val near: Double = js.native;
-	val far: Double = js.native;
-	val focus: Double = js.native;
-	val view: Null | objectType15 = js.native;
-	val filmGauge: Double = js.native;
-	val filmOffset: Double = js.native;
+
+	val isPerspectiveCamera: Boolean = js.native;
+	var zoom: Double = js.native;
+	var fov: Double = js.native;
+	var aspect: Double = js.native;
+	var near: Double = js.native;
+	var far: Double = js.native;
+	var focus: Double = js.native;
+	var view: Null | objectType14 = js.native;
+	var filmGauge: Double = js.native;
+	var filmOffset: Double = js.native;
 	def setFocalLength(focalLength: Double): Unit = js.native
 	def getFocalLength(): Double = js.native
 	def getEffectiveFOV(): Double = js.native
@@ -85,40 +85,40 @@ class PerspectiveCamera extends Camera:
 	def setViewOffset(fullWidth: Double, fullHeight: Double, x: Double, y: Double, width: Double, height: Double): Unit = js.native
 	def clearViewOffset(): Unit = js.native
 	def updateProjectionMatrix(): Unit = js.native
-	def toJSON(meta: js.UndefOr[js.Any]): js.Any = js.native
+
 	def setLens(focalLength: Double, frameHeight: js.UndefOr[Double]): Unit = js.native
 
 @js.native
 @JSGlobal("THREE.StereoCamera")
 class StereoCamera extends Camera:
-	val `type`: String = js.native;
-	val aspect: Double = js.native;
-	val eyeSep: Double = js.native;
-	val cameraL: PerspectiveCamera = js.native;
-	val cameraR: PerspectiveCamera = js.native;
+
+	var aspect: Double = js.native;
+	var eyeSep: Double = js.native;
+	var cameraL: PerspectiveCamera = js.native;
+	var cameraR: PerspectiveCamera = js.native;
 	def update(camera: PerspectiveCamera): Unit = js.native
 
 @js.native
 @JSGlobal("THREE.ArrayCamera")
 class ArrayCamera extends PerspectiveCamera:
 	def this(cameras: js.UndefOr[js.Array[PerspectiveCamera]]) = this()
-	val cameras: js.Array[PerspectiveCamera] = js.native;
-	var isArrayCamera: Boolean = js.native;
+	var cameras: js.Array[PerspectiveCamera] = js.native;
+	val isArrayCamera: Boolean = js.native;
 
 @js.native
 @JSGlobal("THREE.CubeCamera")
 class CubeCamera extends Object3D:
 	def this(near: Double, far: Double, renderTarget: WebGLCubeRenderTarget) = this()
-	val `type`: String = js.native;
-	val renderTarget: WebGLCubeRenderTarget = js.native;
+
+	var renderTarget: WebGLCubeRenderTarget = js.native;
 	def update(renderer: WebGLRenderer, scene: Scene): Unit = js.native
 
 @js.native
-sealed trait objectType15 extends js.Object:
-	val enabled: Boolean = js.native;
-	val fullWidth: Double = js.native;
-	val fullHeight: Double = js.native;
-	val offsetX: Double = js.native;
-	val offsetY: Double = js.native;
-	val width: Double = js.native;
-	val height: Double = js.native;
+sealed trait objectType14 extends js.Object:
+	var enabled: Boolean = js.native;
+	var fullWidth: Double = js.native;
+	var fullHeight: Double = js.native;
+	var offsetX: Double = js.native;
+	var offsetY: Double = js.native;
+	var width: Double = js.native;
+	var height: Double = js.native;

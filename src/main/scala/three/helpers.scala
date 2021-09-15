@@ -37,11 +37,11 @@ import typings.three.three.lights.*
 @JSGlobal("THREE.PointLightHelper")
 class PointLightHelper extends Object3D:
 	def this(light: PointLight, sphereSize: js.UndefOr[Double], color: js.UndefOr[ColorRepresentation]) = this()
-	val `type`: String = js.native;
-	val light: PointLight = js.native;
-	val color: js.UndefOr[ColorRepresentation] = js.native;
-	val matrix: Matrix4 = js.native;
-	val matrixAutoUpdate: Boolean = js.native;
+
+	var light: PointLight = js.native;
+	var color: js.UndefOr[ColorRepresentation] = js.native;
+
+
 	def dispose(): Unit = js.native
 	def update(): Unit = js.native
 
@@ -49,7 +49,7 @@ class PointLightHelper extends Object3D:
 @JSGlobal("THREE.BoxHelper")
 class BoxHelper extends LineSegments[BufferGeometry,Material | js.Array[Material]]:
 	def this(`object`: Object3D, color: js.UndefOr[ColorRepresentation]) = this()
-	val `type`: String = js.native;
+
 	def update(`object`: js.UndefOr[Object3D]): Unit = js.native
 	def setFromObject(`object`: Object3D): this.type = js.native
 
@@ -57,12 +57,12 @@ class BoxHelper extends LineSegments[BufferGeometry,Material | js.Array[Material
 @JSGlobal("THREE.SkeletonHelper")
 class SkeletonHelper extends LineSegments[BufferGeometry,Material | js.Array[Material]]:
 	def this(`object`: Object3D) = this()
-	val `type`: String = js.native;
-	val bones: js.Array[Bone] = js.native;
-	val root: Object3D = js.native;
-	var isSkeletonHelper: Boolean = js.native;
-	val matrix: Matrix4 = js.native;
-	val matrixAutoUpdate: Boolean = js.native;
+
+	var bones: js.Array[Bone] = js.native;
+	var root: Object3D = js.native;
+	val isSkeletonHelper: Boolean = js.native;
+
+
 	def getBoneList(`object`: Object3D): js.Array[Bone] = js.native
 	def update(): Unit = js.native
 
@@ -70,11 +70,11 @@ class SkeletonHelper extends LineSegments[BufferGeometry,Material | js.Array[Mat
 @JSGlobal("THREE.HemisphereLightHelper")
 class HemisphereLightHelper extends Object3D:
 	def this(light: HemisphereLight, size: Double, color: js.UndefOr[ColorRepresentation]) = this()
-	val light: HemisphereLight = js.native;
-	val matrix: Matrix4 = js.native;
-	val matrixAutoUpdate: Boolean = js.native;
-	val material: MeshBasicMaterial = js.native;
-	val color: js.UndefOr[ColorRepresentation] = js.native;
+	var light: HemisphereLight = js.native;
+
+
+	var material: MeshBasicMaterial = js.native;
+	var color: js.UndefOr[ColorRepresentation] = js.native;
 	def dispose(): Unit = js.native
 	def update(): Unit = js.native
 
@@ -82,9 +82,9 @@ class HemisphereLightHelper extends Object3D:
 @JSGlobal("THREE.CameraHelper")
 class CameraHelper extends LineSegments[BufferGeometry,Material | js.Array[Material]]:
 	def this(camera: Camera) = this()
-	val camera: Camera = js.native;
-	val pointMap: objectType1 = js.native;
-	val `type`: String = js.native;
+	var camera: Camera = js.native;
+	var pointMap: objectType1 = js.native;
+
 	def update(): Unit = js.native
 	def dispose(): Unit = js.native
 
@@ -92,21 +92,21 @@ class CameraHelper extends LineSegments[BufferGeometry,Material | js.Array[Mater
 @JSGlobal("THREE.PlaneHelper")
 class PlaneHelper extends LineSegments[BufferGeometry,Material | js.Array[Material]]:
 	def this(plane: Plane, size: js.UndefOr[Double], hex: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val plane: Plane = js.native;
-	val size: Double = js.native;
-	def updateMatrixWorld(force: js.UndefOr[Boolean]): Unit = js.native
+
+	var plane: Plane = js.native;
+	var size: Double = js.native;
+
 
 @js.native
 @JSGlobal("THREE.DirectionalLightHelper")
 class DirectionalLightHelper extends Object3D:
 	def this(light: DirectionalLight, size: js.UndefOr[Double], color: js.UndefOr[ColorRepresentation]) = this()
-	val light: DirectionalLight = js.native;
-	val lightPlane: Line[BufferGeometry,Material | js.Array[Material]] = js.native;
-	val targetLine: Line[BufferGeometry,Material | js.Array[Material]] = js.native;
-	val color: js.UndefOr[ColorRepresentation] = js.native;
-	val matrix: Matrix4 = js.native;
-	val matrixAutoUpdate: Boolean = js.native;
+	var light: DirectionalLight = js.native;
+	var lightPlane: Line[BufferGeometry,Material | js.Array[Material]] = js.native;
+	var targetLine: Line[BufferGeometry,Material | js.Array[Material]] = js.native;
+	var color: js.UndefOr[ColorRepresentation] = js.native;
+
+
 	def dispose(): Unit = js.native
 	def update(): Unit = js.native
 
@@ -114,31 +114,31 @@ class DirectionalLightHelper extends Object3D:
 @JSGlobal("THREE.Box3Helper")
 class Box3Helper extends LineSegments[BufferGeometry,Material | js.Array[Material]]:
 	def this(box: Box3, color: js.UndefOr[Color]) = this()
-	val `type`: String = js.native;
-	val box: Box3 = js.native;
+
+	var box: Box3 = js.native;
 
 @js.native
 @JSGlobal("THREE.GridHelper")
 class GridHelper extends LineSegments[BufferGeometry,Material | js.Array[Material]]:
 	def this(size: js.UndefOr[Double], divisions: js.UndefOr[Double], color1: js.UndefOr[ColorRepresentation], color2: js.UndefOr[ColorRepresentation]) = this()
-	val `type`: String = js.native;
+
 	def setColors(color1: js.UndefOr[ColorRepresentation], color2: js.UndefOr[ColorRepresentation]): Unit = js.native
 
 @js.native
 @JSGlobal("THREE.PolarGridHelper")
 class PolarGridHelper extends LineSegments[BufferGeometry,Material | js.Array[Material]]:
 	def this(radius: js.UndefOr[Double], radials: js.UndefOr[Double], circles: js.UndefOr[Double], divisions: js.UndefOr[Double], color1: js.UndefOr[ColorRepresentation], color2: js.UndefOr[ColorRepresentation]) = this()
-	val `type`: String = js.native;
+
 
 @js.native
 @JSGlobal("THREE.SpotLightHelper")
 class SpotLightHelper extends Object3D:
 	def this(light: Light, color: js.UndefOr[ColorRepresentation]) = this()
-	val light: Light = js.native;
-	val matrix: Matrix4 = js.native;
-	val matrixAutoUpdate: Boolean = js.native;
-	val color: js.UndefOr[ColorRepresentation] = js.native;
-	val cone: LineSegments[BufferGeometry,Material | js.Array[Material]] = js.native;
+	var light: Light = js.native;
+
+
+	var color: js.UndefOr[ColorRepresentation] = js.native;
+	var cone: LineSegments[BufferGeometry,Material | js.Array[Material]] = js.native;
 	def dispose(): Unit = js.native
 	def update(): Unit = js.native
 
@@ -146,9 +146,9 @@ class SpotLightHelper extends Object3D:
 @JSGlobal("THREE.ArrowHelper")
 class ArrowHelper extends Object3D:
 	def this(dir: js.UndefOr[Vector3], origin: js.UndefOr[Vector3], length: js.UndefOr[Double], color: js.UndefOr[ColorRepresentation], headLength: js.UndefOr[Double], headWidth: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val line: Line[BufferGeometry,Material | js.Array[Material]] = js.native;
-	val cone: Mesh[BufferGeometry,Material | js.Array[Material]] = js.native;
+
+	var line: Line[BufferGeometry,Material | js.Array[Material]] = js.native;
+	var cone: Mesh[BufferGeometry,Material | js.Array[Material]] = js.native;
 	def setDirection(dir: Vector3): Unit = js.native
 	def setLength(length: Double, headLength: js.UndefOr[Double], headWidth: js.UndefOr[Double]): Unit = js.native
 	def setColor(color: ColorRepresentation): Unit = js.native
@@ -157,7 +157,7 @@ class ArrowHelper extends Object3D:
 @JSGlobal("THREE.AxesHelper")
 class AxesHelper extends LineSegments[BufferGeometry,Material | js.Array[Material]]:
 	def this(size: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
+
 	def setColors(xAxisColor: Color, yAxisColor: Color, zAxisColor: Color): this.type = js.native
 	def dispose(): Unit = js.native
 

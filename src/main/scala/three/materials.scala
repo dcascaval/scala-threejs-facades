@@ -35,142 +35,142 @@ import typings.three.three.lights.*
 
 @js.native
 sealed trait MeshMatcapMaterialParameters extends MaterialParameters:
-	val color: js.UndefOr[ColorRepresentation] = js.native;
-	val matcap: js.UndefOr[Texture | Null] = js.native;
-	val map: js.UndefOr[Texture | Null] = js.native;
-	val bumpMap: js.UndefOr[Texture | Null] = js.native;
-	val bumpScale: js.UndefOr[Double] = js.native;
-	val normalMap: js.UndefOr[Texture | Null] = js.native;
-	val normalMapType: js.UndefOr[NormalMapTypes] = js.native;
-	val normalScale: js.UndefOr[Vector2] = js.native;
-	val displacementMap: js.UndefOr[Texture | Null] = js.native;
-	val displacementScale: js.UndefOr[Double] = js.native;
-	val displacementBias: js.UndefOr[Double] = js.native;
-	val alphaMap: js.UndefOr[Texture | Null] = js.native;
-	val flatShading: js.UndefOr[Boolean] = js.native;
+	var color: js.UndefOr[ColorRepresentation] = js.native;
+	var matcap: js.UndefOr[Texture | Null] = js.native;
+	var map: js.UndefOr[Texture | Null] = js.native;
+	var bumpMap: js.UndefOr[Texture | Null] = js.native;
+	var bumpScale: js.UndefOr[Double] = js.native;
+	var normalMap: js.UndefOr[Texture | Null] = js.native;
+	var normalMapType: js.UndefOr[NormalMapTypes] = js.native;
+	var normalScale: js.UndefOr[Vector2] = js.native;
+	var displacementMap: js.UndefOr[Texture | Null] = js.native;
+	var displacementScale: js.UndefOr[Double] = js.native;
+	var displacementBias: js.UndefOr[Double] = js.native;
+	var alphaMap: js.UndefOr[Texture | Null] = js.native;
+	var flatShading: js.UndefOr[Boolean] = js.native;
 
 @js.native
 @JSGlobal("THREE.MeshMatcapMaterial")
 class MeshMatcapMaterial extends Material:
 	def this(parameters: js.UndefOr[MeshMatcapMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val defines: objectType33 = js.native;
-	val color: Color = js.native;
-	val matcap: Texture | Null = js.native;
-	val map: Texture | Null = js.native;
-	val bumpMap: Texture | Null = js.native;
-	val bumpScale: Double = js.native;
-	val normalMap: Texture | Null = js.native;
-	val normalMapType: NormalMapTypes = js.native;
-	val normalScale: Vector2 = js.native;
-	val displacementMap: Texture | Null = js.native;
-	val displacementScale: Double = js.native;
-	val displacementBias: Double = js.native;
-	val alphaMap: Texture | Null = js.native;
-	val flatShading: Boolean = js.native;
-	def setValues(parameters: MeshMatcapMaterialParameters): Unit = js.native
+
+
+	var color: Color = js.native;
+	var matcap: Texture | Null = js.native;
+	var map: Texture | Null = js.native;
+	var bumpMap: Texture | Null = js.native;
+	var bumpScale: Double = js.native;
+	var normalMap: Texture | Null = js.native;
+	var normalMapType: NormalMapTypes = js.native;
+	var normalScale: Vector2 = js.native;
+	var displacementMap: Texture | Null = js.native;
+	var displacementScale: Double = js.native;
+	var displacementBias: Double = js.native;
+	var alphaMap: Texture | Null = js.native;
+	var flatShading: Boolean = js.native;
+
 
 @js.native
 sealed trait LineDashedMaterialParameters extends LineBasicMaterialParameters:
-	val scale: js.UndefOr[Double] = js.native;
-	val dashSize: js.UndefOr[Double] = js.native;
-	val gapSize: js.UndefOr[Double] = js.native;
+	var scale: js.UndefOr[Double] = js.native;
+	var dashSize: js.UndefOr[Double] = js.native;
+	var gapSize: js.UndefOr[Double] = js.native;
 
 @js.native
 @JSGlobal("THREE.LineDashedMaterial")
 class LineDashedMaterial extends LineBasicMaterial:
 	def this(parameters: js.UndefOr[LineDashedMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val scale: Double = js.native;
-	val dashSize: Double = js.native;
-	val gapSize: Double = js.native;
-	var isLineDashedMaterial: Boolean = js.native;
-	def setValues(parameters: LineDashedMaterialParameters): Unit = js.native
+
+	var scale: Double = js.native;
+	var dashSize: Double = js.native;
+	var gapSize: Double = js.native;
+	val isLineDashedMaterial: Boolean = js.native;
+
 
 @js.native
 sealed trait MeshToonMaterialParameters extends MaterialParameters:
-	val color: js.UndefOr[ColorRepresentation] = js.native;
-	val opacity: js.UndefOr[Double] = js.native;
-	val gradientMap: js.UndefOr[Texture | Null] = js.native;
-	val map: js.UndefOr[Texture | Null] = js.native;
-	val lightMap: js.UndefOr[Texture | Null] = js.native;
-	val lightMapIntensity: js.UndefOr[Double] = js.native;
-	val aoMap: js.UndefOr[Texture | Null] = js.native;
-	val aoMapIntensity: js.UndefOr[Double] = js.native;
-	val emissive: js.UndefOr[ColorRepresentation] = js.native;
-	val emissiveIntensity: js.UndefOr[Double] = js.native;
-	val emissiveMap: js.UndefOr[Texture | Null] = js.native;
-	val bumpMap: js.UndefOr[Texture | Null] = js.native;
-	val bumpScale: js.UndefOr[Double] = js.native;
-	val normalMap: js.UndefOr[Texture | Null] = js.native;
-	val normalMapType: js.UndefOr[NormalMapTypes] = js.native;
-	val normalScale: js.UndefOr[Vector2] = js.native;
-	val displacementMap: js.UndefOr[Texture | Null] = js.native;
-	val displacementScale: js.UndefOr[Double] = js.native;
-	val displacementBias: js.UndefOr[Double] = js.native;
-	val alphaMap: js.UndefOr[Texture | Null] = js.native;
-	val wireframe: js.UndefOr[Boolean] = js.native;
-	val wireframeLinewidth: js.UndefOr[Double] = js.native;
-	val wireframeLinecap: js.UndefOr[String] = js.native;
-	val wireframeLinejoin: js.UndefOr[String] = js.native;
+	var color: js.UndefOr[ColorRepresentation] = js.native;
+
+	var gradientMap: js.UndefOr[Texture | Null] = js.native;
+	var map: js.UndefOr[Texture | Null] = js.native;
+	var lightMap: js.UndefOr[Texture | Null] = js.native;
+	var lightMapIntensity: js.UndefOr[Double] = js.native;
+	var aoMap: js.UndefOr[Texture | Null] = js.native;
+	var aoMapIntensity: js.UndefOr[Double] = js.native;
+	var emissive: js.UndefOr[ColorRepresentation] = js.native;
+	var emissiveIntensity: js.UndefOr[Double] = js.native;
+	var emissiveMap: js.UndefOr[Texture | Null] = js.native;
+	var bumpMap: js.UndefOr[Texture | Null] = js.native;
+	var bumpScale: js.UndefOr[Double] = js.native;
+	var normalMap: js.UndefOr[Texture | Null] = js.native;
+	var normalMapType: js.UndefOr[NormalMapTypes] = js.native;
+	var normalScale: js.UndefOr[Vector2] = js.native;
+	var displacementMap: js.UndefOr[Texture | Null] = js.native;
+	var displacementScale: js.UndefOr[Double] = js.native;
+	var displacementBias: js.UndefOr[Double] = js.native;
+	var alphaMap: js.UndefOr[Texture | Null] = js.native;
+	var wireframe: js.UndefOr[Boolean] = js.native;
+	var wireframeLinewidth: js.UndefOr[Double] = js.native;
+	var wireframeLinecap: js.UndefOr[String] = js.native;
+	var wireframeLinejoin: js.UndefOr[String] = js.native;
 
 @js.native
 @JSGlobal("THREE.MeshToonMaterial")
 class MeshToonMaterial extends Material:
 	def this(parameters: js.UndefOr[MeshToonMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val defines: objectType33 = js.native;
-	val color: Color = js.native;
-	val gradientMap: Texture | Null = js.native;
-	val map: Texture | Null = js.native;
-	val lightMap: Texture | Null = js.native;
-	val lightMapIntensity: Double = js.native;
-	val aoMap: Texture | Null = js.native;
-	val aoMapIntensity: Double = js.native;
-	val emissive: Color = js.native;
-	val emissiveIntensity: Double = js.native;
-	val emissiveMap: Texture | Null = js.native;
-	val bumpMap: Texture | Null = js.native;
-	val bumpScale: Double = js.native;
-	val normalMap: Texture | Null = js.native;
-	val normalMapType: NormalMapTypes = js.native;
-	val normalScale: Vector2 = js.native;
-	val displacementMap: Texture | Null = js.native;
-	val displacementScale: Double = js.native;
-	val displacementBias: Double = js.native;
-	val alphaMap: Texture | Null = js.native;
-	val wireframe: Boolean = js.native;
-	val wireframeLinewidth: Double = js.native;
-	val wireframeLinecap: String = js.native;
-	val wireframeLinejoin: String = js.native;
-	def setValues(parameters: MeshToonMaterialParameters): Unit = js.native
+
+
+	var color: Color = js.native;
+	var gradientMap: Texture | Null = js.native;
+	var map: Texture | Null = js.native;
+	var lightMap: Texture | Null = js.native;
+	var lightMapIntensity: Double = js.native;
+	var aoMap: Texture | Null = js.native;
+	var aoMapIntensity: Double = js.native;
+	var emissive: Color = js.native;
+	var emissiveIntensity: Double = js.native;
+	var emissiveMap: Texture | Null = js.native;
+	var bumpMap: Texture | Null = js.native;
+	var bumpScale: Double = js.native;
+	var normalMap: Texture | Null = js.native;
+	var normalMapType: NormalMapTypes = js.native;
+	var normalScale: Vector2 = js.native;
+	var displacementMap: Texture | Null = js.native;
+	var displacementScale: Double = js.native;
+	var displacementBias: Double = js.native;
+	var alphaMap: Texture | Null = js.native;
+	var wireframe: Boolean = js.native;
+	var wireframeLinewidth: Double = js.native;
+	var wireframeLinecap: String = js.native;
+	var wireframeLinejoin: String = js.native;
+
 
 @js.native
 sealed trait MeshDepthMaterialParameters extends MaterialParameters:
-	val map: js.UndefOr[Texture | Null] = js.native;
-	val alphaMap: js.UndefOr[Texture | Null] = js.native;
-	val depthPacking: js.UndefOr[DepthPackingStrategies] = js.native;
-	val displacementMap: js.UndefOr[Texture | Null] = js.native;
-	val displacementScale: js.UndefOr[Double] = js.native;
-	val displacementBias: js.UndefOr[Double] = js.native;
-	val wireframe: js.UndefOr[Boolean] = js.native;
-	val wireframeLinewidth: js.UndefOr[Double] = js.native;
+	var map: js.UndefOr[Texture | Null] = js.native;
+	var alphaMap: js.UndefOr[Texture | Null] = js.native;
+	var depthPacking: js.UndefOr[DepthPackingStrategies] = js.native;
+	var displacementMap: js.UndefOr[Texture | Null] = js.native;
+	var displacementScale: js.UndefOr[Double] = js.native;
+	var displacementBias: js.UndefOr[Double] = js.native;
+	var wireframe: js.UndefOr[Boolean] = js.native;
+	var wireframeLinewidth: js.UndefOr[Double] = js.native;
 
 @js.native
 @JSGlobal("THREE.MeshDepthMaterial")
 class MeshDepthMaterial extends Material:
 	def this(parameters: js.UndefOr[MeshDepthMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val map: Texture | Null = js.native;
-	val alphaMap: Texture | Null = js.native;
-	val depthPacking: DepthPackingStrategies = js.native;
-	val displacementMap: Texture | Null = js.native;
-	val displacementScale: Double = js.native;
-	val displacementBias: Double = js.native;
-	val wireframe: Boolean = js.native;
-	val wireframeLinewidth: Double = js.native;
-	val fog: Boolean = js.native;
-	def setValues(parameters: MeshDepthMaterialParameters): Unit = js.native
+
+	var map: Texture | Null = js.native;
+	var alphaMap: Texture | Null = js.native;
+	var depthPacking: DepthPackingStrategies = js.native;
+	var displacementMap: Texture | Null = js.native;
+	var displacementScale: Double = js.native;
+	var displacementBias: Double = js.native;
+	var wireframe: Boolean = js.native;
+	var wireframeLinewidth: Double = js.native;
+
+
 
 @js.native
 @JSGlobal("THREE.RawShaderMaterial")
@@ -179,126 +179,127 @@ class RawShaderMaterial extends ShaderMaterial:
 
 @js.native
 sealed trait MeshDistanceMaterialParameters extends MaterialParameters:
-	val map: js.UndefOr[Texture | Null] = js.native;
-	val alphaMap: js.UndefOr[Texture | Null] = js.native;
-	val displacementMap: js.UndefOr[Texture | Null] = js.native;
-	val displacementScale: js.UndefOr[Double] = js.native;
-	val displacementBias: js.UndefOr[Double] = js.native;
-	val farDistance: js.UndefOr[Double] = js.native;
-	val nearDistance: js.UndefOr[Double] = js.native;
-	val referencePosition: js.UndefOr[Vector3] = js.native;
+	var map: js.UndefOr[Texture | Null] = js.native;
+	var alphaMap: js.UndefOr[Texture | Null] = js.native;
+	var displacementMap: js.UndefOr[Texture | Null] = js.native;
+	var displacementScale: js.UndefOr[Double] = js.native;
+	var displacementBias: js.UndefOr[Double] = js.native;
+	var farDistance: js.UndefOr[Double] = js.native;
+	var nearDistance: js.UndefOr[Double] = js.native;
+	var referencePosition: js.UndefOr[Vector3] = js.native;
 
 @js.native
 @JSGlobal("THREE.MeshDistanceMaterial")
 class MeshDistanceMaterial extends Material:
 	def this(parameters: js.UndefOr[MeshDistanceMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val map: Texture | Null = js.native;
-	val alphaMap: Texture | Null = js.native;
-	val displacementMap: Texture | Null = js.native;
-	val displacementScale: Double = js.native;
-	val displacementBias: Double = js.native;
-	val farDistance: Double = js.native;
-	val nearDistance: Double = js.native;
-	val referencePosition: Vector3 = js.native;
-	val fog: Boolean = js.native;
-	def setValues(parameters: MeshDistanceMaterialParameters): Unit = js.native
+
+	var map: Texture | Null = js.native;
+	var alphaMap: Texture | Null = js.native;
+	var displacementMap: Texture | Null = js.native;
+	var displacementScale: Double = js.native;
+	var displacementBias: Double = js.native;
+	var farDistance: Double = js.native;
+	var nearDistance: Double = js.native;
+	var referencePosition: Vector3 = js.native;
+
+
 
 @js.native
 sealed trait MaterialParameters extends js.Object:
-	val alphaTest: js.UndefOr[Double] = js.native;
-	val alphaToCoverage: js.UndefOr[Boolean] = js.native;
-	val blendDst: js.UndefOr[BlendingDstFactor] = js.native;
-	val blendDstAlpha: js.UndefOr[Double] = js.native;
-	val blendEquation: js.UndefOr[BlendingEquation] = js.native;
-	val blendEquationAlpha: js.UndefOr[Double] = js.native;
-	val blending: js.UndefOr[Blending] = js.native;
-	val blendSrc: js.UndefOr[BlendingSrcFactor | BlendingDstFactor] = js.native;
-	val blendSrcAlpha: js.UndefOr[Double] = js.native;
-	val clipIntersection: js.UndefOr[Boolean] = js.native;
-	val clippingPlanes: js.UndefOr[js.Array[Plane]] = js.native;
-	val clipShadows: js.UndefOr[Boolean] = js.native;
-	val colorWrite: js.UndefOr[Boolean] = js.native;
-	val defines: js.UndefOr[js.Any] = js.native;
-	val depthFunc: js.UndefOr[DepthModes] = js.native;
-	val depthTest: js.UndefOr[Boolean] = js.native;
-	val depthWrite: js.UndefOr[Boolean] = js.native;
-	val fog: js.UndefOr[Boolean] = js.native;
-	val name: js.UndefOr[String] = js.native;
-	val opacity: js.UndefOr[Double] = js.native;
-	val polygonOffset: js.UndefOr[Boolean] = js.native;
-	val polygonOffsetFactor: js.UndefOr[Double] = js.native;
-	val polygonOffsetUnits: js.UndefOr[Double] = js.native;
-	val precision: js.UndefOr["highp" | "mediump" | "lowp" | Null] = js.native;
-	val premultipliedAlpha: js.UndefOr[Boolean] = js.native;
-	val dithering: js.UndefOr[Boolean] = js.native;
-	val side: js.UndefOr[Side] = js.native;
-	val shadowSide: js.UndefOr[Side] = js.native;
-	val toneMapped: js.UndefOr[Boolean] = js.native;
-	val transparent: js.UndefOr[Boolean] = js.native;
-	val vertexColors: js.UndefOr[Boolean] = js.native;
-	val visible: js.UndefOr[Boolean] = js.native;
-	val stencilWrite: js.UndefOr[Boolean] = js.native;
-	val stencilFunc: js.UndefOr[StencilFunc] = js.native;
-	val stencilRef: js.UndefOr[Double] = js.native;
-	val stencilWriteMask: js.UndefOr[Double] = js.native;
-	val stencilFuncMask: js.UndefOr[Double] = js.native;
-	val stencilFail: js.UndefOr[StencilOp] = js.native;
-	val stencilZFail: js.UndefOr[StencilOp] = js.native;
-	val stencilZPass: js.UndefOr[StencilOp] = js.native;
-	val userData: js.UndefOr[js.Any] = js.native;
+	var alphaTest: js.UndefOr[Double] = js.native;
+	var alphaToCoverage: js.UndefOr[Boolean] = js.native;
+	var blendDst: js.UndefOr[BlendingDstFactor] = js.native;
+	var blendDstAlpha: js.UndefOr[Double] = js.native;
+	var blendEquation: js.UndefOr[BlendingEquation] = js.native;
+	var blendEquationAlpha: js.UndefOr[Double] = js.native;
+	var blending: js.UndefOr[Blending] = js.native;
+	var blendSrc: js.UndefOr[BlendingSrcFactor | BlendingDstFactor] = js.native;
+	var blendSrcAlpha: js.UndefOr[Double] = js.native;
+	var clipIntersection: js.UndefOr[Boolean] = js.native;
+	var clippingPlanes: js.UndefOr[js.Array[Plane]] = js.native;
+	var clipShadows: js.UndefOr[Boolean] = js.native;
+	var colorWrite: js.UndefOr[Boolean] = js.native;
+	var defines: js.UndefOr[js.Any] = js.native;
+	var depthFunc: js.UndefOr[DepthModes] = js.native;
+	var depthTest: js.UndefOr[Boolean] = js.native;
+	var depthWrite: js.UndefOr[Boolean] = js.native;
+	var fog: js.UndefOr[Boolean] = js.native;
+	var name: js.UndefOr[String] = js.native;
+	var opacity: js.UndefOr[Double] = js.native;
+	var polygonOffset: js.UndefOr[Boolean] = js.native;
+	var polygonOffsetFactor: js.UndefOr[Double] = js.native;
+	var polygonOffsetUnits: js.UndefOr[Double] = js.native;
+	var precision: js.UndefOr["highp" | "mediump" | "lowp" | Null] = js.native;
+	var premultipliedAlpha: js.UndefOr[Boolean] = js.native;
+	var dithering: js.UndefOr[Boolean] = js.native;
+	var side: js.UndefOr[Side] = js.native;
+	var shadowSide: js.UndefOr[Side] = js.native;
+	var toneMapped: js.UndefOr[Boolean] = js.native;
+	var transparent: js.UndefOr[Boolean] = js.native;
+	var vertexColors: js.UndefOr[Boolean] = js.native;
+	var visible: js.UndefOr[Boolean] = js.native;
+	var stencilWrite: js.UndefOr[Boolean] = js.native;
+	var stencilFunc: js.UndefOr[StencilFunc] = js.native;
+	var stencilRef: js.UndefOr[Double] = js.native;
+	var stencilWriteMask: js.UndefOr[Double] = js.native;
+	var stencilFuncMask: js.UndefOr[Double] = js.native;
+	var stencilFail: js.UndefOr[StencilOp] = js.native;
+	var stencilZFail: js.UndefOr[StencilOp] = js.native;
+	var stencilZPass: js.UndefOr[StencilOp] = js.native;
+	var userData: js.UndefOr[js.Any] = js.native;
 
 @js.native
 @JSGlobal("THREE.Material")
 class Material extends EventDispatcher:
-	val alphaTest: Double = js.native;
-	val alphaToCoverage: Boolean = js.native;
-	val blendDst: BlendingDstFactor = js.native;
-	val blendDstAlpha: Double | Null = js.native;
-	val blendEquation: BlendingEquation = js.native;
-	val blendEquationAlpha: Double | Null = js.native;
-	val blending: Blending = js.native;
-	val blendSrc: BlendingSrcFactor | BlendingDstFactor = js.native;
-	val blendSrcAlpha: Double | Null = js.native;
-	val clipIntersection: Boolean = js.native;
-	val clippingPlanes: js.Any = js.native;
-	val clipShadows: Boolean = js.native;
-	val colorWrite: Boolean = js.native;
-	val defines: js.UndefOr[objectType33] = js.native;
-	val depthFunc: DepthModes = js.native;
-	val depthTest: Boolean = js.native;
-	val depthWrite: Boolean = js.native;
-	val fog: Boolean = js.native;
-	val id: Double = js.native;
-	val stencilWrite: Boolean = js.native;
-	val stencilFunc: StencilFunc = js.native;
-	val stencilRef: Double = js.native;
-	val stencilWriteMask: Double = js.native;
-	val stencilFuncMask: Double = js.native;
-	val stencilFail: StencilOp = js.native;
-	val stencilZFail: StencilOp = js.native;
-	val stencilZPass: StencilOp = js.native;
-	var isMaterial: Boolean = js.native;
-	val name: String = js.native;
-	val needsUpdate: Boolean = js.native;
-	val opacity: Double = js.native;
-	val polygonOffset: Boolean = js.native;
-	val polygonOffsetFactor: Double = js.native;
-	val polygonOffsetUnits: Double = js.native;
-	val precision: "highp" | "mediump" | "lowp" | Null = js.native;
-	val premultipliedAlpha: Boolean = js.native;
-	val dithering: Boolean = js.native;
-	val side: Side = js.native;
-	val shadowSide: Side = js.native;
-	val toneMapped: Boolean = js.native;
-	val transparent: Boolean = js.native;
-	val `type`: String = js.native;
-	val uuid: String = js.native;
-	val vertexColors: Boolean = js.native;
-	val visible: Boolean = js.native;
-	val userData: js.Any = js.native;
-	val version: Double = js.native;
-	def clone(): this.type = js.native
+	var alphaTest: Double = js.native;
+	var alphaToCoverage: Boolean = js.native;
+	var blendDst: BlendingDstFactor = js.native;
+	var blendDstAlpha: Double | Null = js.native;
+	var blendEquation: BlendingEquation = js.native;
+	var blendEquationAlpha: Double | Null = js.native;
+	var blending: Blending = js.native;
+	var blendSrc: BlendingSrcFactor | BlendingDstFactor = js.native;
+	var blendSrcAlpha: Double | Null = js.native;
+	var clipIntersection: Boolean = js.native;
+	var clippingPlanes: js.Any = js.native;
+	var clipShadows: Boolean = js.native;
+	var colorWrite: Boolean = js.native;
+	var defines: js.UndefOr[objectType31] = js.native;
+	var depthFunc: DepthModes = js.native;
+	var depthTest: Boolean = js.native;
+	var depthWrite: Boolean = js.native;
+	var fog: Boolean = js.native;
+	var id: Double = js.native;
+	var stencilWrite: Boolean = js.native;
+	var stencilFunc: StencilFunc = js.native;
+	var stencilRef: Double = js.native;
+	var stencilWriteMask: Double = js.native;
+	var stencilFuncMask: Double = js.native;
+	var stencilFail: StencilOp = js.native;
+	var stencilZFail: StencilOp = js.native;
+	var stencilZPass: StencilOp = js.native;
+	val isMaterial: Boolean = js.native;
+	var name: String = js.native;
+	var needsUpdate: Boolean = js.native;
+	var opacity: Double = js.native;
+	var polygonOffset: Boolean = js.native;
+	var polygonOffsetFactor: Double = js.native;
+	var polygonOffsetUnits: Double = js.native;
+	var precision: "highp" | "mediump" | "lowp" | Null = js.native;
+	var premultipliedAlpha: Boolean = js.native;
+	var dithering: Boolean = js.native;
+	var side: Side = js.native;
+	var shadowSide: Side = js.native;
+	var toneMapped: Boolean = js.native;
+	var transparent: Boolean = js.native;
+	var `type`: String = js.native;
+	var uuid: String = js.native;
+	var vertexColors: Boolean = js.native;
+	var visible: Boolean = js.native;
+	var userData: js.Any = js.native;
+	var version: Double = js.native;
+	@JSName("clone")
+	def jsClone(): this.type = js.native
 	def copy(material: Material): this.type = js.native
 	def dispose(): Unit = js.native
 	def onBeforeCompile(shader: Shader, renderer: WebGLRenderer): Unit = js.native
@@ -308,446 +309,446 @@ class Material extends EventDispatcher:
 
 @js.native
 sealed trait ShadowMaterialParameters extends MaterialParameters:
-	val color: js.UndefOr[ColorRepresentation] = js.native;
+	var color: js.UndefOr[ColorRepresentation] = js.native;
 
 @js.native
 @JSGlobal("THREE.ShadowMaterial")
 class ShadowMaterial extends Material:
 	def this(parameters: js.UndefOr[ShadowMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val color: Color = js.native;
-	val transparent: Boolean = js.native;
+
+	var color: Color = js.native;
+
 
 @js.native
 sealed trait ShaderMaterialParameters extends MaterialParameters:
-	val uniforms: js.UndefOr[objectType34] = js.native;
-	val vertexShader: js.UndefOr[String] = js.native;
-	val fragmentShader: js.UndefOr[String] = js.native;
-	val linewidth: js.UndefOr[Double] = js.native;
-	val wireframe: js.UndefOr[Boolean] = js.native;
-	val wireframeLinewidth: js.UndefOr[Double] = js.native;
-	val lights: js.UndefOr[Boolean] = js.native;
-	val clipping: js.UndefOr[Boolean] = js.native;
-	val extensions: js.UndefOr[objectType35] = js.native;
-	val glslVersion: js.UndefOr[GLSLVersion] = js.native;
+	var uniforms: js.UndefOr[objectType32] = js.native;
+	var vertexShader: js.UndefOr[String] = js.native;
+	var fragmentShader: js.UndefOr[String] = js.native;
+	var linewidth: js.UndefOr[Double] = js.native;
+	var wireframe: js.UndefOr[Boolean] = js.native;
+	var wireframeLinewidth: js.UndefOr[Double] = js.native;
+	var lights: js.UndefOr[Boolean] = js.native;
+	var clipping: js.UndefOr[Boolean] = js.native;
+	var extensions: js.UndefOr[objectType33] = js.native;
+	var glslVersion: js.UndefOr[GLSLVersion] = js.native;
 
 @js.native
 @JSGlobal("THREE.ShaderMaterial")
 class ShaderMaterial extends Material:
 	def this(parameters: js.UndefOr[ShaderMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val defines: objectType33 = js.native;
-	val uniforms: objectType34 = js.native;
-	val vertexShader: String = js.native;
-	val fragmentShader: String = js.native;
-	val linewidth: Double = js.native;
-	val wireframe: Boolean = js.native;
-	val wireframeLinewidth: Double = js.native;
-	val fog: Boolean = js.native;
-	val lights: Boolean = js.native;
-	val clipping: Boolean = js.native;
-	val derivatives: js.Any = js.native;
-	val extensions: objectType36 = js.native;
-	val defaultAttributeValues: js.Any = js.native;
-	val index0AttributeName: js.UndefOr[String] = js.native;
-	val uniformsNeedUpdate: Boolean = js.native;
-	val glslVersion: GLSLVersion | Null = js.native;
-	val isShaderMaterial: Boolean = js.native;
-	def setValues(parameters: ShaderMaterialParameters): Unit = js.native
-	def toJSON(meta: js.Any): js.Any = js.native
+
+
+	var uniforms: objectType32 = js.native;
+	var vertexShader: String = js.native;
+	var fragmentShader: String = js.native;
+	var linewidth: Double = js.native;
+	var wireframe: Boolean = js.native;
+	var wireframeLinewidth: Double = js.native;
+
+	var lights: Boolean = js.native;
+	var clipping: Boolean = js.native;
+	var derivatives: js.Any = js.native;
+	var extensions: objectType34 = js.native;
+	var defaultAttributeValues: js.Any = js.native;
+	var index0AttributeName: js.UndefOr[String] = js.native;
+	var uniformsNeedUpdate: Boolean = js.native;
+	var glslVersion: GLSLVersion | Null = js.native;
+	var isShaderMaterial: Boolean = js.native;
+
+
 
 @js.native
 sealed trait MeshPhysicalMaterialParameters extends MeshStandardMaterialParameters:
-	val clearcoat: js.UndefOr[Double] = js.native;
-	val clearcoatMap: js.UndefOr[Texture | Null] = js.native;
-	val clearcoatRoughness: js.UndefOr[Double] = js.native;
-	val clearcoatRoughnessMap: js.UndefOr[Texture | Null] = js.native;
-	val clearcoatNormalScale: js.UndefOr[Vector2] = js.native;
-	val clearcoatNormalMap: js.UndefOr[Texture | Null] = js.native;
-	val reflectivity: js.UndefOr[Double] = js.native;
-	val ior: js.UndefOr[Double] = js.native;
-	val sheen: js.UndefOr[Color] = js.native;
-	val transmission: js.UndefOr[Double] = js.native;
-	val transmissionMap: js.UndefOr[Texture | Null] = js.native;
-	val attenuationDistance: js.UndefOr[Double] = js.native;
-	val attenuationTint: js.UndefOr[Color] = js.native;
-	val specularIntensity: js.UndefOr[Double] = js.native;
-	val specularTint: js.UndefOr[Color] = js.native;
-	val specularIntensityMap: js.UndefOr[Texture | Null] = js.native;
-	val specularTintMap: js.UndefOr[Texture | Null] = js.native;
+	var clearcoat: js.UndefOr[Double] = js.native;
+	var clearcoatMap: js.UndefOr[Texture | Null] = js.native;
+	var clearcoatRoughness: js.UndefOr[Double] = js.native;
+	var clearcoatRoughnessMap: js.UndefOr[Texture | Null] = js.native;
+	var clearcoatNormalScale: js.UndefOr[Vector2] = js.native;
+	var clearcoatNormalMap: js.UndefOr[Texture | Null] = js.native;
+	var reflectivity: js.UndefOr[Double] = js.native;
+	var ior: js.UndefOr[Double] = js.native;
+	var sheen: js.UndefOr[Color] = js.native;
+	var transmission: js.UndefOr[Double] = js.native;
+	var transmissionMap: js.UndefOr[Texture | Null] = js.native;
+	var attenuationDistance: js.UndefOr[Double] = js.native;
+	var attenuationTint: js.UndefOr[Color] = js.native;
+	var specularIntensity: js.UndefOr[Double] = js.native;
+	var specularTint: js.UndefOr[Color] = js.native;
+	var specularIntensityMap: js.UndefOr[Texture | Null] = js.native;
+	var specularTintMap: js.UndefOr[Texture | Null] = js.native;
 
 @js.native
 @JSGlobal("THREE.MeshPhysicalMaterial")
 class MeshPhysicalMaterial extends MeshStandardMaterial:
 	def this(parameters: js.UndefOr[MeshPhysicalMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val defines: objectType33 = js.native;
-	val clearcoat: Double = js.native;
-	val clearcoatMap: Texture | Null = js.native;
-	val clearcoatRoughness: Double = js.native;
-	val clearcoatRoughnessMap: Texture | Null = js.native;
-	val clearcoatNormalScale: Vector2 = js.native;
-	val clearcoatNormalMap: Texture | Null = js.native;
-	val reflectivity: Double = js.native;
-	val ior: Double = js.native;
-	val sheen: Color | Null = js.native;
-	val transmission: Double = js.native;
-	val transmissionMap: Texture | Null = js.native;
-	val thickness: Double = js.native;
-	val thicknessMap: Texture | Null = js.native;
-	val attenuationDistance: Double = js.native;
-	val attenuationColor: Color = js.native;
-	val specularIntensity: Double = js.native;
-	val specularTint: Color = js.native;
-	val specularIntensityMap: Texture | Null = js.native;
-	val specularTintMap: Texture | Null = js.native;
+
+
+	var clearcoat: Double = js.native;
+	var clearcoatMap: Texture | Null = js.native;
+	var clearcoatRoughness: Double = js.native;
+	var clearcoatRoughnessMap: Texture | Null = js.native;
+	var clearcoatNormalScale: Vector2 = js.native;
+	var clearcoatNormalMap: Texture | Null = js.native;
+	var reflectivity: Double = js.native;
+	var ior: Double = js.native;
+	var sheen: Color | Null = js.native;
+	var transmission: Double = js.native;
+	var transmissionMap: Texture | Null = js.native;
+	var thickness: Double = js.native;
+	var thicknessMap: Texture | Null = js.native;
+	var attenuationDistance: Double = js.native;
+	var attenuationColor: Color = js.native;
+	var specularIntensity: Double = js.native;
+	var specularTint: Color = js.native;
+	var specularIntensityMap: Texture | Null = js.native;
+	var specularTintMap: Texture | Null = js.native;
 
 @js.native
 sealed trait MeshLambertMaterialParameters extends MaterialParameters:
-	val color: js.UndefOr[ColorRepresentation] = js.native;
-	val emissive: js.UndefOr[ColorRepresentation] = js.native;
-	val emissiveIntensity: js.UndefOr[Double] = js.native;
-	val emissiveMap: js.UndefOr[Texture | Null] = js.native;
-	val map: js.UndefOr[Texture | Null] = js.native;
-	val lightMap: js.UndefOr[Texture | Null] = js.native;
-	val lightMapIntensity: js.UndefOr[Double] = js.native;
-	val aoMap: js.UndefOr[Texture | Null] = js.native;
-	val aoMapIntensity: js.UndefOr[Double] = js.native;
-	val specularMap: js.UndefOr[Texture | Null] = js.native;
-	val alphaMap: js.UndefOr[Texture | Null] = js.native;
-	val envMap: js.UndefOr[Texture | Null] = js.native;
-	val combine: js.UndefOr[Combine] = js.native;
-	val reflectivity: js.UndefOr[Double] = js.native;
-	val refractionRatio: js.UndefOr[Double] = js.native;
-	val wireframe: js.UndefOr[Boolean] = js.native;
-	val wireframeLinewidth: js.UndefOr[Double] = js.native;
-	val wireframeLinecap: js.UndefOr[String] = js.native;
-	val wireframeLinejoin: js.UndefOr[String] = js.native;
+	var color: js.UndefOr[ColorRepresentation] = js.native;
+	var emissive: js.UndefOr[ColorRepresentation] = js.native;
+	var emissiveIntensity: js.UndefOr[Double] = js.native;
+	var emissiveMap: js.UndefOr[Texture | Null] = js.native;
+	var map: js.UndefOr[Texture | Null] = js.native;
+	var lightMap: js.UndefOr[Texture | Null] = js.native;
+	var lightMapIntensity: js.UndefOr[Double] = js.native;
+	var aoMap: js.UndefOr[Texture | Null] = js.native;
+	var aoMapIntensity: js.UndefOr[Double] = js.native;
+	var specularMap: js.UndefOr[Texture | Null] = js.native;
+	var alphaMap: js.UndefOr[Texture | Null] = js.native;
+	var envMap: js.UndefOr[Texture | Null] = js.native;
+	var combine: js.UndefOr[Combine] = js.native;
+	var reflectivity: js.UndefOr[Double] = js.native;
+	var refractionRatio: js.UndefOr[Double] = js.native;
+	var wireframe: js.UndefOr[Boolean] = js.native;
+	var wireframeLinewidth: js.UndefOr[Double] = js.native;
+	var wireframeLinecap: js.UndefOr[String] = js.native;
+	var wireframeLinejoin: js.UndefOr[String] = js.native;
 
 @js.native
 @JSGlobal("THREE.MeshLambertMaterial")
 class MeshLambertMaterial extends Material:
 	def this(parameters: js.UndefOr[MeshLambertMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val color: Color = js.native;
-	val emissive: Color = js.native;
-	val emissiveIntensity: Double = js.native;
-	val emissiveMap: Texture | Null = js.native;
-	val map: Texture | Null = js.native;
-	val lightMap: Texture | Null = js.native;
-	val lightMapIntensity: Double = js.native;
-	val aoMap: Texture | Null = js.native;
-	val aoMapIntensity: Double = js.native;
-	val specularMap: Texture | Null = js.native;
-	val alphaMap: Texture | Null = js.native;
-	val envMap: Texture | Null = js.native;
-	val combine: Combine = js.native;
-	val reflectivity: Double = js.native;
-	val refractionRatio: Double = js.native;
-	val wireframe: Boolean = js.native;
-	val wireframeLinewidth: Double = js.native;
-	val wireframeLinecap: String = js.native;
-	val wireframeLinejoin: String = js.native;
-	def setValues(parameters: MeshLambertMaterialParameters): Unit = js.native
+
+	var color: Color = js.native;
+	var emissive: Color = js.native;
+	var emissiveIntensity: Double = js.native;
+	var emissiveMap: Texture | Null = js.native;
+	var map: Texture | Null = js.native;
+	var lightMap: Texture | Null = js.native;
+	var lightMapIntensity: Double = js.native;
+	var aoMap: Texture | Null = js.native;
+	var aoMapIntensity: Double = js.native;
+	var specularMap: Texture | Null = js.native;
+	var alphaMap: Texture | Null = js.native;
+	var envMap: Texture | Null = js.native;
+	var combine: Combine = js.native;
+	var reflectivity: Double = js.native;
+	var refractionRatio: Double = js.native;
+	var wireframe: Boolean = js.native;
+	var wireframeLinewidth: Double = js.native;
+	var wireframeLinecap: String = js.native;
+	var wireframeLinejoin: String = js.native;
+
 
 @js.native
 sealed trait SpriteMaterialParameters extends MaterialParameters:
-	val color: js.UndefOr[ColorRepresentation] = js.native;
-	val map: js.UndefOr[Texture | Null] = js.native;
-	val alphaMap: js.UndefOr[Texture | Null] = js.native;
-	val rotation: js.UndefOr[Double] = js.native;
-	val sizeAttenuation: js.UndefOr[Boolean] = js.native;
+	var color: js.UndefOr[ColorRepresentation] = js.native;
+	var map: js.UndefOr[Texture | Null] = js.native;
+	var alphaMap: js.UndefOr[Texture | Null] = js.native;
+	var rotation: js.UndefOr[Double] = js.native;
+	var sizeAttenuation: js.UndefOr[Boolean] = js.native;
 
 @js.native
 @JSGlobal("THREE.SpriteMaterial")
 class SpriteMaterial extends Material:
 	def this(parameters: js.UndefOr[SpriteMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val color: Color = js.native;
-	val map: Texture | Null = js.native;
-	val alphaMap: Texture | Null = js.native;
-	val rotation: Double = js.native;
-	val sizeAttenuation: Boolean = js.native;
-	val transparent: Boolean = js.native;
-	var isSpriteMaterial: Boolean = js.native;
-	def setValues(parameters: SpriteMaterialParameters): Unit = js.native
-	def copy(source: SpriteMaterial): this.type = js.native
+
+	var color: Color = js.native;
+	var map: Texture | Null = js.native;
+	var alphaMap: Texture | Null = js.native;
+	var rotation: Double = js.native;
+	var sizeAttenuation: Boolean = js.native;
+
+	val isSpriteMaterial: Boolean = js.native;
+
+
 
 @js.native
 sealed trait MeshBasicMaterialParameters extends MaterialParameters:
-	val color: js.UndefOr[ColorRepresentation] = js.native;
-	val opacity: js.UndefOr[Double] = js.native;
-	val map: js.UndefOr[Texture | Null] = js.native;
-	val lightMap: js.UndefOr[Texture | Null] = js.native;
-	val lightMapIntensity: js.UndefOr[Double] = js.native;
-	val aoMap: js.UndefOr[Texture | Null] = js.native;
-	val aoMapIntensity: js.UndefOr[Double] = js.native;
-	val specularMap: js.UndefOr[Texture | Null] = js.native;
-	val alphaMap: js.UndefOr[Texture | Null] = js.native;
-	val envMap: js.UndefOr[Texture | Null] = js.native;
-	val combine: js.UndefOr[Combine] = js.native;
-	val reflectivity: js.UndefOr[Double] = js.native;
-	val refractionRatio: js.UndefOr[Double] = js.native;
-	val wireframe: js.UndefOr[Boolean] = js.native;
-	val wireframeLinewidth: js.UndefOr[Double] = js.native;
-	val wireframeLinecap: js.UndefOr[String] = js.native;
-	val wireframeLinejoin: js.UndefOr[String] = js.native;
+	var color: js.UndefOr[ColorRepresentation] = js.native;
+
+	var map: js.UndefOr[Texture | Null] = js.native;
+	var lightMap: js.UndefOr[Texture | Null] = js.native;
+	var lightMapIntensity: js.UndefOr[Double] = js.native;
+	var aoMap: js.UndefOr[Texture | Null] = js.native;
+	var aoMapIntensity: js.UndefOr[Double] = js.native;
+	var specularMap: js.UndefOr[Texture | Null] = js.native;
+	var alphaMap: js.UndefOr[Texture | Null] = js.native;
+	var envMap: js.UndefOr[Texture | Null] = js.native;
+	var combine: js.UndefOr[Combine] = js.native;
+	var reflectivity: js.UndefOr[Double] = js.native;
+	var refractionRatio: js.UndefOr[Double] = js.native;
+	var wireframe: js.UndefOr[Boolean] = js.native;
+	var wireframeLinewidth: js.UndefOr[Double] = js.native;
+	var wireframeLinecap: js.UndefOr[String] = js.native;
+	var wireframeLinejoin: js.UndefOr[String] = js.native;
 
 @js.native
 @JSGlobal("THREE.MeshBasicMaterial")
 class MeshBasicMaterial extends Material:
 	def this(parameters: js.UndefOr[MeshBasicMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val color: Color = js.native;
-	val map: Texture | Null = js.native;
-	val lightMap: Texture | Null = js.native;
-	val lightMapIntensity: Double = js.native;
-	val aoMap: Texture | Null = js.native;
-	val aoMapIntensity: Double = js.native;
-	val specularMap: Texture | Null = js.native;
-	val alphaMap: Texture | Null = js.native;
-	val envMap: Texture | Null = js.native;
-	val combine: Combine = js.native;
-	val reflectivity: Double = js.native;
-	val refractionRatio: Double = js.native;
-	val wireframe: Boolean = js.native;
-	val wireframeLinewidth: Double = js.native;
-	val wireframeLinecap: String = js.native;
-	val wireframeLinejoin: String = js.native;
-	def setValues(parameters: MeshBasicMaterialParameters): Unit = js.native
+
+	var color: Color = js.native;
+	var map: Texture | Null = js.native;
+	var lightMap: Texture | Null = js.native;
+	var lightMapIntensity: Double = js.native;
+	var aoMap: Texture | Null = js.native;
+	var aoMapIntensity: Double = js.native;
+	var specularMap: Texture | Null = js.native;
+	var alphaMap: Texture | Null = js.native;
+	var envMap: Texture | Null = js.native;
+	var combine: Combine = js.native;
+	var reflectivity: Double = js.native;
+	var refractionRatio: Double = js.native;
+	var wireframe: Boolean = js.native;
+	var wireframeLinewidth: Double = js.native;
+	var wireframeLinecap: String = js.native;
+	var wireframeLinejoin: String = js.native;
+
 
 @js.native
 sealed trait MeshNormalMaterialParameters extends MaterialParameters:
-	val bumpMap: js.UndefOr[Texture | Null] = js.native;
-	val bumpScale: js.UndefOr[Double] = js.native;
-	val normalMap: js.UndefOr[Texture | Null] = js.native;
-	val normalMapType: js.UndefOr[NormalMapTypes] = js.native;
-	val normalScale: js.UndefOr[Vector2] = js.native;
-	val displacementMap: js.UndefOr[Texture | Null] = js.native;
-	val displacementScale: js.UndefOr[Double] = js.native;
-	val displacementBias: js.UndefOr[Double] = js.native;
-	val wireframe: js.UndefOr[Boolean] = js.native;
-	val wireframeLinewidth: js.UndefOr[Double] = js.native;
-	val flatShading: js.UndefOr[Boolean] = js.native;
+	var bumpMap: js.UndefOr[Texture | Null] = js.native;
+	var bumpScale: js.UndefOr[Double] = js.native;
+	var normalMap: js.UndefOr[Texture | Null] = js.native;
+	var normalMapType: js.UndefOr[NormalMapTypes] = js.native;
+	var normalScale: js.UndefOr[Vector2] = js.native;
+	var displacementMap: js.UndefOr[Texture | Null] = js.native;
+	var displacementScale: js.UndefOr[Double] = js.native;
+	var displacementBias: js.UndefOr[Double] = js.native;
+	var wireframe: js.UndefOr[Boolean] = js.native;
+	var wireframeLinewidth: js.UndefOr[Double] = js.native;
+	var flatShading: js.UndefOr[Boolean] = js.native;
 
 @js.native
 @JSGlobal("THREE.MeshNormalMaterial")
 class MeshNormalMaterial extends Material:
 	def this(parameters: js.UndefOr[MeshNormalMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val bumpMap: Texture | Null = js.native;
-	val bumpScale: Double = js.native;
-	val normalMap: Texture | Null = js.native;
-	val normalMapType: NormalMapTypes = js.native;
-	val normalScale: Vector2 = js.native;
-	val displacementMap: Texture | Null = js.native;
-	val displacementScale: Double = js.native;
-	val displacementBias: Double = js.native;
-	val wireframe: Boolean = js.native;
-	val wireframeLinewidth: Double = js.native;
-	val flatShading: Boolean = js.native;
-	def setValues(parameters: MeshNormalMaterialParameters): Unit = js.native
+
+	var bumpMap: Texture | Null = js.native;
+	var bumpScale: Double = js.native;
+	var normalMap: Texture | Null = js.native;
+	var normalMapType: NormalMapTypes = js.native;
+	var normalScale: Vector2 = js.native;
+	var displacementMap: Texture | Null = js.native;
+	var displacementScale: Double = js.native;
+	var displacementBias: Double = js.native;
+	var wireframe: Boolean = js.native;
+	var wireframeLinewidth: Double = js.native;
+	var flatShading: Boolean = js.native;
+
 
 @js.native
 sealed trait LineBasicMaterialParameters extends MaterialParameters:
-	val color: js.UndefOr[ColorRepresentation] = js.native;
-	val linewidth: js.UndefOr[Double] = js.native;
-	val linecap: js.UndefOr[String] = js.native;
-	val linejoin: js.UndefOr[String] = js.native;
+	var color: js.UndefOr[ColorRepresentation] = js.native;
+	var linewidth: js.UndefOr[Double] = js.native;
+	var linecap: js.UndefOr[String] = js.native;
+	var linejoin: js.UndefOr[String] = js.native;
 
 @js.native
 @JSGlobal("THREE.LineBasicMaterial")
 class LineBasicMaterial extends Material:
 	def this(parameters: js.UndefOr[LineBasicMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val color: Color = js.native;
-	val linewidth: Double = js.native;
-	val linecap: String = js.native;
-	val linejoin: String = js.native;
-	def setValues(parameters: LineBasicMaterialParameters): Unit = js.native
+
+	var color: Color = js.native;
+	var linewidth: Double = js.native;
+	var linecap: String = js.native;
+	var linejoin: String = js.native;
+
 
 @js.native
 sealed trait PointsMaterialParameters extends MaterialParameters:
-	val color: js.UndefOr[ColorRepresentation] = js.native;
-	val map: js.UndefOr[Texture | Null] = js.native;
-	val alphaMap: js.UndefOr[Texture | Null] = js.native;
-	val size: js.UndefOr[Double] = js.native;
-	val sizeAttenuation: js.UndefOr[Boolean] = js.native;
+	var color: js.UndefOr[ColorRepresentation] = js.native;
+	var map: js.UndefOr[Texture | Null] = js.native;
+	var alphaMap: js.UndefOr[Texture | Null] = js.native;
+	var size: js.UndefOr[Double] = js.native;
+	var sizeAttenuation: js.UndefOr[Boolean] = js.native;
 
 @js.native
 @JSGlobal("THREE.PointsMaterial")
 class PointsMaterial extends Material:
 	def this(parameters: js.UndefOr[PointsMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val color: Color = js.native;
-	val map: Texture | Null = js.native;
-	val alphaMap: Texture | Null = js.native;
-	val size: Double = js.native;
-	val sizeAttenuation: Boolean = js.native;
-	def setValues(parameters: PointsMaterialParameters): Unit = js.native
+
+	var color: Color = js.native;
+	var map: Texture | Null = js.native;
+	var alphaMap: Texture | Null = js.native;
+	var size: Double = js.native;
+	var sizeAttenuation: Boolean = js.native;
+
 
 @js.native
 sealed trait MeshPhongMaterialParameters extends MaterialParameters:
-	val color: js.UndefOr[ColorRepresentation] = js.native;
-	val specular: js.UndefOr[ColorRepresentation] = js.native;
-	val shininess: js.UndefOr[Double] = js.native;
-	val opacity: js.UndefOr[Double] = js.native;
-	val map: js.UndefOr[Texture | Null] = js.native;
-	val lightMap: js.UndefOr[Texture | Null] = js.native;
-	val lightMapIntensity: js.UndefOr[Double] = js.native;
-	val aoMap: js.UndefOr[Texture | Null] = js.native;
-	val aoMapIntensity: js.UndefOr[Double] = js.native;
-	val emissive: js.UndefOr[ColorRepresentation] = js.native;
-	val emissiveIntensity: js.UndefOr[Double] = js.native;
-	val emissiveMap: js.UndefOr[Texture | Null] = js.native;
-	val bumpMap: js.UndefOr[Texture | Null] = js.native;
-	val bumpScale: js.UndefOr[Double] = js.native;
-	val normalMap: js.UndefOr[Texture | Null] = js.native;
-	val normalMapType: js.UndefOr[NormalMapTypes] = js.native;
-	val normalScale: js.UndefOr[Vector2] = js.native;
-	val displacementMap: js.UndefOr[Texture | Null] = js.native;
-	val displacementScale: js.UndefOr[Double] = js.native;
-	val displacementBias: js.UndefOr[Double] = js.native;
-	val specularMap: js.UndefOr[Texture | Null] = js.native;
-	val alphaMap: js.UndefOr[Texture | Null] = js.native;
-	val envMap: js.UndefOr[Texture | Null] = js.native;
-	val combine: js.UndefOr[Combine] = js.native;
-	val reflectivity: js.UndefOr[Double] = js.native;
-	val refractionRatio: js.UndefOr[Double] = js.native;
-	val wireframe: js.UndefOr[Boolean] = js.native;
-	val wireframeLinewidth: js.UndefOr[Double] = js.native;
-	val wireframeLinecap: js.UndefOr[String] = js.native;
-	val wireframeLinejoin: js.UndefOr[String] = js.native;
-	val flatShading: js.UndefOr[Boolean] = js.native;
+	var color: js.UndefOr[ColorRepresentation] = js.native;
+	var specular: js.UndefOr[ColorRepresentation] = js.native;
+	var shininess: js.UndefOr[Double] = js.native;
+
+	var map: js.UndefOr[Texture | Null] = js.native;
+	var lightMap: js.UndefOr[Texture | Null] = js.native;
+	var lightMapIntensity: js.UndefOr[Double] = js.native;
+	var aoMap: js.UndefOr[Texture | Null] = js.native;
+	var aoMapIntensity: js.UndefOr[Double] = js.native;
+	var emissive: js.UndefOr[ColorRepresentation] = js.native;
+	var emissiveIntensity: js.UndefOr[Double] = js.native;
+	var emissiveMap: js.UndefOr[Texture | Null] = js.native;
+	var bumpMap: js.UndefOr[Texture | Null] = js.native;
+	var bumpScale: js.UndefOr[Double] = js.native;
+	var normalMap: js.UndefOr[Texture | Null] = js.native;
+	var normalMapType: js.UndefOr[NormalMapTypes] = js.native;
+	var normalScale: js.UndefOr[Vector2] = js.native;
+	var displacementMap: js.UndefOr[Texture | Null] = js.native;
+	var displacementScale: js.UndefOr[Double] = js.native;
+	var displacementBias: js.UndefOr[Double] = js.native;
+	var specularMap: js.UndefOr[Texture | Null] = js.native;
+	var alphaMap: js.UndefOr[Texture | Null] = js.native;
+	var envMap: js.UndefOr[Texture | Null] = js.native;
+	var combine: js.UndefOr[Combine] = js.native;
+	var reflectivity: js.UndefOr[Double] = js.native;
+	var refractionRatio: js.UndefOr[Double] = js.native;
+	var wireframe: js.UndefOr[Boolean] = js.native;
+	var wireframeLinewidth: js.UndefOr[Double] = js.native;
+	var wireframeLinecap: js.UndefOr[String] = js.native;
+	var wireframeLinejoin: js.UndefOr[String] = js.native;
+	var flatShading: js.UndefOr[Boolean] = js.native;
 
 @js.native
 @JSGlobal("THREE.MeshPhongMaterial")
 class MeshPhongMaterial extends Material:
 	def this(parameters: js.UndefOr[MeshPhongMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val color: Color = js.native;
-	val specular: Color = js.native;
-	val shininess: Double = js.native;
-	val map: Texture | Null = js.native;
-	val lightMap: Texture | Null = js.native;
-	val lightMapIntensity: Double = js.native;
-	val aoMap: Texture | Null = js.native;
-	val aoMapIntensity: Double = js.native;
-	val emissive: Color = js.native;
-	val emissiveIntensity: Double = js.native;
-	val emissiveMap: Texture | Null = js.native;
-	val bumpMap: Texture | Null = js.native;
-	val bumpScale: Double = js.native;
-	val normalMap: Texture | Null = js.native;
-	val normalMapType: NormalMapTypes = js.native;
-	val normalScale: Vector2 = js.native;
-	val displacementMap: Texture | Null = js.native;
-	val displacementScale: Double = js.native;
-	val displacementBias: Double = js.native;
-	val specularMap: Texture | Null = js.native;
-	val alphaMap: Texture | Null = js.native;
-	val envMap: Texture | Null = js.native;
-	val combine: Combine = js.native;
-	val reflectivity: Double = js.native;
-	val refractionRatio: Double = js.native;
-	val wireframe: Boolean = js.native;
-	val wireframeLinewidth: Double = js.native;
-	val wireframeLinecap: String = js.native;
-	val wireframeLinejoin: String = js.native;
-	val flatShading: Boolean = js.native;
-	val metal: Boolean = js.native;
-	def setValues(parameters: MeshPhongMaterialParameters): Unit = js.native
+
+	var color: Color = js.native;
+	var specular: Color = js.native;
+	var shininess: Double = js.native;
+	var map: Texture | Null = js.native;
+	var lightMap: Texture | Null = js.native;
+	var lightMapIntensity: Double = js.native;
+	var aoMap: Texture | Null = js.native;
+	var aoMapIntensity: Double = js.native;
+	var emissive: Color = js.native;
+	var emissiveIntensity: Double = js.native;
+	var emissiveMap: Texture | Null = js.native;
+	var bumpMap: Texture | Null = js.native;
+	var bumpScale: Double = js.native;
+	var normalMap: Texture | Null = js.native;
+	var normalMapType: NormalMapTypes = js.native;
+	var normalScale: Vector2 = js.native;
+	var displacementMap: Texture | Null = js.native;
+	var displacementScale: Double = js.native;
+	var displacementBias: Double = js.native;
+	var specularMap: Texture | Null = js.native;
+	var alphaMap: Texture | Null = js.native;
+	var envMap: Texture | Null = js.native;
+	var combine: Combine = js.native;
+	var reflectivity: Double = js.native;
+	var refractionRatio: Double = js.native;
+	var wireframe: Boolean = js.native;
+	var wireframeLinewidth: Double = js.native;
+	var wireframeLinecap: String = js.native;
+	var wireframeLinejoin: String = js.native;
+	var flatShading: Boolean = js.native;
+	var metal: Boolean = js.native;
+
 
 @js.native
 sealed trait MeshStandardMaterialParameters extends MaterialParameters:
-	val color: js.UndefOr[ColorRepresentation] = js.native;
-	val roughness: js.UndefOr[Double] = js.native;
-	val metalness: js.UndefOr[Double] = js.native;
-	val map: js.UndefOr[Texture | Null] = js.native;
-	val lightMap: js.UndefOr[Texture | Null] = js.native;
-	val lightMapIntensity: js.UndefOr[Double] = js.native;
-	val aoMap: js.UndefOr[Texture | Null] = js.native;
-	val aoMapIntensity: js.UndefOr[Double] = js.native;
-	val emissive: js.UndefOr[ColorRepresentation] = js.native;
-	val emissiveIntensity: js.UndefOr[Double] = js.native;
-	val emissiveMap: js.UndefOr[Texture | Null] = js.native;
-	val bumpMap: js.UndefOr[Texture | Null] = js.native;
-	val bumpScale: js.UndefOr[Double] = js.native;
-	val normalMap: js.UndefOr[Texture | Null] = js.native;
-	val normalMapType: js.UndefOr[NormalMapTypes] = js.native;
-	val normalScale: js.UndefOr[Vector2] = js.native;
-	val displacementMap: js.UndefOr[Texture | Null] = js.native;
-	val displacementScale: js.UndefOr[Double] = js.native;
-	val displacementBias: js.UndefOr[Double] = js.native;
-	val roughnessMap: js.UndefOr[Texture | Null] = js.native;
-	val metalnessMap: js.UndefOr[Texture | Null] = js.native;
-	val alphaMap: js.UndefOr[Texture | Null] = js.native;
-	val envMap: js.UndefOr[Texture | Null] = js.native;
-	val envMapIntensity: js.UndefOr[Double] = js.native;
-	val refractionRatio: js.UndefOr[Double] = js.native;
-	val wireframe: js.UndefOr[Boolean] = js.native;
-	val wireframeLinewidth: js.UndefOr[Double] = js.native;
-	val flatShading: js.UndefOr[Boolean] = js.native;
+	var color: js.UndefOr[ColorRepresentation] = js.native;
+	var roughness: js.UndefOr[Double] = js.native;
+	var metalness: js.UndefOr[Double] = js.native;
+	var map: js.UndefOr[Texture | Null] = js.native;
+	var lightMap: js.UndefOr[Texture | Null] = js.native;
+	var lightMapIntensity: js.UndefOr[Double] = js.native;
+	var aoMap: js.UndefOr[Texture | Null] = js.native;
+	var aoMapIntensity: js.UndefOr[Double] = js.native;
+	var emissive: js.UndefOr[ColorRepresentation] = js.native;
+	var emissiveIntensity: js.UndefOr[Double] = js.native;
+	var emissiveMap: js.UndefOr[Texture | Null] = js.native;
+	var bumpMap: js.UndefOr[Texture | Null] = js.native;
+	var bumpScale: js.UndefOr[Double] = js.native;
+	var normalMap: js.UndefOr[Texture | Null] = js.native;
+	var normalMapType: js.UndefOr[NormalMapTypes] = js.native;
+	var normalScale: js.UndefOr[Vector2] = js.native;
+	var displacementMap: js.UndefOr[Texture | Null] = js.native;
+	var displacementScale: js.UndefOr[Double] = js.native;
+	var displacementBias: js.UndefOr[Double] = js.native;
+	var roughnessMap: js.UndefOr[Texture | Null] = js.native;
+	var metalnessMap: js.UndefOr[Texture | Null] = js.native;
+	var alphaMap: js.UndefOr[Texture | Null] = js.native;
+	var envMap: js.UndefOr[Texture | Null] = js.native;
+	var envMapIntensity: js.UndefOr[Double] = js.native;
+	var refractionRatio: js.UndefOr[Double] = js.native;
+	var wireframe: js.UndefOr[Boolean] = js.native;
+	var wireframeLinewidth: js.UndefOr[Double] = js.native;
+	var flatShading: js.UndefOr[Boolean] = js.native;
 
 @js.native
 @JSGlobal("THREE.MeshStandardMaterial")
 class MeshStandardMaterial extends Material:
 	def this(parameters: js.UndefOr[MeshStandardMaterialParameters]) = this()
-	val `type`: String = js.native;
-	val defines: objectType33 = js.native;
-	val color: Color = js.native;
-	val roughness: Double = js.native;
-	val metalness: Double = js.native;
-	val map: Texture | Null = js.native;
-	val lightMap: Texture | Null = js.native;
-	val lightMapIntensity: Double = js.native;
-	val aoMap: Texture | Null = js.native;
-	val aoMapIntensity: Double = js.native;
-	val emissive: Color = js.native;
-	val emissiveIntensity: Double = js.native;
-	val emissiveMap: Texture | Null = js.native;
-	val bumpMap: Texture | Null = js.native;
-	val bumpScale: Double = js.native;
-	val normalMap: Texture | Null = js.native;
-	val normalMapType: NormalMapTypes = js.native;
-	val normalScale: Vector2 = js.native;
-	val displacementMap: Texture | Null = js.native;
-	val displacementScale: Double = js.native;
-	val displacementBias: Double = js.native;
-	val roughnessMap: Texture | Null = js.native;
-	val metalnessMap: Texture | Null = js.native;
-	val alphaMap: Texture | Null = js.native;
-	val envMap: Texture | Null = js.native;
-	val envMapIntensity: Double = js.native;
-	val refractionRatio: Double = js.native;
-	val wireframe: Boolean = js.native;
-	val wireframeLinewidth: Double = js.native;
-	val wireframeLinecap: String = js.native;
-	val wireframeLinejoin: String = js.native;
-	val flatShading: Boolean = js.native;
-	val isMeshStandardMaterial: Boolean = js.native;
-	def setValues(parameters: MeshStandardMaterialParameters): Unit = js.native
+
+
+	var color: Color = js.native;
+	var roughness: Double = js.native;
+	var metalness: Double = js.native;
+	var map: Texture | Null = js.native;
+	var lightMap: Texture | Null = js.native;
+	var lightMapIntensity: Double = js.native;
+	var aoMap: Texture | Null = js.native;
+	var aoMapIntensity: Double = js.native;
+	var emissive: Color = js.native;
+	var emissiveIntensity: Double = js.native;
+	var emissiveMap: Texture | Null = js.native;
+	var bumpMap: Texture | Null = js.native;
+	var bumpScale: Double = js.native;
+	var normalMap: Texture | Null = js.native;
+	var normalMapType: NormalMapTypes = js.native;
+	var normalScale: Vector2 = js.native;
+	var displacementMap: Texture | Null = js.native;
+	var displacementScale: Double = js.native;
+	var displacementBias: Double = js.native;
+	var roughnessMap: Texture | Null = js.native;
+	var metalnessMap: Texture | Null = js.native;
+	var alphaMap: Texture | Null = js.native;
+	var envMap: Texture | Null = js.native;
+	var envMapIntensity: Double = js.native;
+	var refractionRatio: Double = js.native;
+	var wireframe: Boolean = js.native;
+	var wireframeLinewidth: Double = js.native;
+	var wireframeLinecap: String = js.native;
+	var wireframeLinejoin: String = js.native;
+	var flatShading: Boolean = js.native;
+	var isMeshStandardMaterial: Boolean = js.native;
+
 
 @js.native
-sealed trait objectType35 extends js.Object:
-	val derivatives: js.UndefOr[Boolean] = js.native;
-	val fragDepth: js.UndefOr[Boolean] = js.native;
-	val drawBuffers: js.UndefOr[Boolean] = js.native;
-	val shaderTextureLOD: js.UndefOr[Boolean] = js.native;
+sealed trait objectType33 extends js.Object:
+	var derivatives: js.UndefOr[Boolean] = js.native;
+	var fragDepth: js.UndefOr[Boolean] = js.native;
+	var drawBuffers: js.UndefOr[Boolean] = js.native;
+	var shaderTextureLOD: js.UndefOr[Boolean] = js.native;
 
 @js.native
-sealed trait objectType34 extends js.Object:
+sealed trait objectType32 extends js.Object:
 	@JSBracketAccess
 	def apply(uniform: String): IUniform[js.Any] = js.native
 
 @js.native
-sealed trait objectType33 extends js.Object:
+sealed trait objectType31 extends js.Object:
 	@JSBracketAccess
 	def apply(key: String): js.Any = js.native
 
 @js.native
-sealed trait objectType36 extends js.Object:
-	val derivatives: Boolean = js.native;
-	val fragDepth: Boolean = js.native;
-	val drawBuffers: Boolean = js.native;
-	val shaderTextureLOD: Boolean = js.native;
+sealed trait objectType34 extends js.Object:
+	var derivatives: Boolean = js.native;
+	var fragDepth: Boolean = js.native;
+	var drawBuffers: Boolean = js.native;
+	var shaderTextureLOD: Boolean = js.native;

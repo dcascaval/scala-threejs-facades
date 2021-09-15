@@ -37,39 +37,39 @@ import typings.three.three.lights.*
 @JSGlobal("THREE.ColorKeyframeTrack")
 class ColorKeyframeTrack extends KeyframeTrack:
 	def this(name: String, times: js.Array[js.Any], values: js.Array[js.Any], interpolation: js.UndefOr[InterpolationModes]) = this()
-	val ValueTypeName: String = js.native;
+
 
 @js.native
 @JSGlobal("THREE.QuaternionKeyframeTrack")
 class QuaternionKeyframeTrack extends KeyframeTrack:
 	def this(name: String, times: js.Array[js.Any], values: js.Array[js.Any], interpolation: js.UndefOr[InterpolationModes]) = this()
-	val ValueTypeName: String = js.native;
+
 
 @js.native
 @JSGlobal("THREE.StringKeyframeTrack")
 class StringKeyframeTrack extends KeyframeTrack:
 	def this(name: String, times: js.Array[js.Any], values: js.Array[js.Any], interpolation: js.UndefOr[InterpolationModes]) = this()
-	val ValueTypeName: String = js.native;
+
 
 @js.native
 @JSGlobal("THREE.BooleanKeyframeTrack")
 class BooleanKeyframeTrack extends KeyframeTrack:
 	def this(name: String, times: js.Array[js.Any], values: js.Array[js.Any]) = this()
-	val ValueTypeName: String = js.native;
+
 
 @js.native
 @JSGlobal("THREE.NumberKeyframeTrack")
 class NumberKeyframeTrack extends KeyframeTrack:
 	def this(name: String, times: js.Array[js.Any], values: js.Array[js.Any], interpolation: js.UndefOr[InterpolationModes]) = this()
-	val ValueTypeName: String = js.native;
+
 
 @js.native
 @JSGlobal("THREE.VectorKeyframeTrack")
 class VectorKeyframeTrack extends KeyframeTrack:
 	def this(name: String, times: js.Array[js.Any], values: js.Array[js.Any], interpolation: js.UndefOr[InterpolationModes]) = this()
-	val ValueTypeName: String = js.native;
+
 
 @js.native
-sealed trait objectType10 extends js.Object:
-	val total: Double = js.native;
-	val inUse: Double = js.native;
+sealed trait objectType9 extends js.Object:
+	var total: Double = js.native;
+	var inUse: Double = js.native;

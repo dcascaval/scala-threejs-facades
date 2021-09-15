@@ -37,52 +37,58 @@ import typings.three.three.lights.*
 @JSGlobal("THREE.RingGeometry")
 class RingGeometry extends BufferGeometry:
 	def this(innerRadius: js.UndefOr[Double], outerRadius: js.UndefOr[Double], thetaSegments: js.UndefOr[Double], phiSegments: js.UndefOr[Double], thetaStart: js.UndefOr[Double], thetaLength: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val parameters: objectType73 = js.native;
+
+	var parameters: objectType71 = js.native;
 
 
-object RingGeometry:
+@js.native
+@JSGlobal("THREE.RingGeometry")
+object RingGeometry extends js.Object:
 	def fromJSON(data: js.Any): RingGeometry = js.native
 
 @js.native
 @JSGlobal("THREE.WireframeGeometry")
 class WireframeGeometry extends BufferGeometry:
 	def this(geometry: BufferGeometry) = this()
-	val `type`: String = js.native;
+
 
 @js.native
 @JSGlobal("THREE.IcosahedronGeometry")
 class IcosahedronGeometry extends PolyhedronGeometry:
 	def this(radius: js.UndefOr[Double], detail: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
 
 
-object IcosahedronGeometry:
+
+@js.native
+@JSGlobal("THREE.IcosahedronGeometry")
+object IcosahedronGeometry extends js.Object:
 	def fromJSON(data: js.Any): IcosahedronGeometry = js.native
 
 @js.native
 @JSGlobal("THREE.CylinderGeometry")
 class CylinderGeometry extends BufferGeometry:
 	def this(radiusTop: js.UndefOr[Double], radiusBottom: js.UndefOr[Double], height: js.UndefOr[Double], radialSegments: js.UndefOr[Double], heightSegments: js.UndefOr[Double], openEnded: js.UndefOr[Boolean], thetaStart: js.UndefOr[Double], thetaLength: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val parameters: objectType74 = js.native;
+
+	var parameters: objectType72 = js.native;
 
 
-object CylinderGeometry:
+@js.native
+@JSGlobal("THREE.CylinderGeometry")
+object CylinderGeometry extends js.Object:
 	def fromJSON(data: js.Any): CylinderGeometry = js.native
 
 @js.native
 sealed trait ExtrudeGeometryOptions extends js.Object:
-	val curveSegments: js.UndefOr[Double] = js.native;
-	val steps: js.UndefOr[Double] = js.native;
-	val depth: js.UndefOr[Double] = js.native;
-	val bevelEnabled: js.UndefOr[Boolean] = js.native;
-	val bevelThickness: js.UndefOr[Double] = js.native;
-	val bevelSize: js.UndefOr[Double] = js.native;
-	val bevelOffset: js.UndefOr[Double] = js.native;
-	val bevelSegments: js.UndefOr[Double] = js.native;
-	val extrudePath: js.UndefOr[Curve[Vector3]] = js.native;
-	val UVGenerator: js.UndefOr[UVGenerator] = js.native;
+	var curveSegments: js.UndefOr[Double] = js.native;
+	var steps: js.UndefOr[Double] = js.native;
+	var depth: js.UndefOr[Double] = js.native;
+	var bevelEnabled: js.UndefOr[Boolean] = js.native;
+	var bevelThickness: js.UndefOr[Double] = js.native;
+	var bevelSize: js.UndefOr[Double] = js.native;
+	var bevelOffset: js.UndefOr[Double] = js.native;
+	var bevelSegments: js.UndefOr[Double] = js.native;
+	var extrudePath: js.UndefOr[Curve[Vector3]] = js.native;
+	var UVGenerator: js.UndefOr[UVGenerator] = js.native;
 
 @js.native
 sealed trait UVGenerator extends js.Object:
@@ -93,350 +99,380 @@ sealed trait UVGenerator extends js.Object:
 @JSGlobal("THREE.ExtrudeGeometry")
 class ExtrudeGeometry extends BufferGeometry:
 	def this(shapes: Shape | js.Array[Shape], options: js.UndefOr[ExtrudeGeometryOptions]) = this()
-	val `type`: String = js.native;
+
 	def addShapeList(shapes: js.Array[Shape], options: js.UndefOr[js.Any]): Unit = js.native
 	def addShape(shape: Shape, options: js.UndefOr[js.Any]): Unit = js.native
 
 
-object ExtrudeGeometry:
+@js.native
+@JSGlobal("THREE.ExtrudeGeometry")
+object ExtrudeGeometry extends js.Object:
 	def fromJSON(data: js.Any): ExtrudeGeometry = js.native
 
 @js.native
 @JSGlobal("THREE.OctahedronGeometry")
 class OctahedronGeometry extends PolyhedronGeometry:
 	def this(radius: js.UndefOr[Double], detail: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
 
 
-object OctahedronGeometry:
+
+@js.native
+@JSGlobal("THREE.OctahedronGeometry")
+object OctahedronGeometry extends js.Object:
 	def fromJSON(data: js.Any): OctahedronGeometry = js.native
 
 @js.native
 @JSGlobal("THREE.ShapeGeometry")
 class ShapeGeometry extends BufferGeometry:
 	def this(shapes: Shape | js.Array[Shape], curveSegments: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
 
 
-object ShapeGeometry:
+
+@js.native
+@JSGlobal("THREE.ShapeGeometry")
+object ShapeGeometry extends js.Object:
 	def fromJSON(data: js.Any): ShapeGeometry = js.native
 
 @js.native
 @JSGlobal("THREE.ParametricGeometry")
 class ParametricGeometry extends BufferGeometry:
 	def this(func: js.Function3[Double,Double,Vector3,Unit], slices: Double, stacks: Double) = this()
-	val `type`: String = js.native;
-	val parameters: objectType75 = js.native;
+
+	var parameters: objectType73 = js.native;
 
 @js.native
 @JSGlobal("THREE.DodecahedronGeometry")
 class DodecahedronGeometry extends PolyhedronGeometry:
 	def this(radius: js.UndefOr[Double], detail: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
 
 
-object DodecahedronGeometry:
+
+@js.native
+@JSGlobal("THREE.DodecahedronGeometry")
+object DodecahedronGeometry extends js.Object:
 	def fromJSON(data: js.Any): DodecahedronGeometry = js.native
 
 @js.native
 @JSGlobal("THREE.TorusKnotGeometry")
 class TorusKnotGeometry extends BufferGeometry:
 	def this(radius: js.UndefOr[Double], tube: js.UndefOr[Double], tubularSegments: js.UndefOr[Double], radialSegments: js.UndefOr[Double], p: js.UndefOr[Double], q: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val parameters: objectType76 = js.native;
+
+	var parameters: objectType74 = js.native;
 
 
-object TorusKnotGeometry:
+@js.native
+@JSGlobal("THREE.TorusKnotGeometry")
+object TorusKnotGeometry extends js.Object:
 	def fromJSON(data: js.Any): TorusKnotGeometry = js.native
 
 @js.native
 @JSGlobal("THREE.PlaneGeometry")
 class PlaneGeometry extends BufferGeometry:
 	def this(width: js.UndefOr[Double], height: js.UndefOr[Double], widthSegments: js.UndefOr[Double], heightSegments: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val parameters: objectType77 = js.native;
+
+	var parameters: objectType75 = js.native;
 
 
-object PlaneGeometry:
+@js.native
+@JSGlobal("THREE.PlaneGeometry")
+object PlaneGeometry extends js.Object:
 	def fromJSON(data: js.Any): PlaneGeometry = js.native
 
 @js.native
 @JSGlobal("THREE.BoxGeometry")
 class BoxGeometry extends BufferGeometry:
 	def this(width: js.UndefOr[Double], height: js.UndefOr[Double], depth: js.UndefOr[Double], widthSegments: js.UndefOr[Double], heightSegments: js.UndefOr[Double], depthSegments: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val parameters: objectType78 = js.native;
+
+	var parameters: objectType76 = js.native;
 
 
-object BoxGeometry:
+@js.native
+@JSGlobal("THREE.BoxGeometry")
+object BoxGeometry extends js.Object:
 	def fromJSON(data: js.Any): BoxGeometry = js.native
 
 @js.native
 @JSGlobal("THREE.SphereGeometry")
 class SphereGeometry extends BufferGeometry:
 	def this(radius: js.UndefOr[Double], widthSegments: js.UndefOr[Double], heightSegments: js.UndefOr[Double], phiStart: js.UndefOr[Double], phiLength: js.UndefOr[Double], thetaStart: js.UndefOr[Double], thetaLength: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val parameters: objectType79 = js.native;
+
+	var parameters: objectType77 = js.native;
 
 
-object SphereGeometry:
+@js.native
+@JSGlobal("THREE.SphereGeometry")
+object SphereGeometry extends js.Object:
 	def fromJSON(data: js.Any): SphereGeometry = js.native
 
 @js.native
 @JSGlobal("THREE.EdgesGeometry")
 class EdgesGeometry extends BufferGeometry:
 	def this(geometry: BufferGeometry, thresholdAngle: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val parameters: objectType80 = js.native;
+
+	var parameters: objectType78 = js.native;
 
 @js.native
 @JSGlobal("THREE.ConeGeometry")
 class ConeGeometry extends CylinderGeometry:
 	def this(radius: js.UndefOr[Double], height: js.UndefOr[Double], radialSegments: js.UndefOr[Double], heightSegments: js.UndefOr[Double], openEnded: js.UndefOr[Boolean], thetaStart: js.UndefOr[Double], thetaLength: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
 
 
-object ConeGeometry:
+
+@js.native
+@JSGlobal("THREE.ConeGeometry")
+object ConeGeometry extends js.Object:
 	def fromJSON(data: js.Any): ConeGeometry = js.native
 
 @js.native
 @JSGlobal("THREE.CircleGeometry")
 class CircleGeometry extends BufferGeometry:
 	def this(radius: js.UndefOr[Double], segments: js.UndefOr[Double], thetaStart: js.UndefOr[Double], thetaLength: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val parameters: objectType81 = js.native;
+
+	var parameters: objectType79 = js.native;
 
 
-object CircleGeometry:
+@js.native
+@JSGlobal("THREE.CircleGeometry")
+object CircleGeometry extends js.Object:
 	def fromJSON(data: js.Any): CircleGeometry = js.native
 
 @js.native
 @JSGlobal("THREE.PolyhedronGeometry")
 class PolyhedronGeometry extends BufferGeometry:
 	def this(vertices: js.Array[Double], indices: js.Array[Double], radius: js.UndefOr[Double], detail: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val parameters: objectType82 = js.native;
+
+	var parameters: objectType80 = js.native;
 
 
-object PolyhedronGeometry:
+@js.native
+@JSGlobal("THREE.PolyhedronGeometry")
+object PolyhedronGeometry extends js.Object:
 	def fromJSON(data: js.Any): PolyhedronGeometry = js.native
 
 @js.native
 @JSGlobal("THREE.LatheGeometry")
 class LatheGeometry extends BufferGeometry:
 	def this(points: js.Array[Vector2], segments: js.UndefOr[Double], phiStart: js.UndefOr[Double], phiLength: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val parameters: objectType83 = js.native;
+
+	var parameters: objectType81 = js.native;
 
 
-object LatheGeometry:
+@js.native
+@JSGlobal("THREE.LatheGeometry")
+object LatheGeometry extends js.Object:
 	def fromJSON(data: js.Any): LatheGeometry = js.native
 
 @js.native
 sealed trait TextGeometryParameters extends js.Object:
-	val font: Font = js.native;
-	val size: js.UndefOr[Double] = js.native;
-	val height: js.UndefOr[Double] = js.native;
-	val curveSegments: js.UndefOr[Double] = js.native;
-	val bevelEnabled: js.UndefOr[Boolean] = js.native;
-	val bevelThickness: js.UndefOr[Double] = js.native;
-	val bevelSize: js.UndefOr[Double] = js.native;
-	val bevelOffset: js.UndefOr[Double] = js.native;
-	val bevelSegments: js.UndefOr[Double] = js.native;
+	var font: Font = js.native;
+	var size: js.UndefOr[Double] = js.native;
+	var height: js.UndefOr[Double] = js.native;
+	var curveSegments: js.UndefOr[Double] = js.native;
+	var bevelEnabled: js.UndefOr[Boolean] = js.native;
+	var bevelThickness: js.UndefOr[Double] = js.native;
+	var bevelSize: js.UndefOr[Double] = js.native;
+	var bevelOffset: js.UndefOr[Double] = js.native;
+	var bevelSegments: js.UndefOr[Double] = js.native;
 
 @js.native
 @JSGlobal("THREE.TextGeometry")
 class TextGeometry extends ExtrudeGeometry:
 	def this(text: String, parameters: TextGeometryParameters) = this()
-	val `type`: String = js.native;
-	val parameters: objectType84 = js.native;
+
+	var parameters: objectType82 = js.native;
 
 @js.native
 @JSGlobal("THREE.TorusGeometry")
 class TorusGeometry extends BufferGeometry:
 	def this(radius: js.UndefOr[Double], tube: js.UndefOr[Double], radialSegments: js.UndefOr[Double], tubularSegments: js.UndefOr[Double], arc: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val parameters: objectType85 = js.native;
+
+	var parameters: objectType83 = js.native;
 
 
-object TorusGeometry:
+@js.native
+@JSGlobal("THREE.TorusGeometry")
+object TorusGeometry extends js.Object:
 	def fromJSON(data: js.Any): TorusGeometry = js.native
 
 @js.native
 @JSGlobal("THREE.TetrahedronGeometry")
 class TetrahedronGeometry extends PolyhedronGeometry:
 	def this(radius: js.UndefOr[Double], detail: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
 
 
-object TetrahedronGeometry:
+
+@js.native
+@JSGlobal("THREE.TetrahedronGeometry")
+object TetrahedronGeometry extends js.Object:
 	def fromJSON(data: js.Any): TetrahedronGeometry = js.native
 
 @js.native
 @JSGlobal("THREE.TubeGeometry")
 class TubeGeometry extends BufferGeometry:
 	def this(path: Curve[Vector3], tubularSegments: js.UndefOr[Double], radius: js.UndefOr[Double], radiusSegments: js.UndefOr[Double], closed: js.UndefOr[Boolean]) = this()
-	val `type`: String = js.native;
-	val parameters: objectType86 = js.native;
-	val tangents: js.Array[Vector3] = js.native;
-	val normals: js.Array[Vector3] = js.native;
-	val binormals: js.Array[Vector3] = js.native;
+
+	var parameters: objectType84 = js.native;
+	var tangents: js.Array[Vector3] = js.native;
+	var normals: js.Array[Vector3] = js.native;
+	var binormals: js.Array[Vector3] = js.native;
 
 
-object TubeGeometry:
+@js.native
+@JSGlobal("THREE.TubeGeometry")
+object TubeGeometry extends js.Object:
 	def fromJSON(data: js.Any): TubeGeometry = js.native
 
 @js.native
-sealed trait objectType77 extends js.Object:
-	val width: Double = js.native;
-	val height: Double = js.native;
-	val widthSegments: Double = js.native;
-	val heightSegments: Double = js.native;
+sealed trait objectType75 extends js.Object:
+	var width: Double = js.native;
+	var height: Double = js.native;
+	var widthSegments: Double = js.native;
+	var heightSegments: Double = js.native;
 
 @js.native
-sealed trait objectType66 extends js.Object:
-	val value: js.Array[js.Any] = js.native;
-	val properties: objectType87 = js.native;
-
-@js.native
-sealed trait objectType73 extends js.Object:
-	val innerRadius: Double = js.native;
-	val outerRadius: Double = js.native;
-	val thetaSegments: Double = js.native;
-	val phiSegments: Double = js.native;
-	val thetaStart: Double = js.native;
-	val thetaLength: Double = js.native;
-
-@js.native
-sealed trait objectType70 extends js.Object:
-	val value: js.Array[js.Any] = js.native;
-	val properties: objectType88 = js.native;
-
-@js.native
-sealed trait objectType78 extends js.Object:
-	val width: Double = js.native;
-	val height: Double = js.native;
-	val depth: Double = js.native;
-	val widthSegments: Double = js.native;
-	val heightSegments: Double = js.native;
-	val depthSegments: Double = js.native;
-
-@js.native
-sealed trait objectType76 extends js.Object:
-	val radius: Double = js.native;
-	val tube: Double = js.native;
-	val tubularSegments: Double = js.native;
-	val radialSegments: Double = js.native;
-	val p: Double = js.native;
-	val q: Double = js.native;
-
-@js.native
-sealed trait objectType85 extends js.Object:
-	val radius: Double = js.native;
-	val tube: Double = js.native;
-	val radialSegments: Double = js.native;
-	val tubularSegments: Double = js.native;
-	val arc: Double = js.native;
-
-@js.native
-sealed trait objectType72 extends js.Object:
-	val directionalLength: Double = js.native;
-	val pointLength: Double = js.native;
-	val spotLength: Double = js.native;
-	val rectAreaLength: Double = js.native;
-	val hemiLength: Double = js.native;
-	val numDirectionalShadows: Double = js.native;
-	val numPointShadows: Double = js.native;
-	val numSpotShadows: Double = js.native;
+sealed trait objectType64 extends js.Object:
+	var value: js.Array[js.Any] = js.native;
+	var properties: objectType85 = js.native;
 
 @js.native
 sealed trait objectType71 extends js.Object:
-	val value: js.Array[js.Any] = js.native;
-	val properties: objectType89 = js.native;
-
-@js.native
-sealed trait objectType74 extends js.Object:
-	val radiusTop: Double = js.native;
-	val radiusBottom: Double = js.native;
-	val height: Double = js.native;
-	val radialSegments: Double = js.native;
-	val heightSegments: Double = js.native;
-	val openEnded: Boolean = js.native;
-	val thetaStart: Double = js.native;
-	val thetaLength: Double = js.native;
-
-@js.native
-sealed trait objectType80 extends js.Object:
-	val thresholdAngle: Double = js.native;
-
-@js.native
-sealed trait objectType75 extends js.Object:
-	val func: js.Function3[Double,Double,Vector3,Unit] = js.native;
-	val slices: Double = js.native;
-	val stacks: Double = js.native;
-
-@js.native
-sealed trait objectType67 extends js.Object:
-	val value: js.Array[js.Any] = js.native;
-	val properties: objectType90 = js.native;
-
-@js.native
-sealed trait objectType82 extends js.Object:
-	val vertices: js.Array[Double] = js.native;
-	val indices: js.Array[Double] = js.native;
-	val radius: Double = js.native;
-	val detail: Double = js.native;
-
-@js.native
-sealed trait objectType69 extends js.Object:
-	val value: js.Array[js.Any] = js.native;
-	val properties: objectType91 = js.native;
-
-@js.native
-sealed trait objectType86 extends js.Object:
-	val path: Curve[Vector3] = js.native;
-	val tubularSegments: Double = js.native;
-	val radius: Double = js.native;
-	val radialSegments: Double = js.native;
-	val closed: Boolean = js.native;
-
-@js.native
-sealed trait objectType81 extends js.Object:
-	val radius: Double = js.native;
-	val segments: Double = js.native;
-	val thetaStart: Double = js.native;
-	val thetaLength: Double = js.native;
+	var innerRadius: Double = js.native;
+	var outerRadius: Double = js.native;
+	var thetaSegments: Double = js.native;
+	var phiSegments: Double = js.native;
+	var thetaStart: Double = js.native;
+	var thetaLength: Double = js.native;
 
 @js.native
 sealed trait objectType68 extends js.Object:
-	val value: js.Array[js.Any] = js.native;
-	val properties: objectType92 = js.native;
+	var value: js.Array[js.Any] = js.native;
+	var properties: objectType86 = js.native;
+
+@js.native
+sealed trait objectType76 extends js.Object:
+	var width: Double = js.native;
+	var height: Double = js.native;
+	var depth: Double = js.native;
+	var widthSegments: Double = js.native;
+	var heightSegments: Double = js.native;
+	var depthSegments: Double = js.native;
+
+@js.native
+sealed trait objectType74 extends js.Object:
+	var radius: Double = js.native;
+	var tube: Double = js.native;
+	var tubularSegments: Double = js.native;
+	var radialSegments: Double = js.native;
+	var p: Double = js.native;
+	var q: Double = js.native;
 
 @js.native
 sealed trait objectType83 extends js.Object:
-	val points: js.Array[Vector2] = js.native;
-	val segments: Double = js.native;
-	val phiStart: Double = js.native;
-	val phiLength: Double = js.native;
+	var radius: Double = js.native;
+	var tube: Double = js.native;
+	var radialSegments: Double = js.native;
+	var tubularSegments: Double = js.native;
+	var arc: Double = js.native;
+
+@js.native
+sealed trait objectType70 extends js.Object:
+	var directionalLength: Double = js.native;
+	var pointLength: Double = js.native;
+	var spotLength: Double = js.native;
+	var rectAreaLength: Double = js.native;
+	var hemiLength: Double = js.native;
+	var numDirectionalShadows: Double = js.native;
+	var numPointShadows: Double = js.native;
+	var numSpotShadows: Double = js.native;
+
+@js.native
+sealed trait objectType69 extends js.Object:
+	var value: js.Array[js.Any] = js.native;
+	var properties: objectType87 = js.native;
+
+@js.native
+sealed trait objectType72 extends js.Object:
+	var radiusTop: Double = js.native;
+	var radiusBottom: Double = js.native;
+	var height: Double = js.native;
+	var radialSegments: Double = js.native;
+	var heightSegments: Double = js.native;
+	var openEnded: Boolean = js.native;
+	var thetaStart: Double = js.native;
+	var thetaLength: Double = js.native;
+
+@js.native
+sealed trait objectType78 extends js.Object:
+	var thresholdAngle: Double = js.native;
+
+@js.native
+sealed trait objectType73 extends js.Object:
+	var func: js.Function3[Double,Double,Vector3,Unit] = js.native;
+	var slices: Double = js.native;
+	var stacks: Double = js.native;
+
+@js.native
+sealed trait objectType65 extends js.Object:
+	var value: js.Array[js.Any] = js.native;
+	var properties: objectType88 = js.native;
+
+@js.native
+sealed trait objectType80 extends js.Object:
+	var vertices: js.Array[Double] = js.native;
+	var indices: js.Array[Double] = js.native;
+	var radius: Double = js.native;
+	var detail: Double = js.native;
+
+@js.native
+sealed trait objectType67 extends js.Object:
+	var value: js.Array[js.Any] = js.native;
+	var properties: objectType89 = js.native;
 
 @js.native
 sealed trait objectType84 extends js.Object:
-	val font: Font = js.native;
-	val size: Double = js.native;
-	val height: Double = js.native;
-	val curveSegments: Double = js.native;
-	val bevelEnabled: Boolean = js.native;
-	val bevelThickness: Double = js.native;
-	val bevelSize: Double = js.native;
-	val bevelOffset: Double = js.native;
-	val bevelSegments: Double = js.native;
+	var path: Curve[Vector3] = js.native;
+	var tubularSegments: Double = js.native;
+	var radius: Double = js.native;
+	var radialSegments: Double = js.native;
+	var closed: Boolean = js.native;
 
 @js.native
 sealed trait objectType79 extends js.Object:
-	val radius: Double = js.native;
-	val widthSegments: Double = js.native;
-	val heightSegments: Double = js.native;
-	val phiStart: Double = js.native;
-	val phiLength: Double = js.native;
-	val thetaStart: Double = js.native;
-	val thetaLength: Double = js.native;
+	var radius: Double = js.native;
+	var segments: Double = js.native;
+	var thetaStart: Double = js.native;
+	var thetaLength: Double = js.native;
+
+@js.native
+sealed trait objectType66 extends js.Object:
+	var value: js.Array[js.Any] = js.native;
+	var properties: objectType90 = js.native;
+
+@js.native
+sealed trait objectType81 extends js.Object:
+	var points: js.Array[Vector2] = js.native;
+	var segments: Double = js.native;
+	var phiStart: Double = js.native;
+	var phiLength: Double = js.native;
+
+@js.native
+sealed trait objectType82 extends js.Object:
+	var font: Font = js.native;
+	var size: Double = js.native;
+	var height: Double = js.native;
+	var curveSegments: Double = js.native;
+	var bevelEnabled: Boolean = js.native;
+	var bevelThickness: Double = js.native;
+	var bevelSize: Double = js.native;
+	var bevelOffset: Double = js.native;
+	var bevelSegments: Double = js.native;
+
+@js.native
+sealed trait objectType77 extends js.Object:
+	var radius: Double = js.native;
+	var widthSegments: Double = js.native;
+	var heightSegments: Double = js.native;
+	var phiStart: Double = js.native;
+	var phiLength: Double = js.native;
+	var thetaStart: Double = js.native;
+	var thetaLength: Double = js.native;

@@ -48,8 +48,8 @@ object ImageUtils extends js.Object:
 
 @js.native
 sealed trait Vec2 extends js.Object:
-	val x: Double = js.native;
-	val y: Double = js.native;
+	var x: Double = js.native;
+	var y: Double = js.native;
 
 @js.native
 @JSGlobal("THREE.ShapeUtils")

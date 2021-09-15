@@ -37,82 +37,82 @@ import typings.three.three.lights.*
 @JSGlobal("THREE.LineCurve3")
 class LineCurve3 extends Curve[Vector3]:
 	def this(v1: Vector3, v2: Vector3) = this()
-	val `type`: String = js.native;
-	val v1: Vector3 = js.native;
-	val v2: Vector3 = js.native;
+
+	var v1: Vector3 = js.native;
+	var v2: Vector3 = js.native;
 
 @js.native
 @JSGlobal("THREE.QuadraticBezierCurve")
 class QuadraticBezierCurve extends Curve[Vector2]:
 	def this(v0: Vector2, v1: Vector2, v2: Vector2) = this()
-	val `type`: String = js.native;
-	val v0: Vector2 = js.native;
-	val v1: Vector2 = js.native;
-	val v2: Vector2 = js.native;
+
+	var v0: Vector2 = js.native;
+	var v1: Vector2 = js.native;
+	var v2: Vector2 = js.native;
 
 @js.native
 @JSGlobal("THREE.ArcCurve")
 class ArcCurve extends EllipseCurve:
 	def this(aX: Double, aY: Double, aRadius: Double, aStartAngle: Double, aEndAngle: Double, aClockwise: Boolean) = this()
-	val `type`: String = js.native;
+
 
 @js.native
 @JSGlobal("THREE.CubicBezierCurve3")
 class CubicBezierCurve3 extends Curve[Vector3]:
 	def this(v0: Vector3, v1: Vector3, v2: Vector3, v3: Vector3) = this()
-	val `type`: String = js.native;
-	val v0: Vector3 = js.native;
-	val v1: Vector3 = js.native;
-	val v2: Vector3 = js.native;
-	val v3: Vector3 = js.native;
+
+	var v0: Vector3 = js.native;
+	var v1: Vector3 = js.native;
+	var v2: Vector3 = js.native;
+	var v3: Vector3 = js.native;
 
 @js.native
 @JSGlobal("THREE.LineCurve")
 class LineCurve extends Curve[Vector2]:
 	def this(v1: Vector2, v2: Vector2) = this()
-	val `type`: String = js.native;
-	val v1: Vector2 = js.native;
-	val v2: Vector2 = js.native;
+
+	var v1: Vector2 = js.native;
+	var v2: Vector2 = js.native;
 
 @js.native
 @JSGlobal("THREE.SplineCurve")
 class SplineCurve extends Curve[Vector2]:
 	def this(points: js.UndefOr[js.Array[Vector2]]) = this()
-	val `type`: String = js.native;
-	val points: js.Array[Vector2] = js.native;
+
+	var points: js.Array[Vector2] = js.native;
 
 @js.native
 @JSGlobal("THREE.EllipseCurve")
 class EllipseCurve extends Curve[Vector2]:
 	def this(aX: Double, aY: Double, xRadius: Double, yRadius: Double, aStartAngle: Double, aEndAngle: Double, aClockwise: Boolean, aRotation: Double) = this()
-	val `type`: String = js.native;
-	val aX: Double = js.native;
-	val aY: Double = js.native;
-	val xRadius: Double = js.native;
-	val yRadius: Double = js.native;
-	val aStartAngle: Double = js.native;
-	val aEndAngle: Double = js.native;
-	val aClockwise: Boolean = js.native;
-	val aRotation: Double = js.native;
+
+	var aX: Double = js.native;
+	var aY: Double = js.native;
+	var xRadius: Double = js.native;
+	var yRadius: Double = js.native;
+	var aStartAngle: Double = js.native;
+	var aEndAngle: Double = js.native;
+	var aClockwise: Boolean = js.native;
+	var aRotation: Double = js.native;
 
 @js.native
 @JSGlobal("THREE.QuadraticBezierCurve3")
 class QuadraticBezierCurve3 extends Curve[Vector3]:
 	def this(v0: Vector3, v1: Vector3, v2: Vector3) = this()
-	val `type`: String = js.native;
-	val v0: Vector3 = js.native;
-	val v1: Vector3 = js.native;
-	val v2: Vector3 = js.native;
+
+	var v0: Vector3 = js.native;
+	var v1: Vector3 = js.native;
+	var v2: Vector3 = js.native;
 
 @js.native
 @JSGlobal("THREE.CubicBezierCurve")
 class CubicBezierCurve extends Curve[Vector2]:
 	def this(v0: Vector2, v1: Vector2, v2: Vector2, v3: Vector2) = this()
-	val `type`: String = js.native;
-	val v0: Vector2 = js.native;
-	val v1: Vector2 = js.native;
-	val v2: Vector2 = js.native;
-	val v3: Vector2 = js.native;
+
+	var v0: Vector2 = js.native;
+	var v1: Vector2 = js.native;
+	var v2: Vector2 = js.native;
+	var v3: Vector2 = js.native;
 
 @js.native
 @JSGlobal("THREE.CurveUtils")
@@ -126,5 +126,5 @@ object CurveUtils extends js.Object:
 @JSGlobal("THREE.CatmullRomCurve3")
 class CatmullRomCurve3 extends Curve[Vector3]:
 	def this(points: js.UndefOr[js.Array[Vector3]], closed: js.UndefOr[Boolean], curveType: js.UndefOr[String], tension: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val points: js.Array[Vector3] = js.native;
+
+	var points: js.Array[Vector3] = js.native;

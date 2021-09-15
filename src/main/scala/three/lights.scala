@@ -37,69 +37,70 @@ import typings.three.three.audio.*
 @JSGlobal("THREE.HemisphereLightProbe")
 class HemisphereLightProbe extends LightProbe:
 	def this(skyColor: js.UndefOr[ColorRepresentation], groundColor: js.UndefOr[ColorRepresentation], intensity: js.UndefOr[Double]) = this()
-	var isHemisphereLightProbe: Boolean = js.native;
+	val isHemisphereLightProbe: Boolean = js.native;
 
 @js.native
 @JSGlobal("THREE.DirectionalLight")
 class DirectionalLight extends Light:
 	def this(color: js.UndefOr[ColorRepresentation], intensity: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val position: Vector3 = js.native;
-	val target: Object3D = js.native;
-	val intensity: Double = js.native;
-	val shadow: DirectionalLightShadow = js.native;
-	var isDirectionalLight: Boolean = js.native;
+
+
+	var target: Object3D = js.native;
+
+
+	val isDirectionalLight: Boolean = js.native;
 
 @js.native
 @JSGlobal("THREE.PointLightShadow")
-class PointLightShadow extends LightShadow:
-	val camera: PerspectiveCamera = js.native;
+class PointLightShadow extends LightShadow
+
 
 @js.native
 @JSGlobal("THREE.SpotLightShadow")
 class SpotLightShadow extends LightShadow:
-	val camera: PerspectiveCamera = js.native;
-	var isSpotLightShadow: Boolean = js.native;
-	val focus: Double = js.native;
+
+	val isSpotLightShadow: Boolean = js.native;
+	var focus: Double = js.native;
 
 @js.native
 @JSGlobal("THREE.SpotLight")
 class SpotLight extends Light:
 	def this(color: js.UndefOr[ColorRepresentation], intensity: js.UndefOr[Double], distance: js.UndefOr[Double], angle: js.UndefOr[Double], penumbra: js.UndefOr[Double], decay: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val position: Vector3 = js.native;
-	val target: Object3D = js.native;
-	val intensity: Double = js.native;
-	val distance: Double = js.native;
-	val angle: Double = js.native;
-	val decay: Double = js.native;
-	val shadow: SpotLightShadow = js.native;
-	val power: Double = js.native;
-	val penumbra: Double = js.native;
-	var isSpotLight: Boolean = js.native;
+
+
+	var target: Object3D = js.native;
+
+	var distance: Double = js.native;
+	var angle: Double = js.native;
+	var decay: Double = js.native;
+
+	var power: Double = js.native;
+	var penumbra: Double = js.native;
+	val isSpotLight: Boolean = js.native;
 
 @js.native
 @JSGlobal("THREE.AmbientLightProbe")
 class AmbientLightProbe extends LightProbe:
 	def this(color: js.UndefOr[ColorRepresentation], intensity: js.UndefOr[Double]) = this()
-	var isAmbientLightProbe: Boolean = js.native;
+	val isAmbientLightProbe: Boolean = js.native;
 
 @js.native
 @JSGlobal("THREE.LightShadow")
 class LightShadow extends js.Object:
 	def this(camera: Camera) = this()
-	val camera: Camera = js.native;
-	val bias: Double = js.native;
-	val normalBias: Double = js.native;
-	val radius: Double = js.native;
-	val mapSize: Vector2 = js.native;
-	val map: RenderTarget = js.native;
-	val mapPass: RenderTarget = js.native;
-	val matrix: Matrix4 = js.native;
-	val autoUpdate: Boolean = js.native;
-	val needsUpdate: Boolean = js.native;
+	var camera: Camera = js.native;
+	var bias: Double = js.native;
+	var normalBias: Double = js.native;
+	var radius: Double = js.native;
+	var mapSize: Vector2 = js.native;
+	var map: RenderTarget = js.native;
+	var mapPass: RenderTarget = js.native;
+	var matrix: Matrix4 = js.native;
+	var autoUpdate: Boolean = js.native;
+	var needsUpdate: Boolean = js.native;
 	def copy(source: LightShadow): this.type = js.native
-	def clone(recursive: js.UndefOr[Boolean]): this.type = js.native
+	@JSName("clone")
+	def jsClone(recursive: js.UndefOr[Boolean]): this.type = js.native
 	def toJSON(): js.Any = js.native
 	def getFrustum(): Double = js.native
 	def updateMatrices(light: Light, viewportIndex: js.UndefOr[Double]): Unit = js.native
@@ -111,71 +112,71 @@ class LightShadow extends js.Object:
 @JSGlobal("THREE.AmbientLight")
 class AmbientLight extends Light:
 	def this(color: js.UndefOr[ColorRepresentation], intensity: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	var isAmbientLight: Boolean = js.native;
+
+	val isAmbientLight: Boolean = js.native;
 
 @js.native
 @JSGlobal("THREE.DirectionalLightShadow")
 class DirectionalLightShadow extends LightShadow:
-	val camera: OrthographicCamera = js.native;
-	var isDirectionalLightShadow: Boolean = js.native;
+
+	val isDirectionalLightShadow: Boolean = js.native;
 
 @js.native
 @JSGlobal("THREE.HemisphereLight")
 class HemisphereLight extends Light:
 	def this(skyColor: js.UndefOr[ColorRepresentation], groundColor: js.UndefOr[ColorRepresentation], intensity: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val position: Vector3 = js.native;
-	val groundColor: Color = js.native;
-	var isHemisphereLight: Boolean = js.native;
+
+
+	var groundColor: Color = js.native;
+	val isHemisphereLight: Boolean = js.native;
 
 @js.native
 @JSGlobal("THREE.LightProbe")
 class LightProbe extends Light:
 	def this(sh: js.UndefOr[SphericalHarmonics3], intensity: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	var isLightProbe: Boolean = js.native;
-	val sh: SphericalHarmonics3 = js.native;
+
+	val isLightProbe: Boolean = js.native;
+	var sh: SphericalHarmonics3 = js.native;
 	def fromJSON(json: js.Object): LightProbe = js.native
 
 @js.native
 @JSGlobal("THREE.PointLight")
 class PointLight extends Light:
 	def this(color: js.UndefOr[ColorRepresentation], intensity: js.UndefOr[Double], distance: js.UndefOr[Double], decay: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val intensity: Double = js.native;
-	val distance: Double = js.native;
-	val decay: Double = js.native;
-	val shadow: PointLightShadow = js.native;
-	val power: Double = js.native;
+
+
+	var distance: Double = js.native;
+	var decay: Double = js.native;
+
+	var power: Double = js.native;
 
 @js.native
 @JSGlobal("THREE.Light")
 class Light extends Object3D:
 	def this(hex: js.UndefOr[Double | String], intensity: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val color: Color = js.native;
-	val intensity: Double = js.native;
-	var isLight: Boolean = js.native;
-	val shadow: LightShadow = js.native;
-	val shadowCameraFov: js.Any = js.native;
-	val shadowCameraLeft: js.Any = js.native;
-	val shadowCameraRight: js.Any = js.native;
-	val shadowCameraTop: js.Any = js.native;
-	val shadowCameraBottom: js.Any = js.native;
-	val shadowCameraNear: js.Any = js.native;
-	val shadowCameraFar: js.Any = js.native;
-	val shadowBias: js.Any = js.native;
-	val shadowMapWidth: js.Any = js.native;
-	val shadowMapHeight: js.Any = js.native;
+
+	var color: Color = js.native;
+	var intensity: Double = js.native;
+	val isLight: Boolean = js.native;
+	var shadow: LightShadow = js.native;
+	var shadowCameraFov: js.Any = js.native;
+	var shadowCameraLeft: js.Any = js.native;
+	var shadowCameraRight: js.Any = js.native;
+	var shadowCameraTop: js.Any = js.native;
+	var shadowCameraBottom: js.Any = js.native;
+	var shadowCameraNear: js.Any = js.native;
+	var shadowCameraFar: js.Any = js.native;
+	var shadowBias: js.Any = js.native;
+	var shadowMapWidth: js.Any = js.native;
+	var shadowMapHeight: js.Any = js.native;
 	def dispose(): Unit = js.native
 
 @js.native
 @JSGlobal("THREE.RectAreaLight")
 class RectAreaLight extends Light:
 	def this(color: js.UndefOr[ColorRepresentation], intensity: js.UndefOr[Double], width: js.UndefOr[Double], height: js.UndefOr[Double]) = this()
-	val `type`: String = js.native;
-	val width: Double = js.native;
-	val height: Double = js.native;
-	val intensity: Double = js.native;
-	var isRectAreaLight: Boolean = js.native;
+
+	var width: Double = js.native;
+	var height: Double = js.native;
+
+	val isRectAreaLight: Boolean = js.native;

@@ -37,15 +37,15 @@ import typings.three.three.lights.*
 @JSGlobal("THREE.ImmediateRenderObject")
 class ImmediateRenderObject extends Object3D:
 	def this(material: Material) = this()
-	var isImmediateRenderObject: Boolean = js.native;
-	val material: Material = js.native;
-	val hasPositions: Boolean = js.native;
-	val hasNormals: Boolean = js.native;
-	val hasColors: Boolean = js.native;
-	val hasUvs: Boolean = js.native;
-	val positionArray: Null | Float32Array = js.native;
-	val normalArray: Null | Float32Array = js.native;
-	val colorArray: Null | Float32Array = js.native;
-	val uvArray: Null | Float32Array = js.native;
-	val count: Double = js.native;
+	val isImmediateRenderObject: Boolean = js.native;
+	var material: Material = js.native;
+	var hasPositions: Boolean = js.native;
+	var hasNormals: Boolean = js.native;
+	var hasColors: Boolean = js.native;
+	var hasUvs: Boolean = js.native;
+	var positionArray: Null | Float32Array = js.native;
+	var normalArray: Null | Float32Array = js.native;
+	var colorArray: Null | Float32Array = js.native;
+	var uvArray: Null | Float32Array = js.native;
+	var count: Double = js.native;
 	def render(renderCallback: js.Function0[Unit]): Unit = js.native
