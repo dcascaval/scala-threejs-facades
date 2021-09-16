@@ -3,7 +3,7 @@ package typings.three.animation.tracks
 import scala.scalajs.js
 import js.annotation.*
 import org.scalajs.dom.*
-import org.scalajs.dom.raw.{HTMLMediaElement, HTMLVideoElement, HTMLCanvasElement, HTMLImageElement}
+import org.scalajs.dom.raw.{HTMLElement, HTMLDocument, HTMLMediaElement, HTMLVideoElement, HTMLCanvasElement, HTMLImageElement}
 import org.scalajs.dom.raw.{WebGLShader, WebGLFramebuffer}
 import org.scalajs.dom.experimental.gamepad.*
 import scalajs.js.typedarray.*
@@ -32,62 +32,44 @@ import typings.three.math.interpolants.*
 import typings.three.audio.*
 import typings.three.lights.*
 
+
 @js.native
 @JSGlobal("THREE.ColorKeyframeTrack")
 class ColorKeyframeTrack extends KeyframeTrack:
-  def this(
-      name: String,
-      times: js.Array[js.Any],
-      values: js.Array[js.Any],
-      interpolation: js.UndefOr[InterpolationModes] = js.undefined
-  ) = this()
+	def this(name: String, times: js.Array[js.Any], values: js.Array[js.Any], interpolation: js.UndefOr[InterpolationModes] = js.undefined) = this()
+
 
 @js.native
 @JSGlobal("THREE.QuaternionKeyframeTrack")
 class QuaternionKeyframeTrack extends KeyframeTrack:
-  def this(
-      name: String,
-      times: js.Array[js.Any],
-      values: js.Array[js.Any],
-      interpolation: js.UndefOr[InterpolationModes] = js.undefined
-  ) = this()
+	def this(name: String, times: js.Array[js.Any], values: js.Array[js.Any], interpolation: js.UndefOr[InterpolationModes] = js.undefined) = this()
+
 
 @js.native
 @JSGlobal("THREE.StringKeyframeTrack")
 class StringKeyframeTrack extends KeyframeTrack:
-  def this(
-      name: String,
-      times: js.Array[js.Any],
-      values: js.Array[js.Any],
-      interpolation: js.UndefOr[InterpolationModes] = js.undefined
-  ) = this()
+	def this(name: String, times: js.Array[js.Any], values: js.Array[js.Any], interpolation: js.UndefOr[InterpolationModes] = js.undefined) = this()
+
 
 @js.native
 @JSGlobal("THREE.BooleanKeyframeTrack")
 class BooleanKeyframeTrack extends KeyframeTrack:
-  def this(name: String, times: js.Array[js.Any], values: js.Array[js.Any]) = this()
+	def this(name: String, times: js.Array[js.Any], values: js.Array[js.Any]) = this()
+
 
 @js.native
 @JSGlobal("THREE.NumberKeyframeTrack")
 class NumberKeyframeTrack extends KeyframeTrack:
-  def this(
-      name: String,
-      times: js.Array[js.Any],
-      values: js.Array[js.Any],
-      interpolation: js.UndefOr[InterpolationModes] = js.undefined
-  ) = this()
+	def this(name: String, times: js.Array[js.Any], values: js.Array[js.Any], interpolation: js.UndefOr[InterpolationModes] = js.undefined) = this()
+
 
 @js.native
 @JSGlobal("THREE.VectorKeyframeTrack")
 class VectorKeyframeTrack extends KeyframeTrack:
-  def this(
-      name: String,
-      times: js.Array[js.Any],
-      values: js.Array[js.Any],
-      interpolation: js.UndefOr[InterpolationModes] = js.undefined
-  ) = this()
+	def this(name: String, times: js.Array[js.Any], values: js.Array[js.Any], interpolation: js.UndefOr[InterpolationModes] = js.undefined) = this()
+
 
 @js.native
-sealed trait AnonObject9 extends js.Object:
-  var total: Double = js.native
-  var inUse: Double = js.native
+trait AnonObject9 extends js.Object:
+	var total: Double = js.native
+	var inUse: Double = js.native
