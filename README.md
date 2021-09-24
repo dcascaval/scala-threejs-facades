@@ -33,6 +33,15 @@ Other tools, such as [ScalablyTyped](https://scalablytyped.org/docs/readme.html)
 - Programatically apply special cases in such a way that keeping up-to-date involves minimal work, but that the ergonomics are close to that of a hand-written facade.
 - Target Scala 3 specifically, and ultimately provide helpful extension methods for working with THREE objects in a fluent style.
 
+### Drawbacks
+
+This project is functional (compiles and runs!), and replicates several of the basic THREE.js examples with minimal casting and no namespacing issues. That said, this project does not resemble anything production-ready. Primarily this is because:
+
+- There are no tests, let alone automated tests, to verify that the API surface is covered correctly.
+- As described above these bindings assume _all_ of THREE.js is in the global scope, as opposed to using modules and allowing tree-shaking to do its thing. Minified, the core `three.min.js` is 602kb at the time of writing. Moreover you will need to include any code from [the examples](https://github.com/mrdoob/three.js/tree/dev/examples/js) manually. This includes a number of features you might want, like `OrbitControls`.
+- There is no guarantee that any of the above will ever be supported
+- There are some cases where mutating super types can break type safety (see below.)
+
 ### Special Cases
 
 Interfaces to objects that serve as JS parameters are represented in TypeScript as buckets of potentially undefined fields.
@@ -60,6 +69,68 @@ new PointsMaterial(new { size = 0.1; color = "#FFF" })
 
 Here Scala infers the type and instantiates an anonymous trait instance with the properties we want. However, naively translating the definition straight from TypeScript will allow the `parameters` argument to be optional, and type inference fails because `PointsMaterial` expects `js.UndefOr[PointsMaterialParameters]` instead of `PointsMaterialParameters`. In these bindings we special-case these points.
 
-### A.N.
+### Subtyping Safety
 
-These bindings aren't perfect, and there are still certainly kinks, but they are functional (compiles and runs!) for replicating several of the basic THREE.js examples without casting or namespacing issues.
+A number of the THREE typings contain subtyping of the following form:
+
+```javascript
+class Light {
+  camera: Camera;
+}
+
+class SubCamera extends Camera {}
+
+class SubLight extends Light {
+  camera: SubCamera;
+}
+```
+
+Naively this translates to:
+
+```scala
+class Light {
+  var camera: Camera
+}
+
+class SubCamera extends Camera {}
+
+class SubLight extends Light {
+  override var camera: SubCamera
+}
+```
+
+but Scala does not allow us to override `var`s with subtypes. To some degree this is fundamental: if it did, we could set the `camera` field to a different subtype of Camera than `SubLight` expects, breaking type safety. Instead the approach we currently take is to not override the method, and if you need to access it _as_ a subtype, a hard cast must be performed. As follows:
+
+```scala
+class Light {
+  var camera: Camera
+}
+
+class SubCamera extends Camera {}
+class SubLight extends Light {}
+
+// Usage
+val l = SubLight()
+val c : SubCamera = l.camera.asInstanceOf[SubCamera]
+```
+
+This isn't particularly typesafe either (we haven't changed the underlying JS API at all) but:
+
+- As opposed to the naive translation, it compiles and runs
+- It makes assumptions about types explicit -- and you can always return an `Option` or union type via an extension method instead of casting directly:
+
+  ```scala
+  extension (l: SubLight)
+    def subCamera: Option[SubCamera] =
+      if l.camera.isInstanceOf[SubCamera] then
+        Some(l.camera.asInstanceOf[SubCamera])
+      else None
+
+  // Usage
+  val l = SubLight()
+  val c: Option[SubCamera] = l.subCamera
+  ```
+
+  I think it's reasonable for this library to generate code like the above in the future.
+
+- In practice, needing to access the subtype-specific attributes of this type of field seems rare. (Again, this library is not production material.)
