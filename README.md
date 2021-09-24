@@ -12,45 +12,43 @@ Absolutely no guarantees are made about reliability here; steal 'em if they work
 
 Full example of project setup: https://github.com/dcascaval/scala-threejs-facades-example
 
-- Clone this repository
 - Scala:
-  - run `sbt publishLocal` to publish to a local ivy repository
-  - import into your ScalaJS project: `libraryDependencies += "org.cascaval" %%% "three-typings" % "0.1.7-SNAPSHOT"`
+  - Add `libraryDependencies += "org.cascaval" %%% "three-typings" % "0.131.0-SNAPSHOT"` to `build.sbt`
   - resolve any issues with package naming by adding: `scalacOptions ++= Seq("-Yresolve-term-conflict:package")`. ([Discussion](https://stackoverflow.com/questions/8984730/package-contains-object-and-package-with-same-name))
-- JS: 
-  - Use webpack to package `three` into a bundle along with your other dependencies, or simply include `three.min.js` (along with any of the examples files you want to use, e.g. `OrbitControls`) in your html. 
-  - `three.min.js` can be obtained from `node_modules` after running `npm install` or `yarn add`, or directly [from the source](https://github.com/mrdoob/three.js/blob/dev/build/three.min.js) 
+- JS:
+  - Use webpack to package `three` into a bundle along with your other dependencies, or simply include `three.min.js` (along with any of the examples files you want to use, e.g. `OrbitControls`) in your html.
+  - `three.min.js` can be obtained from `node_modules` after running `npm install` or `yarn add`, or directly [from the source](https://github.com/mrdoob/three.js/blob/dev/build/three.min.js)
   - Sometimes including the following snippet is needed to make everything play nicely.
     ```html
     <script>
       window.global = window;
     </script>
-    ``` 
+    ```
 
 ### Goals
 
-Other tools, such as [ScalablyTyped](https://scalablytyped.org/docs/readme.html) exist and can usually handle this type of Typescript -> ScalaJS Facade conversion. In this case, however, the purely automatic conversion runs into trouble (several different conflicting versions of many base classes are generated, rendering it difficult to call objects in one module of THREE with objects from another). The goals of this package are to: 
+Other tools, such as [ScalablyTyped](https://scalablytyped.org/docs/readme.html) exist and can usually handle this type of Typescript -> ScalaJS Facade conversion. In this case, however, the purely automatic conversion runs into trouble (several different conflicting versions of many base classes are generated, rendering it difficult to call objects in one module of THREE with objects from another). The goals of this package are to:
+
 - Generate facade types that are specifically designed to work with the way that `THREE.js` is laid out
 - Programatically apply special cases in such a way that keeping up-to-date involves minimal work, but that the ergonomics are close to that of a hand-written facade.
 - Target Scala 3 specifically, and ultimately provide helpful extension methods for working with THREE objects in a fluent style.
 
-
 ### Special Cases
 
-Interfaces to objects that serve as JS parameters are represented in TypeScript as buckets of potentially undefined fields. 
+Interfaces to objects that serve as JS parameters are represented in TypeScript as buckets of potentially undefined fields.
 
 ```typescript
 export interface PointsMaterialParameters extends MaterialParameters {
-    color?: ColorRepresentation | undefined;
-    map?: Texture | null | undefined;
-    alphaMap?: Texture | null | undefined;
-    size?: number | undefined;
-    sizeAttenuation?: boolean | undefined;
+  color?: ColorRepresentation | undefined;
+  map?: Texture | null | undefined;
+  alphaMap?: Texture | null | undefined;
+  size?: number | undefined;
+  sizeAttenuation?: boolean | undefined;
 }
 
 export class PointsMaterial extends Material {
-    constructor(parameters?: PointsMaterialParameters);
-    // ...
+  constructor(parameters?: PointsMaterialParameters);
+  // ...
 }
 ```
 
@@ -62,8 +60,6 @@ new PointsMaterial(new { size = 0.1; color = "#FFF" })
 
 Here Scala infers the type and instantiates an anonymous trait instance with the properties we want. However, naively translating the definition straight from TypeScript will allow the `parameters` argument to be optional, and type inference fails because `PointsMaterial` expects `js.UndefOr[PointsMaterialParameters]` instead of `PointsMaterialParameters`. In these bindings we special-case these points.
 
-
 ### A.N.
 
-These bindings aren't perfect, and there are still certainly kinks, but they are functional (compiles and runs!) for replicating several of the basic THREE.js examples without casting or namespacing issues. 
-
+These bindings aren't perfect, and there are still certainly kinks, but they are functional (compiles and runs!) for replicating several of the basic THREE.js examples without casting or namespacing issues.
