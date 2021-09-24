@@ -26,6 +26,11 @@ Full example of project setup: https://github.com/dcascaval/scala-threejs-facade
       window.global = window;
     </script>
     ```
+    
+Alternatively, if you don't want to use GH Packages, you can clone this repo, run `sbt publishLocal` to publish to a local ivy repository
+  - import into your ScalaJS project: `libraryDependencies += "org.cascaval" %%% "three-typings" % "0.131.0-SNAPSHOT"`
+  - (Potentially) resolve any issues with package naming by adding: `scalacOptions ++= Seq("-Yresolve-term-conflict:package")`. ([Discussion](https://stackoverflow.com/questions/8984730/package-contains-object-and-package-with-same-name))
+
 
 ### Goals
 
