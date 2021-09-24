@@ -14,8 +14,8 @@ Full example of project setup: https://github.com/dcascaval/scala-threejs-facade
 
 - Scala:
   - Add `addSbtPlugin("com.codecommit" % "sbt-github-packages" % "0.5.3")` to `project/plugins.sbt`
-  - Add `libraryDependencies += "org.cascaval" %%% "three-typings" % "0.131.0-SNAPSHOT"` to `build.sbt`
-  - export a `GITHUB_TOKEN` environment variable that can read from the Github Package Registry (create one at `Settings > Developer Settings > Personal Access Tokens` with the `read:packages` permission).
+  - Add `libraryDependencies += "org.cascaval" %%% "three-typings" % "0.131.0-SNAPSHOT"` to `build.sbt`.
+  - export a `GITHUB_TOKEN` environment variable that can read from the Github Package Registry (create one at `Settings > Developer Settings > Personal Access Tokens` with the `read:packages` permission). For documentation on other ways to provide authentication, see the [sbt-github-packages documentation](https://github.com/djspiewak/sbt-github-packages).
  
 - JS:
   - Use webpack to package `three` into a bundle along with your other dependencies, or simply include `three.min.js` (along with any of the examples files you want to use, e.g. `OrbitControls`) in your html.
