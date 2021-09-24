@@ -13,8 +13,10 @@ Absolutely no guarantees are made about reliability here; steal 'em if they work
 Full example of project setup: https://github.com/dcascaval/scala-threejs-facades-example
 
 - Scala:
+  - Add `addSbtPlugin("com.codecommit" % "sbt-github-packages" % "0.5.3")` to `project/plugins.sbt`
   - Add `libraryDependencies += "org.cascaval" %%% "three-typings" % "0.131.0-SNAPSHOT"` to `build.sbt`
-  - resolve any issues with package naming by adding: `scalacOptions ++= Seq("-Yresolve-term-conflict:package")`. ([Discussion](https://stackoverflow.com/questions/8984730/package-contains-object-and-package-with-same-name))
+  - export a `GITHUB_TOKEN` environment variable that can read from the Github Package Registry (create one at `Settings > Developer Settings > Personal Access Tokens` with the `read:packages` permission).
+ 
 - JS:
   - Use webpack to package `three` into a bundle along with your other dependencies, or simply include `three.min.js` (along with any of the examples files you want to use, e.g. `OrbitControls`) in your html.
   - `three.min.js` can be obtained from `node_modules` after running `npm install` or `yarn add`, or directly [from the source](https://github.com/mrdoob/three.js/blob/dev/build/three.min.js)
