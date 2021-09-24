@@ -9,6 +9,9 @@ Note that this includes the entirety of the THREE.js core, but only `OrbitContro
 Absolutely no guarantees are made about reliability here; steal 'em if they work for you.
 
 ### Usage
+
+Full example of project setup: https://github.com/dcascaval/scala-threejs-facades-example
+
 - Clone this repository
 - Scala:
   - run `sbt publishLocal` to publish to a local ivy repository
