@@ -1,4 +1,4 @@
-sonatypeProfileName := "dcascaval"
+sonatypeProfileName := "io.github.dcascaval"
 publishMavenStyle := true
 licenses := Seq("MIT" -> url("https://opensource.org/licenses/mit-license.php"))
 
