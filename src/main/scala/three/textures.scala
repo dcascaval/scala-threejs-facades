@@ -34,42 +34,31 @@ import typings.three.lights.*
 
 
 @js.native
-@JSGlobal("THREE.CubeTexture")
-class CubeTexture extends Texture:
-	def this(images: js.UndefOr[js.Array[js.Any]] = js.undefined, mapping: js.UndefOr[Mapping] = js.undefined, wrapS: js.UndefOr[Wrapping] = js.undefined, wrapT: js.UndefOr[Wrapping] = js.undefined, magFilter: js.UndefOr[TextureFilter] = js.undefined, minFilter: js.UndefOr[TextureFilter] = js.undefined, format: js.UndefOr[PixelFormat] = js.undefined, `type`: js.UndefOr[TextureDataType] = js.undefined, anisotropy: js.UndefOr[Double] = js.undefined, encoding: js.UndefOr[TextureEncoding] = js.undefined) = this()
-	var images: js.Any = js.native
-
-	val isCubeTexture: Boolean = js.native
-
-@js.native
-@JSGlobal("THREE.CompressedTexture")
-class CompressedTexture extends Texture:
-	def this(mipmaps: js.Array[ImageData], width: Double, height: Double, format: js.UndefOr[CompressedPixelFormat] = js.undefined, `type`: js.UndefOr[TextureDataType] = js.undefined, mapping: js.UndefOr[Mapping] = js.undefined, wrapS: js.UndefOr[Wrapping] = js.undefined, wrapT: js.UndefOr[Wrapping] = js.undefined, magFilter: js.UndefOr[TextureFilter] = js.undefined, minFilter: js.UndefOr[TextureFilter] = js.undefined, anisotropy: js.UndefOr[Double] = js.undefined, encoding: js.UndefOr[TextureEncoding] = js.undefined) = this()
-
-
-
-
-	val isCompressedTexture: Boolean = js.native
-
-@js.native
-@JSGlobal("THREE.DataTexture2DArray")
-class DataTexture2DArray extends Texture:
-	def this(data: js.UndefOr[BufferSource] = js.undefined, width: js.UndefOr[Double] = js.undefined, height: js.UndefOr[Double] = js.undefined, depth: js.UndefOr[Double] = js.undefined) = this()
-
-
-	var wrapR: Boolean = js.native
-
-
-	val isDataTexture2DArray: Boolean = js.native
-
-@js.native
-@JSGlobal("THREE.CanvasTexture")
+@JSImport("three","CanvasTexture")
 class CanvasTexture extends Texture:
 	def this(canvas: HTMLImageElement | HTMLCanvasElement | HTMLVideoElement | ImageBitmap, mapping: js.UndefOr[Mapping] = js.undefined, wrapS: js.UndefOr[Wrapping] = js.undefined, wrapT: js.UndefOr[Wrapping] = js.undefined, magFilter: js.UndefOr[TextureFilter] = js.undefined, minFilter: js.UndefOr[TextureFilter] = js.undefined, format: js.UndefOr[PixelFormat] = js.undefined, `type`: js.UndefOr[TextureDataType] = js.undefined, anisotropy: js.UndefOr[Double] = js.undefined) = this()
 	val isCanvasTexture: Boolean = js.native
 
 @js.native
-@JSGlobal("THREE.DataTexture")
+@JSImport("three","VideoTexture")
+class VideoTexture extends Texture:
+	def this(video: HTMLVideoElement, mapping: js.UndefOr[Mapping] = js.undefined, wrapS: js.UndefOr[Wrapping] = js.undefined, wrapT: js.UndefOr[Wrapping] = js.undefined, magFilter: js.UndefOr[TextureFilter] = js.undefined, minFilter: js.UndefOr[TextureFilter] = js.undefined, format: js.UndefOr[PixelFormat] = js.undefined, `type`: js.UndefOr[TextureDataType] = js.undefined, anisotropy: js.UndefOr[Double] = js.undefined) = this()
+	val isVideoTexture: Boolean = js.native
+
+
+@js.native
+@JSImport("three","DataTexture3D")
+class DataTexture3D extends Texture:
+	def this(data: BufferSource, width: Double, height: Double, depth: Double) = this()
+
+
+	var wrapR: Boolean = js.native
+
+
+	val isDataTexture3D: Boolean = js.native
+
+@js.native
+@JSImport("three","DataTexture")
 class DataTexture extends Texture:
 	def this(data: BufferSource, width: Double, height: Double, format: js.UndefOr[PixelFormat] = js.undefined, `type`: js.UndefOr[TextureDataType] = js.undefined, mapping: js.UndefOr[Mapping] = js.undefined, wrapS: js.UndefOr[Wrapping] = js.undefined, wrapT: js.UndefOr[Wrapping] = js.undefined, magFilter: js.UndefOr[TextureFilter] = js.undefined, minFilter: js.UndefOr[TextureFilter] = js.undefined, anisotropy: js.UndefOr[Double] = js.undefined, encoding: js.UndefOr[TextureEncoding] = js.undefined) = this()
 
@@ -80,14 +69,45 @@ class DataTexture extends Texture:
 	val isDataTexture: Boolean = js.native
 
 @js.native
-@JSGlobal("THREE.VideoTexture")
-class VideoTexture extends Texture:
-	def this(video: HTMLVideoElement, mapping: js.UndefOr[Mapping] = js.undefined, wrapS: js.UndefOr[Wrapping] = js.undefined, wrapT: js.UndefOr[Wrapping] = js.undefined, magFilter: js.UndefOr[TextureFilter] = js.undefined, minFilter: js.UndefOr[TextureFilter] = js.undefined, format: js.UndefOr[PixelFormat] = js.undefined, `type`: js.UndefOr[TextureDataType] = js.undefined, anisotropy: js.UndefOr[Double] = js.undefined) = this()
-	val isVideoTexture: Boolean = js.native
+@JSImport("three","CompressedTexture")
+class CompressedTexture extends Texture:
+	def this(mipmaps: js.Array[ImageData], width: Double, height: Double, format: js.UndefOr[CompressedPixelFormat] = js.undefined, `type`: js.UndefOr[TextureDataType] = js.undefined, mapping: js.UndefOr[Mapping] = js.undefined, wrapS: js.UndefOr[Wrapping] = js.undefined, wrapT: js.UndefOr[Wrapping] = js.undefined, magFilter: js.UndefOr[TextureFilter] = js.undefined, minFilter: js.UndefOr[TextureFilter] = js.undefined, anisotropy: js.UndefOr[Double] = js.undefined, encoding: js.UndefOr[TextureEncoding] = js.undefined) = this()
 
+
+
+
+	val isCompressedTexture: Boolean = js.native
 
 @js.native
-@JSGlobal("THREE.Texture")
+@JSImport("three","DataTexture2DArray")
+class DataTexture2DArray extends Texture:
+	def this(data: js.UndefOr[BufferSource] = js.undefined, width: js.UndefOr[Double] = js.undefined, height: js.UndefOr[Double] = js.undefined, depth: js.UndefOr[Double] = js.undefined) = this()
+
+
+	var wrapR: Boolean = js.native
+
+
+	val isDataTexture2DArray: Boolean = js.native
+
+@js.native
+@JSImport("three","DepthTexture")
+class DepthTexture extends Texture:
+	def this(width: Double, height: Double, `type`: js.UndefOr[TextureDataType] = js.undefined, mapping: js.UndefOr[Mapping] = js.undefined, wrapS: js.UndefOr[Wrapping] = js.undefined, wrapT: js.UndefOr[Wrapping] = js.undefined, magFilter: js.UndefOr[TextureFilter] = js.undefined, minFilter: js.UndefOr[TextureFilter] = js.undefined, anisotropy: js.UndefOr[Double] = js.undefined) = this()
+
+
+
+	val isDepthTexture: Boolean = js.native
+
+@js.native
+@JSImport("three","CubeTexture")
+class CubeTexture extends Texture:
+	def this(images: js.UndefOr[js.Array[js.Any]] = js.undefined, mapping: js.UndefOr[Mapping] = js.undefined, wrapS: js.UndefOr[Wrapping] = js.undefined, wrapT: js.UndefOr[Wrapping] = js.undefined, magFilter: js.UndefOr[TextureFilter] = js.undefined, minFilter: js.UndefOr[TextureFilter] = js.undefined, format: js.UndefOr[PixelFormat] = js.undefined, `type`: js.UndefOr[TextureDataType] = js.undefined, anisotropy: js.UndefOr[Double] = js.undefined, encoding: js.UndefOr[TextureEncoding] = js.undefined) = this()
+	var images: js.Any = js.native
+
+	val isCubeTexture: Boolean = js.native
+
+@js.native
+@JSImport("three","Texture")
 class Texture extends EventDispatcher:
 	def this(image: js.UndefOr[HTMLImageElement | HTMLCanvasElement | HTMLVideoElement] = js.undefined, mapping: js.UndefOr[Mapping] = js.undefined, wrapS: js.UndefOr[Wrapping] = js.undefined, wrapT: js.UndefOr[Wrapping] = js.undefined, magFilter: js.UndefOr[TextureFilter] = js.undefined, minFilter: js.UndefOr[TextureFilter] = js.undefined, format: js.UndefOr[PixelFormat] = js.undefined, `type`: js.UndefOr[TextureDataType] = js.undefined, anisotropy: js.UndefOr[Double] = js.undefined, encoding: js.UndefOr[TextureEncoding] = js.undefined) = this()
 	var id: Double = js.native
@@ -132,27 +152,7 @@ class Texture extends EventDispatcher:
 	def updateMatrix(): Unit = js.native
 
 @js.native
-@JSGlobal("THREE.Texture")
+@JSImport("three","Texture")
 object Texture extends js.Object:
 	var DEFAULT_IMAGE: js.Any = js.native
 	var DEFAULT_MAPPING: js.Any = js.native
-
-@js.native
-@JSGlobal("THREE.DepthTexture")
-class DepthTexture extends Texture:
-	def this(width: Double, height: Double, `type`: js.UndefOr[TextureDataType] = js.undefined, mapping: js.UndefOr[Mapping] = js.undefined, wrapS: js.UndefOr[Wrapping] = js.undefined, wrapT: js.UndefOr[Wrapping] = js.undefined, magFilter: js.UndefOr[TextureFilter] = js.undefined, minFilter: js.UndefOr[TextureFilter] = js.undefined, anisotropy: js.UndefOr[Double] = js.undefined) = this()
-
-
-
-	val isDepthTexture: Boolean = js.native
-
-@js.native
-@JSGlobal("THREE.DataTexture3D")
-class DataTexture3D extends Texture:
-	def this(data: BufferSource, width: Double, height: Double, depth: Double) = this()
-
-
-	var wrapR: Boolean = js.native
-
-
-	val isDataTexture3D: Boolean = js.native

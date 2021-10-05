@@ -34,7 +34,7 @@ import typings.three.lights.*
 
 
 @js.native
-@JSGlobal("THREE.Camera")
+@JSImport("three","Camera")
 class Camera extends Object3D:
 	var matrixWorldInverse: Matrix4 = js.native
 	var projectionMatrix: Matrix4 = js.native
@@ -44,26 +44,17 @@ class Camera extends Object3D:
 
 
 @js.native
-@JSGlobal("THREE.OrthographicCamera")
-class OrthographicCamera extends Camera:
-	def this(left: Double, right: Double, top: Double, bottom: Double, near: js.UndefOr[Double] = js.undefined, far: js.UndefOr[Double] = js.undefined) = this()
+@JSImport("three","StereoCamera")
+class StereoCamera extends Camera:
 
-	val isOrthographicCamera: Boolean = js.native
-	var zoom: Double = js.native
-	var view: AnonObject14 = js.native
-	var left: Double = js.native
-	var right: Double = js.native
-	var top: Double = js.native
-	var bottom: Double = js.native
-	var near: Double = js.native
-	var far: Double = js.native
-	def updateProjectionMatrix(): Unit = js.native
-	def setViewOffset(fullWidth: Double, fullHeight: Double, offsetX: Double, offsetY: Double, width: Double, height: Double): Unit = js.native
-	def clearViewOffset(): Unit = js.native
-
+	var aspect: Double = js.native
+	var eyeSep: Double = js.native
+	var cameraL: PerspectiveCamera = js.native
+	var cameraR: PerspectiveCamera = js.native
+	def update(camera: PerspectiveCamera): Unit = js.native
 
 @js.native
-@JSGlobal("THREE.PerspectiveCamera")
+@JSImport("three","PerspectiveCamera")
 class PerspectiveCamera extends Camera:
 	def this(fov: js.UndefOr[Double] = js.undefined, aspect: js.UndefOr[Double] = js.undefined, near: js.UndefOr[Double] = js.undefined, far: js.UndefOr[Double] = js.undefined) = this()
 
@@ -89,24 +80,33 @@ class PerspectiveCamera extends Camera:
 	def setLens(focalLength: Double, frameHeight: js.UndefOr[Double] = js.undefined): Unit = js.native
 
 @js.native
-@JSGlobal("THREE.StereoCamera")
-class StereoCamera extends Camera:
-
-	var aspect: Double = js.native
-	var eyeSep: Double = js.native
-	var cameraL: PerspectiveCamera = js.native
-	var cameraR: PerspectiveCamera = js.native
-	def update(camera: PerspectiveCamera): Unit = js.native
-
-@js.native
-@JSGlobal("THREE.ArrayCamera")
+@JSImport("three","ArrayCamera")
 class ArrayCamera extends PerspectiveCamera:
 	def this(cameras: js.UndefOr[js.Array[PerspectiveCamera]] = js.undefined) = this()
 	var cameras: js.Array[PerspectiveCamera] = js.native
 	val isArrayCamera: Boolean = js.native
 
 @js.native
-@JSGlobal("THREE.CubeCamera")
+@JSImport("three","OrthographicCamera")
+class OrthographicCamera extends Camera:
+	def this(left: Double, right: Double, top: Double, bottom: Double, near: js.UndefOr[Double] = js.undefined, far: js.UndefOr[Double] = js.undefined) = this()
+
+	val isOrthographicCamera: Boolean = js.native
+	var zoom: Double = js.native
+	var view: AnonObject14 = js.native
+	var left: Double = js.native
+	var right: Double = js.native
+	var top: Double = js.native
+	var bottom: Double = js.native
+	var near: Double = js.native
+	var far: Double = js.native
+	def updateProjectionMatrix(): Unit = js.native
+	def setViewOffset(fullWidth: Double, fullHeight: Double, offsetX: Double, offsetY: Double, width: Double, height: Double): Unit = js.native
+	def clearViewOffset(): Unit = js.native
+
+
+@js.native
+@JSImport("three","CubeCamera")
 class CubeCamera extends Object3D:
 	def this(near: Double, far: Double, renderTarget: WebGLCubeRenderTarget) = this()
 

@@ -36,7 +36,7 @@ import typings.three.lights.*
 type XRControllerEventType = XREventType | "disconnected" | "connected"
 
 @js.native
-@JSGlobal("THREE.WebXRController")
+@JSImport("three","WebXRController")
 class WebXRController extends js.Object:
 	def getTargetRaySpace(): Group = js.native
 	def getGripSpace(): Group = js.native
@@ -45,7 +45,7 @@ class WebXRController extends js.Object:
 	def update(inputSource: XRInputSource, frame: XRFrame, referenceSpace: XRReferenceSpace): this.type = js.native
 
 @js.native
-@JSGlobal("THREE.WebXRManager")
+@JSImport("three","WebXRManager")
 class WebXRManager extends EventDispatcher:
 	def this(renderer: js.Any, gl: WebGLRenderingContext) = this()
 	var enabled: Boolean = js.native
@@ -205,7 +205,7 @@ trait XRWebGLLayerInit extends js.Object:
 	var framebufferScaleFactor: js.UndefOr[Double] = js.native
 
 @js.native
-@JSGlobal("THREE.XRWebGLLayer")
+@JSImport("three","XRWebGLLayer")
 class XRWebGLLayer extends js.Object:
 	def this(session: XRSession, gl: js.UndefOr[WebGLRenderingContext], options: js.UndefOr[XRWebGLLayerInit] = js.undefined) = this()
 	var framebuffer: WebGLFramebuffer = js.native
@@ -221,7 +221,7 @@ trait DOMPointInit extends js.Object:
 	var z: js.UndefOr[Double] = js.native
 
 @js.native
-@JSGlobal("THREE.XRRigidTransform")
+@JSImport("three","XRRigidTransform")
 class XRRigidTransform extends js.Object:
 	def this(matrix: Float32Array | DOMPointInit, direction: js.UndefOr[DOMPointInit] = js.undefined) = this()
 	var position: DOMPointReadOnly = js.native
@@ -244,7 +244,7 @@ trait XRRayDirectionInit extends js.Object:
 	var w: js.UndefOr[Double] = js.native
 
 @js.native
-@JSGlobal("THREE.XRRay")
+@JSImport("three","XRRay")
 class XRRay extends js.Object:
 	def this(transformOrOrigin: XRRigidTransform | DOMPointInit, direction: js.UndefOr[XRRayDirectionInit] = js.undefined) = this()
 	val origin: DOMPointReadOnly = js.native

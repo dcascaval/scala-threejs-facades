@@ -34,12 +34,7 @@ import typings.three.lights.*
 
 
 @js.native
-@JSGlobal("THREE.DataUtils")
-object DataUtils extends js.Object:
-	def toHalfFloat(`val`: Double): Double = js.native
-
-@js.native
-@JSGlobal("THREE.ImageUtils")
+@JSImport("three","ImageUtils")
 object ImageUtils extends js.Object:
 	def getDataURL(image: js.Any): String = js.native
 	val crossOrigin: String = js.native
@@ -47,19 +42,12 @@ object ImageUtils extends js.Object:
 	def loadTextureCube(array: js.Array[String], mapping: js.UndefOr[Mapping] = js.undefined, onLoad: js.UndefOr[js.Function1[Texture,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[String,Unit]] = js.undefined): Texture = js.native
 
 @js.native
-trait Vec2 extends js.Object:
-	var x: Double = js.native
-	var y: Double = js.native
+@JSImport("three","DataUtils")
+object DataUtils extends js.Object:
+	def toHalfFloat(`val`: Double): Double = js.native
 
 @js.native
-@JSGlobal("THREE.ShapeUtils")
-object ShapeUtils extends js.Object:
-	def area(contour: js.Array[Vec2]): Double = js.native
-	def triangulateShape(contour: js.Array[Vec2], holes: js.Array[js.Array[Vec2]]): js.Array[js.Array[Double]] = js.native
-	def isClockWise(pts: js.Array[Vec2]): Boolean = js.native
-
-@js.native
-@JSGlobal("THREE.PMREMGenerator")
+@JSImport("three","PMREMGenerator")
 class PMREMGenerator extends js.Object:
 	def this(renderer: WebGLRenderer) = this()
 	def fromScene(scene: Scene, sigma: js.UndefOr[Double] = js.undefined, near: js.UndefOr[Double] = js.undefined, far: js.UndefOr[Double] = js.undefined): WebGLRenderTarget = js.native
@@ -68,3 +56,15 @@ class PMREMGenerator extends js.Object:
 	def compileCubemapShader(): Unit = js.native
 	def compileEquirectangularShader(): Unit = js.native
 	def dispose(): Unit = js.native
+
+@js.native
+trait Vec2 extends js.Object:
+	var x: Double = js.native
+	var y: Double = js.native
+
+@js.native
+@JSImport("three","ShapeUtils")
+object ShapeUtils extends js.Object:
+	def area(contour: js.Array[Vec2]): Double = js.native
+	def triangulateShape(contour: js.Array[Vec2], holes: js.Array[js.Array[Vec2]]): js.Array[js.Array[Double]] = js.native
+	def isClockWise(pts: js.Array[Vec2]): Boolean = js.native

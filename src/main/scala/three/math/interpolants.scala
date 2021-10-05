@@ -34,25 +34,25 @@ import typings.three.lights.*
 
 
 @js.native
-@JSGlobal("THREE.QuaternionLinearInterpolant")
+@JSImport("three","QuaternionLinearInterpolant")
 class QuaternionLinearInterpolant extends Interpolant:
 	def this(parameterPositions: js.Any, samplesValues: js.Any, sampleSize: Double, resultBuffer: js.UndefOr[js.Any] = js.undefined) = this()
 	def interpolate_(i1: Double, t0: Double, t: Double, t1: Double): js.Any = js.native
 
 @js.native
-@JSGlobal("THREE.DiscreteInterpolant")
+@JSImport("three","DiscreteInterpolant")
 class DiscreteInterpolant extends Interpolant:
 	def this(parameterPositions: js.Any, samplesValues: js.Any, sampleSize: Double, resultBuffer: js.UndefOr[js.Any] = js.undefined) = this()
 	def interpolate_(i1: Double, t0: Double, t: Double, t1: Double): js.Any = js.native
 
 @js.native
-@JSGlobal("THREE.CubicInterpolant")
+@JSImport("three","CubicInterpolant")
 class CubicInterpolant extends Interpolant:
 	def this(parameterPositions: js.Any, samplesValues: js.Any, sampleSize: Double, resultBuffer: js.UndefOr[js.Any] = js.undefined) = this()
 	def interpolate_(i1: Double, t0: Double, t: Double, t1: Double): js.Any = js.native
 
 @js.native
-@JSGlobal("THREE.LinearInterpolant")
+@JSImport("three","LinearInterpolant")
 class LinearInterpolant extends Interpolant:
 	def this(parameterPositions: js.Any, samplesValues: js.Any, sampleSize: Double, resultBuffer: js.UndefOr[js.Any] = js.undefined) = this()
 	def interpolate_(i1: Double, t0: Double, t: Double, t1: Double): js.Any = js.native

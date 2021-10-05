@@ -34,7 +34,7 @@ import typings.three.lights.*
 
 
 @js.native
-@JSGlobal("THREE.WebGLMultipleRenderTargets")
+@JSImport("three","WebGLMultipleRenderTargets")
 class WebGLMultipleRenderTargets extends EventDispatcher:
 	def this(width: Double, height: Double, count: Double) = this()
 	var texture: js.Array[Texture] = js.native
@@ -45,6 +45,75 @@ class WebGLMultipleRenderTargets extends EventDispatcher:
 	def jsClone(): this.type = js.native
 	def dispose(): Unit = js.native
 	def setTexture(texture: Texture): Unit = js.native
+
+@js.native
+@JSImport("three","WebGLMultisampleRenderTarget")
+class WebGLMultisampleRenderTarget extends WebGLRenderTarget:
+	def this(width: Double, height: Double, options: js.UndefOr[WebGLRenderTargetOptions] = js.undefined) = this()
+	val isWebGLMultisampleRenderTarget: Boolean = js.native
+	var samples: Double = js.native
+
+@js.native
+@JSImport("three","WebGLCubeRenderTarget")
+class WebGLCubeRenderTarget extends WebGLRenderTarget:
+	def this(size: Double, options: js.UndefOr[WebGLRenderTargetOptions] = js.undefined) = this()
+
+	def fromEquirectangularTexture(renderer: WebGLRenderer, texture: Texture): this.type = js.native
+	def clear(renderer: WebGLRenderer, color: Boolean, depth: Boolean, stencil: Boolean): Unit = js.native
+
+@js.native
+trait WebGLRenderTargetOptions extends js.Object:
+	var wrapS: js.UndefOr[Wrapping] = js.native
+	var wrapT: js.UndefOr[Wrapping] = js.native
+	var magFilter: js.UndefOr[TextureFilter] = js.native
+	var minFilter: js.UndefOr[TextureFilter] = js.native
+	var format: js.UndefOr[Double] = js.native
+	var `type`: js.UndefOr[TextureDataType] = js.native
+	var anisotropy: js.UndefOr[Double] = js.native
+	var depthBuffer: js.UndefOr[Boolean] = js.native
+	var stencilBuffer: js.UndefOr[Boolean] = js.native
+	var generateMipmaps: js.UndefOr[Boolean] = js.native
+	var depthTexture: js.UndefOr[DepthTexture] = js.native
+	var encoding: js.UndefOr[TextureEncoding] = js.native
+
+@js.native
+@JSImport("three","WebGLRenderTarget")
+class WebGLRenderTarget extends EventDispatcher:
+	def this(width: Double, height: Double, options: js.UndefOr[WebGLRenderTargetOptions] = js.undefined) = this()
+	var uuid: String = js.native
+	var width: Double = js.native
+	var height: Double = js.native
+	var depth: Double = js.native
+	var scissor: Vector4 = js.native
+	var scissorTest: Boolean = js.native
+	var viewport: Vector4 = js.native
+	var texture: Texture = js.native
+	var depthBuffer: Boolean = js.native
+	var stencilBuffer: Boolean = js.native
+	var depthTexture: DepthTexture = js.native
+	val isWebGLRenderTarget: Boolean = js.native
+	var wrapS: js.Any = js.native
+	var wrapT: js.Any = js.native
+	var magFilter: js.Any = js.native
+	var minFilter: js.Any = js.native
+	var anisotropy: js.Any = js.native
+	var offset: js.Any = js.native
+	var repeat: js.Any = js.native
+	var format: js.Any = js.native
+	var `type`: js.Any = js.native
+	var generateMipmaps: js.Any = js.native
+	def setTexture(texture: Texture): Unit = js.native
+	def setSize(width: Double, height: Double, depth: js.UndefOr[Double] = js.undefined): Unit = js.native
+	@JSName("clone")
+	def jsClone(): this.type = js.native
+	def copy(source: WebGLRenderTarget): this.type = js.native
+	def dispose(): Unit = js.native
+
+@js.native
+@JSImport("three","WebGL1Renderer")
+class WebGL1Renderer extends WebGLRenderer:
+	def this(parameters: WebGLRendererParameters) = this()
+	val isWebGL1Renderer: Boolean = js.native
 
 @js.native
 trait Renderer extends js.Object:
@@ -75,7 +144,7 @@ trait WebGLDebug extends js.Object:
 	var checkShaderErrors: Boolean = js.native
 
 @js.native
-@JSGlobal("THREE.WebGLRenderer")
+@JSImport("three","WebGLRenderer")
 class WebGLRenderer extends Renderer:
 	def this(parameters: WebGLRendererParameters) = this()
 
@@ -163,72 +232,3 @@ class WebGLRenderer extends Renderer:
 	def supportsVertexTextures(): js.Any = js.native
 	def supportsInstancedArrays(): js.Any = js.native
 	def enableScissorTest(boolean: js.Any): js.Any = js.native
-
-@js.native
-@JSGlobal("THREE.WebGLCubeRenderTarget")
-class WebGLCubeRenderTarget extends WebGLRenderTarget:
-	def this(size: Double, options: js.UndefOr[WebGLRenderTargetOptions] = js.undefined) = this()
-
-	def fromEquirectangularTexture(renderer: WebGLRenderer, texture: Texture): this.type = js.native
-	def clear(renderer: WebGLRenderer, color: Boolean, depth: Boolean, stencil: Boolean): Unit = js.native
-
-@js.native
-trait WebGLRenderTargetOptions extends js.Object:
-	var wrapS: js.UndefOr[Wrapping] = js.native
-	var wrapT: js.UndefOr[Wrapping] = js.native
-	var magFilter: js.UndefOr[TextureFilter] = js.native
-	var minFilter: js.UndefOr[TextureFilter] = js.native
-	var format: js.UndefOr[Double] = js.native
-	var `type`: js.UndefOr[TextureDataType] = js.native
-	var anisotropy: js.UndefOr[Double] = js.native
-	var depthBuffer: js.UndefOr[Boolean] = js.native
-	var stencilBuffer: js.UndefOr[Boolean] = js.native
-	var generateMipmaps: js.UndefOr[Boolean] = js.native
-	var depthTexture: js.UndefOr[DepthTexture] = js.native
-	var encoding: js.UndefOr[TextureEncoding] = js.native
-
-@js.native
-@JSGlobal("THREE.WebGLRenderTarget")
-class WebGLRenderTarget extends EventDispatcher:
-	def this(width: Double, height: Double, options: js.UndefOr[WebGLRenderTargetOptions] = js.undefined) = this()
-	var uuid: String = js.native
-	var width: Double = js.native
-	var height: Double = js.native
-	var depth: Double = js.native
-	var scissor: Vector4 = js.native
-	var scissorTest: Boolean = js.native
-	var viewport: Vector4 = js.native
-	var texture: Texture = js.native
-	var depthBuffer: Boolean = js.native
-	var stencilBuffer: Boolean = js.native
-	var depthTexture: DepthTexture = js.native
-	val isWebGLRenderTarget: Boolean = js.native
-	var wrapS: js.Any = js.native
-	var wrapT: js.Any = js.native
-	var magFilter: js.Any = js.native
-	var minFilter: js.Any = js.native
-	var anisotropy: js.Any = js.native
-	var offset: js.Any = js.native
-	var repeat: js.Any = js.native
-	var format: js.Any = js.native
-	var `type`: js.Any = js.native
-	var generateMipmaps: js.Any = js.native
-	def setTexture(texture: Texture): Unit = js.native
-	def setSize(width: Double, height: Double, depth: js.UndefOr[Double] = js.undefined): Unit = js.native
-	@JSName("clone")
-	def jsClone(): this.type = js.native
-	def copy(source: WebGLRenderTarget): this.type = js.native
-	def dispose(): Unit = js.native
-
-@js.native
-@JSGlobal("THREE.WebGL1Renderer")
-class WebGL1Renderer extends WebGLRenderer:
-	def this(parameters: WebGLRendererParameters) = this()
-	val isWebGL1Renderer: Boolean = js.native
-
-@js.native
-@JSGlobal("THREE.WebGLMultisampleRenderTarget")
-class WebGLMultisampleRenderTarget extends WebGLRenderTarget:
-	def this(width: Double, height: Double, options: js.UndefOr[WebGLRenderTargetOptions] = js.undefined) = this()
-	val isWebGLMultisampleRenderTarget: Boolean = js.native
-	var samples: Double = js.native

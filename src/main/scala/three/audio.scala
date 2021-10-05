@@ -34,23 +34,7 @@ import typings.three.lights.*
 
 
 @js.native
-@JSGlobal("THREE.AudioListener")
-class AudioListener extends Object3D:
-
-	var context: AudioContext = js.native
-	var gain: GainNode = js.native
-	var filter: js.Any = js.native
-	var timeDelta: Double = js.native
-	def getInput(): GainNode = js.native
-	def removeFilter(): this.type = js.native
-	def setFilter(value: js.Any): this.type = js.native
-	def getFilter(): js.Any = js.native
-	def setMasterVolume(value: Double): this.type = js.native
-	def getMasterVolume(): Double = js.native
-
-
-@js.native
-@JSGlobal("THREE.PositionalAudio")
+@JSImport("three","PositionalAudio")
 class PositionalAudio extends Audio[PannerNode]:
 	def this(listener: AudioListener) = this()
 	var panner: PannerNode = js.native
@@ -67,7 +51,39 @@ class PositionalAudio extends Audio[PannerNode]:
 
 
 @js.native
-@JSGlobal("THREE.Audio")
+@JSImport("three","AudioAnalyser")
+class AudioAnalyser extends js.Object:
+	def this(audio: Audio[AudioNode], fftSize: js.UndefOr[Double] = js.undefined) = this()
+	var analyser: AnalyserNode = js.native
+	var data: Uint8Array = js.native
+	def getFrequencyData(): Uint8Array = js.native
+	def getAverageFrequency(): Double = js.native
+	def getData(file: js.Any): js.Any = js.native
+
+@js.native
+@JSImport("three","AudioListener")
+class AudioListener extends Object3D:
+
+	var context: AudioContext = js.native
+	var gain: GainNode = js.native
+	var filter: js.Any = js.native
+	var timeDelta: Double = js.native
+	def getInput(): GainNode = js.native
+	def removeFilter(): this.type = js.native
+	def setFilter(value: js.Any): this.type = js.native
+	def getFilter(): js.Any = js.native
+	def setMasterVolume(value: Double): this.type = js.native
+	def getMasterVolume(): Double = js.native
+
+
+@js.native
+@JSImport("three","AudioContext")
+object AudioContext extends js.Object:
+	def getContext(): AudioContext = js.native
+	def setContext(): Unit = js.native
+
+@js.native
+@JSImport("three","Audio")
 class Audio[NodeType <: AudioNode] extends Object3D:
 	def this(listener: AudioListener) = this()
 
@@ -114,19 +130,3 @@ class Audio[NodeType <: AudioNode] extends Object3D:
 	def getVolume(): Double = js.native
 	def setVolume(value: Double): this.type = js.native
 	def load(file: String): Audio[GainNode] = js.native
-
-@js.native
-@JSGlobal("THREE.AudioContext")
-object AudioContext extends js.Object:
-	def getContext(): AudioContext = js.native
-	def setContext(): Unit = js.native
-
-@js.native
-@JSGlobal("THREE.AudioAnalyser")
-class AudioAnalyser extends js.Object:
-	def this(audio: Audio[AudioNode], fftSize: js.UndefOr[Double] = js.undefined) = this()
-	var analyser: AnalyserNode = js.native
-	var data: Uint8Array = js.native
-	def getFrequencyData(): Uint8Array = js.native
-	def getAverageFrequency(): Double = js.native
-	def getData(file: js.Any): js.Any = js.native

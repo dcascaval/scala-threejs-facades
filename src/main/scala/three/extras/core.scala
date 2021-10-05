@@ -34,36 +34,7 @@ import typings.three.lights.*
 
 
 @js.native
-@JSGlobal("THREE.Shape")
-class Shape extends Path:
-	def this(points: js.UndefOr[js.Array[Vector2]] = js.undefined) = this()
-
-	var uuid: String = js.native
-	var holes: js.Array[Path] = js.native
-	def getPointsHoles(divisions: Double): js.Array[js.Array[Vector2]] = js.native
-	def extractPoints(divisions: Double): AnonObject4 = js.native
-
-@js.native
-@JSGlobal("THREE.Font")
-class Font extends js.Object:
-	def this(jsondata: js.Any) = this()
-	var `type`: String = js.native
-	var data: String = js.native
-	def generateShapes(text: String, size: Double): js.Array[Shape] = js.native
-
-@js.native
-@JSGlobal("THREE.CurvePath")
-class CurvePath[T <: Vector] extends Curve[T]:
-
-	var curves: Array[Curve[T]] = js.native
-	var autoClose: Boolean = js.native
-	def add(curve: Curve[T]): Unit = js.native
-	def closePath(): Unit = js.native
-
-	def getCurveLengths(): js.Array[Double] = js.native
-
-@js.native
-@JSGlobal("THREE.Path")
+@JSImport("three","Path")
 class Path extends CurvePath[Vector2]:
 	def this(points: js.UndefOr[js.Array[Vector2]] = js.undefined) = this()
 
@@ -81,7 +52,17 @@ class Path extends CurvePath[Vector2]:
 	def absellipse(aX: Double, aY: Double, xRadius: Double, yRadius: Double, aStartAngle: Double, aEndAngle: Double, aClockwise: Boolean, aRotation: Double): this.type = js.native
 
 @js.native
-@JSGlobal("THREE.Curve")
+@JSImport("three","Shape")
+class Shape extends Path:
+	def this(points: js.UndefOr[js.Array[Vector2]] = js.undefined) = this()
+
+	var uuid: String = js.native
+	var holes: js.Array[Path] = js.native
+	def getPointsHoles(divisions: Double): js.Array[js.Array[Vector2]] = js.native
+	def extractPoints(divisions: Double): AnonObject4 = js.native
+
+@js.native
+@JSImport("three","Curve")
 class Curve[T <: Vector] extends js.Object:
 	var `type`: String = js.native
 	var arcLengthDivisions: Double = js.native
@@ -104,12 +85,20 @@ class Curve[T <: Vector] extends js.Object:
 
 
 @js.native
-@JSGlobal("THREE.Curve")
+@JSImport("three","Curve")
 object Curve extends js.Object:
 	def create(constructorFunc: js.Function0[Unit], getPointFunc: js.Function0[Unit]): js.Function0[Unit] = js.native
 
 @js.native
-@JSGlobal("THREE.ShapePath")
+@JSImport("three","Font")
+class Font extends js.Object:
+	def this(jsondata: js.Any) = this()
+	var `type`: String = js.native
+	var data: String = js.native
+	def generateShapes(text: String, size: Double): js.Array[Shape] = js.native
+
+@js.native
+@JSImport("three","ShapePath")
 class ShapePath extends js.Object:
 	var `type`: String = js.native
 	var color: Color = js.native
@@ -121,6 +110,17 @@ class ShapePath extends js.Object:
 	def bezierCurveTo(aCP1x: Double, aCP1y: Double, aCP2x: Double, aCP2y: Double, aX: Double, aY: Double): this.type = js.native
 	def splineThru(pts: js.Array[Vector2]): this.type = js.native
 	def toShapes(isCCW: Boolean, noHoles: js.UndefOr[Boolean] = js.undefined): js.Array[Shape] = js.native
+
+@js.native
+@JSImport("three","CurvePath")
+class CurvePath[T <: Vector] extends Curve[T]:
+
+	var curves: Array[Curve[T]] = js.native
+	var autoClose: Boolean = js.native
+	def add(curve: Curve[T]): Unit = js.native
+	def closePath(): Unit = js.native
+
+	def getCurveLengths(): js.Array[Double] = js.native
 
 @js.native
 trait AnonObject5 extends js.Object:

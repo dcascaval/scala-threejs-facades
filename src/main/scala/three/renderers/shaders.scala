@@ -32,6 +32,16 @@ import typings.three.math.interpolants.*
 import typings.three.audio.*
 import typings.three.lights.*
 
+@js.native
+@JSImport("three","cloneUniforms")
+def cloneUniforms(uniforms_src: js.Any): js.Any = js.native
+@js.native
+@JSImport("three","mergeUniforms")
+def mergeUniforms(uniforms: js.Array[js.Any]): js.Any = js.native
+
+@js.native
+@JSImport("three","UniformsUtils")
+object UniformsUtils extends js.Object
 
 @js.native
 trait Shader extends js.Object:
@@ -39,27 +49,17 @@ trait Shader extends js.Object:
 	var vertexShader: String = js.native
 	var fragmentShader: String = js.native
 @js.native
-@JSGlobal("THREE.ShaderLib")
+@JSImport("three","ShaderLib")
 val ShaderLib: AnonObject40 = js.native
 @js.native
-@JSGlobal("THREE.ShaderChunk")
+@JSImport("three","ShaderChunk")
 val ShaderChunk: AnonObject41 = js.native
-@js.native
-@JSGlobal("THREE.cloneUniforms")
-def cloneUniforms(uniforms_src: js.Any): js.Any = js.native
-@js.native
-@JSGlobal("THREE.mergeUniforms")
-def mergeUniforms(uniforms: js.Array[js.Any]): js.Any = js.native
-
-@js.native
-@JSGlobal("THREE.UniformsUtils")
-object UniformsUtils extends js.Object
 
 @js.native
 trait IUniform[TValue] extends js.Object:
 	var value: TValue = js.native
 @js.native
-@JSGlobal("THREE.UniformsLib")
+@JSImport("three","UniformsLib")
 val UniformsLib: AnonObject42 = js.native
 
 @js.native

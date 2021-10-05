@@ -42,7 +42,7 @@ trait FogBase extends js.Object:
 	def toJSON(): js.Any = js.native
 
 @js.native
-@JSGlobal("THREE.Fog")
+@JSImport("three","Fog")
 class Fog extends FogBase:
 	def this(color: ColorRepresentation, near: js.UndefOr[Double] = js.undefined, far: js.UndefOr[Double] = js.undefined) = this()
 
@@ -54,7 +54,18 @@ class Fog extends FogBase:
 
 
 @js.native
-@JSGlobal("THREE.Scene")
+@JSImport("three","FogExp2")
+class FogExp2 extends FogBase:
+	def this(hex: Double | String, density: js.UndefOr[Double] = js.undefined) = this()
+
+
+	var density: Double = js.native
+	val isFogExp2: Boolean = js.native
+
+
+
+@js.native
+@JSImport("three","Scene")
 class Scene extends Object3D:
 
 	var fog: FogBase = js.native
@@ -64,17 +75,6 @@ class Scene extends Object3D:
 	var environment: Texture = js.native
 	val isScene: Boolean = js.native
 
-
-
-
-@js.native
-@JSGlobal("THREE.FogExp2")
-class FogExp2 extends FogBase:
-	def this(hex: Double | String, density: js.UndefOr[Double] = js.undefined) = this()
-
-
-	var density: Double = js.native
-	val isFogExp2: Boolean = js.native
 
 
 

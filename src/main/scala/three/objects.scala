@@ -34,41 +34,7 @@ import typings.three.lights.*
 
 
 @js.native
-@JSGlobal("THREE.SkinnedMesh")
-class SkinnedMesh[TGeometry <: BufferGeometry,TMaterial <: Material | js.Array[Material]] extends Mesh[TGeometry,TMaterial]:
-	def this(geometry: js.UndefOr[TGeometry] = js.undefined, material: js.UndefOr[TMaterial] = js.undefined, useVertexTexture: js.UndefOr[Boolean] = js.undefined) = this()
-	var bindMode: String = js.native
-	var bindMatrix: Matrix4 = js.native
-	var bindMatrixInverse: Matrix4 = js.native
-	var skeleton: Skeleton = js.native
-	val isSkinnedMesh: Boolean = js.native
-	def bind(skeleton: Skeleton, bindMatrix: js.UndefOr[Matrix4] = js.undefined): Unit = js.native
-	def pose(): Unit = js.native
-	def normalizeSkinWeights(): Unit = js.native
-
-	def boneTransform(index: Double, target: Vector3): Vector3 = js.native
-@js.native
-@JSGlobal("THREE.LineStrip")
-val LineStrip: Double = js.native
-@js.native
-@JSGlobal("THREE.LinePieces")
-val LinePieces: Double = js.native
-
-@js.native
-@JSGlobal("THREE.LineSegments")
-class LineSegments[TGeometry <: BufferGeometry,TMaterial <: Material | js.Array[Material]] extends Line[TGeometry,TMaterial]:
-	def this(geometry: js.UndefOr[TGeometry] = js.undefined, material: js.UndefOr[TMaterial] = js.undefined) = this()
-
-	val isLineSegments: Boolean = js.native
-
-@js.native
-@JSGlobal("THREE.Bone")
-class Bone extends Object3D:
-	val isBone: Boolean = js.native
-
-
-@js.native
-@JSGlobal("THREE.Line")
+@JSImport("three","Line")
 class Line[TGeometry <: BufferGeometry,TMaterial <: Material | js.Array[Material]] extends Object3D:
 	def this(geometry: js.UndefOr[TGeometry] = js.undefined, material: js.UndefOr[TMaterial] = js.undefined) = this()
 	var geometry: TGeometry = js.native
@@ -80,9 +46,22 @@ class Line[TGeometry <: BufferGeometry,TMaterial <: Material | js.Array[Material
 	def computeLineDistances(): this.type = js.native
 
 	def updateMorphTargets(): Unit = js.native
+@js.native
+@JSImport("three","LineStrip")
+val LineStrip: Double = js.native
+@js.native
+@JSImport("three","LinePieces")
+val LinePieces: Double = js.native
 
 @js.native
-@JSGlobal("THREE.Mesh")
+@JSImport("three","LineSegments")
+class LineSegments[TGeometry <: BufferGeometry,TMaterial <: Material | js.Array[Material]] extends Line[TGeometry,TMaterial]:
+	def this(geometry: js.UndefOr[TGeometry] = js.undefined, material: js.UndefOr[TMaterial] = js.undefined) = this()
+
+	val isLineSegments: Boolean = js.native
+
+@js.native
+@JSImport("three","Mesh")
 class Mesh[TGeometry <: BufferGeometry,TMaterial <: Material | js.Array[Material]] extends Object3D:
 	def this(geometry: js.UndefOr[TGeometry] = js.undefined, material: js.UndefOr[TMaterial] = js.undefined) = this()
 	var geometry: TGeometry = js.native
@@ -95,7 +74,21 @@ class Mesh[TGeometry <: BufferGeometry,TMaterial <: Material | js.Array[Material
 
 
 @js.native
-@JSGlobal("THREE.Points")
+@JSImport("three","InstancedMesh")
+class InstancedMesh[TGeometry <: BufferGeometry,TMaterial <: Material | js.Array[Material]] extends Mesh[TGeometry,TMaterial]:
+	def this(geometry: js.UndefOr[TGeometry], material: js.UndefOr[TMaterial], count: Double) = this()
+	var count: Double = js.native
+	var instanceColor: BufferAttribute = js.native
+	var instanceMatrix: BufferAttribute = js.native
+	val isInstancedMesh: Boolean = js.native
+	def getColorAt(index: Double, color: Color): Unit = js.native
+	def getMatrixAt(index: Double, matrix: Matrix4): Unit = js.native
+	def setColorAt(index: Double, color: Color): Unit = js.native
+	def setMatrixAt(index: Double, matrix: Matrix4): Unit = js.native
+	def dispose(): Unit = js.native
+
+@js.native
+@JSImport("three","Points")
 class Points[TGeometry <: BufferGeometry,TMaterial <: Material | js.Array[Material]] extends Object3D:
 	def this(geometry: js.UndefOr[TGeometry] = js.undefined, material: js.UndefOr[TMaterial] = js.undefined) = this()
 
@@ -108,25 +101,7 @@ class Points[TGeometry <: BufferGeometry,TMaterial <: Material | js.Array[Materi
 	def updateMorphTargets(): Unit = js.native
 
 @js.native
-@JSGlobal("THREE.Sprite")
-class Sprite extends Object3D:
-	def this(material: js.UndefOr[SpriteMaterial] = js.undefined) = this()
-
-	val isSprite: Boolean = js.native
-	var geometry: BufferGeometry = js.native
-	var material: SpriteMaterial = js.native
-	var center: Vector2 = js.native
-
-
-
-@js.native
-@JSGlobal("THREE.Group")
-class Group extends Object3D:
-
-	val isGroup: Boolean = js.native
-
-@js.native
-@JSGlobal("THREE.LOD")
+@JSImport("three","LOD")
 class LOD extends Object3D:
 
 	var levels: Array[AnonObject3] = js.native
@@ -141,28 +116,14 @@ class LOD extends Object3D:
 
 
 @js.native
-@JSGlobal("THREE.InstancedMesh")
-class InstancedMesh[TGeometry <: BufferGeometry,TMaterial <: Material | js.Array[Material]] extends Mesh[TGeometry,TMaterial]:
-	def this(geometry: js.UndefOr[TGeometry], material: js.UndefOr[TMaterial], count: Double) = this()
-	var count: Double = js.native
-	var instanceColor: BufferAttribute = js.native
-	var instanceMatrix: BufferAttribute = js.native
-	val isInstancedMesh: Boolean = js.native
-	def getColorAt(index: Double, color: Color): Unit = js.native
-	def getMatrixAt(index: Double, matrix: Matrix4): Unit = js.native
-	def setColorAt(index: Double, color: Color): Unit = js.native
-	def setMatrixAt(index: Double, matrix: Matrix4): Unit = js.native
-	def dispose(): Unit = js.native
-
-@js.native
-@JSGlobal("THREE.LineLoop")
+@JSImport("three","LineLoop")
 class LineLoop[TGeometry <: BufferGeometry,TMaterial <: Material | js.Array[Material]] extends Line[TGeometry,TMaterial]:
 	def this(geometry: js.UndefOr[TGeometry] = js.undefined, material: js.UndefOr[TMaterial] = js.undefined) = this()
 
 	val isLineLoop: Boolean = js.native
 
 @js.native
-@JSGlobal("THREE.Skeleton")
+@JSImport("three","Skeleton")
 class Skeleton extends js.Object:
 	def this(bones: js.Array[Bone], boneInverses: js.UndefOr[js.Array[Matrix4]] = js.undefined) = this()
 	var uuid: String = js.native
@@ -182,6 +143,45 @@ class Skeleton extends js.Object:
 	def jsClone(): Skeleton = js.native
 	def getBoneByName(name: String): js.UndefOr[Bone] = js.native
 	def dispose(): Unit = js.native
+
+@js.native
+@JSImport("three","Sprite")
+class Sprite extends Object3D:
+	def this(material: js.UndefOr[SpriteMaterial] = js.undefined) = this()
+
+	val isSprite: Boolean = js.native
+	var geometry: BufferGeometry = js.native
+	var material: SpriteMaterial = js.native
+	var center: Vector2 = js.native
+
+
+
+@js.native
+@JSImport("three","Group")
+class Group extends Object3D:
+
+	val isGroup: Boolean = js.native
+
+@js.native
+@JSImport("three","Bone")
+class Bone extends Object3D:
+	val isBone: Boolean = js.native
+
+
+@js.native
+@JSImport("three","SkinnedMesh")
+class SkinnedMesh[TGeometry <: BufferGeometry,TMaterial <: Material | js.Array[Material]] extends Mesh[TGeometry,TMaterial]:
+	def this(geometry: js.UndefOr[TGeometry] = js.undefined, material: js.UndefOr[TMaterial] = js.undefined, useVertexTexture: js.UndefOr[Boolean] = js.undefined) = this()
+	var bindMode: String = js.native
+	var bindMatrix: Matrix4 = js.native
+	var bindMatrixInverse: Matrix4 = js.native
+	var skeleton: Skeleton = js.native
+	val isSkinnedMesh: Boolean = js.native
+	def bind(skeleton: Skeleton, bindMatrix: js.UndefOr[Matrix4] = js.undefined): Unit = js.native
+	def pose(): Unit = js.native
+	def normalizeSkinWeights(): Unit = js.native
+
+	def boneTransform(index: Double, target: Vector3): Vector3 = js.native
 
 @js.native
 trait AnonObject2 extends js.Object:

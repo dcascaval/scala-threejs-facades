@@ -37,7 +37,7 @@ import typings.three.examples.*
 
 
 @js.native
-@JSGlobal("THREE.OrbitControls")
+@JSImport("three/examples/jsm/controls/OrbitControls","OrbitControls")
 class OrbitControls extends js.Object:
 	def this(`object`: Camera, domElement: js.UndefOr[HTMLElement] = js.undefined) = this()
 	var `object`: Camera = js.native
@@ -83,7 +83,7 @@ class OrbitControls extends js.Object:
 	def dispatchEvent(event: AnonObject4): Unit = js.native
 
 @js.native
-@JSGlobal("THREE.MapControls")
+@JSImport("three/examples/jsm/controls/OrbitControls","MapControls")
 class MapControls extends OrbitControls:
 	def this(`object`: Camera, domElement: js.UndefOr[HTMLElement] = js.undefined) = this()
 

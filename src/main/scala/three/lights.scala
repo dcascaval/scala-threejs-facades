@@ -34,58 +34,13 @@ import typings.three.audio.*
 
 
 @js.native
-@JSGlobal("THREE.HemisphereLightProbe")
-class HemisphereLightProbe extends LightProbe:
-	def this(skyColor: js.UndefOr[ColorRepresentation] = js.undefined, groundColor: js.UndefOr[ColorRepresentation] = js.undefined, intensity: js.UndefOr[Double] = js.undefined) = this()
-	val isHemisphereLightProbe: Boolean = js.native
-
-@js.native
-@JSGlobal("THREE.DirectionalLight")
-class DirectionalLight extends Light:
-	def this(color: js.UndefOr[ColorRepresentation] = js.undefined, intensity: js.UndefOr[Double] = js.undefined) = this()
-
-
-	var target: Object3D = js.native
-
-
-	val isDirectionalLight: Boolean = js.native
-
-@js.native
-@JSGlobal("THREE.PointLightShadow")
-class PointLightShadow extends LightShadow
-
-
-@js.native
-@JSGlobal("THREE.SpotLightShadow")
-class SpotLightShadow extends LightShadow:
-
-	val isSpotLightShadow: Boolean = js.native
-	var focus: Double = js.native
-
-@js.native
-@JSGlobal("THREE.SpotLight")
-class SpotLight extends Light:
-	def this(color: js.UndefOr[ColorRepresentation] = js.undefined, intensity: js.UndefOr[Double] = js.undefined, distance: js.UndefOr[Double] = js.undefined, angle: js.UndefOr[Double] = js.undefined, penumbra: js.UndefOr[Double] = js.undefined, decay: js.UndefOr[Double] = js.undefined) = this()
-
-
-	var target: Object3D = js.native
-
-	var distance: Double = js.native
-	var angle: Double = js.native
-	var decay: Double = js.native
-
-	var power: Double = js.native
-	var penumbra: Double = js.native
-	val isSpotLight: Boolean = js.native
-
-@js.native
-@JSGlobal("THREE.AmbientLightProbe")
+@JSImport("three","AmbientLightProbe")
 class AmbientLightProbe extends LightProbe:
 	def this(color: js.UndefOr[ColorRepresentation] = js.undefined, intensity: js.UndefOr[Double] = js.undefined) = this()
 	val isAmbientLightProbe: Boolean = js.native
 
 @js.native
-@JSGlobal("THREE.LightShadow")
+@JSImport("three","LightShadow")
 class LightShadow extends js.Object:
 	def this(camera: Camera) = this()
 	var camera: Camera = js.native
@@ -109,49 +64,12 @@ class LightShadow extends js.Object:
 	def dispose(): Unit = js.native
 
 @js.native
-@JSGlobal("THREE.AmbientLight")
-class AmbientLight extends Light:
-	def this(color: js.UndefOr[ColorRepresentation] = js.undefined, intensity: js.UndefOr[Double] = js.undefined) = this()
+@JSImport("three","PointLightShadow")
+class PointLightShadow extends LightShadow
 
-	val isAmbientLight: Boolean = js.native
 
 @js.native
-@JSGlobal("THREE.DirectionalLightShadow")
-class DirectionalLightShadow extends LightShadow:
-
-	val isDirectionalLightShadow: Boolean = js.native
-
-@js.native
-@JSGlobal("THREE.HemisphereLight")
-class HemisphereLight extends Light:
-	def this(skyColor: js.UndefOr[ColorRepresentation] = js.undefined, groundColor: js.UndefOr[ColorRepresentation] = js.undefined, intensity: js.UndefOr[Double] = js.undefined) = this()
-
-
-	var groundColor: Color = js.native
-	val isHemisphereLight: Boolean = js.native
-
-@js.native
-@JSGlobal("THREE.LightProbe")
-class LightProbe extends Light:
-	def this(sh: js.UndefOr[SphericalHarmonics3] = js.undefined, intensity: js.UndefOr[Double] = js.undefined) = this()
-
-	val isLightProbe: Boolean = js.native
-	var sh: SphericalHarmonics3 = js.native
-	def fromJSON(json: js.Object): LightProbe = js.native
-
-@js.native
-@JSGlobal("THREE.PointLight")
-class PointLight extends Light:
-	def this(color: js.UndefOr[ColorRepresentation] = js.undefined, intensity: js.UndefOr[Double] = js.undefined, distance: js.UndefOr[Double] = js.undefined, decay: js.UndefOr[Double] = js.undefined) = this()
-
-
-	var distance: Double = js.native
-	var decay: Double = js.native
-
-	var power: Double = js.native
-
-@js.native
-@JSGlobal("THREE.Light")
+@JSImport("three","Light")
 class Light extends Object3D:
 	def this(hex: js.UndefOr[Double | String] = js.undefined, intensity: js.UndefOr[Double] = js.undefined) = this()
 
@@ -172,7 +90,40 @@ class Light extends Object3D:
 	def dispose(): Unit = js.native
 
 @js.native
-@JSGlobal("THREE.RectAreaLight")
+@JSImport("three","AmbientLight")
+class AmbientLight extends Light:
+	def this(color: js.UndefOr[ColorRepresentation] = js.undefined, intensity: js.UndefOr[Double] = js.undefined) = this()
+
+	val isAmbientLight: Boolean = js.native
+
+@js.native
+@JSImport("three","HemisphereLight")
+class HemisphereLight extends Light:
+	def this(skyColor: js.UndefOr[ColorRepresentation] = js.undefined, groundColor: js.UndefOr[ColorRepresentation] = js.undefined, intensity: js.UndefOr[Double] = js.undefined) = this()
+
+
+	var groundColor: Color = js.native
+	val isHemisphereLight: Boolean = js.native
+
+@js.native
+@JSImport("three","PointLight")
+class PointLight extends Light:
+	def this(color: js.UndefOr[ColorRepresentation] = js.undefined, intensity: js.UndefOr[Double] = js.undefined, distance: js.UndefOr[Double] = js.undefined, decay: js.UndefOr[Double] = js.undefined) = this()
+
+
+	var distance: Double = js.native
+	var decay: Double = js.native
+
+	var power: Double = js.native
+
+@js.native
+@JSImport("three","HemisphereLightProbe")
+class HemisphereLightProbe extends LightProbe:
+	def this(skyColor: js.UndefOr[ColorRepresentation] = js.undefined, groundColor: js.UndefOr[ColorRepresentation] = js.undefined, intensity: js.UndefOr[Double] = js.undefined) = this()
+	val isHemisphereLightProbe: Boolean = js.native
+
+@js.native
+@JSImport("three","RectAreaLight")
 class RectAreaLight extends Light:
 	def this(color: js.UndefOr[ColorRepresentation] = js.undefined, intensity: js.UndefOr[Double] = js.undefined, width: js.UndefOr[Double] = js.undefined, height: js.UndefOr[Double] = js.undefined) = this()
 
@@ -180,3 +131,52 @@ class RectAreaLight extends Light:
 	var height: Double = js.native
 
 	val isRectAreaLight: Boolean = js.native
+
+@js.native
+@JSImport("three","SpotLightShadow")
+class SpotLightShadow extends LightShadow:
+
+	val isSpotLightShadow: Boolean = js.native
+	var focus: Double = js.native
+
+@js.native
+@JSImport("three","DirectionalLight")
+class DirectionalLight extends Light:
+	def this(color: js.UndefOr[ColorRepresentation] = js.undefined, intensity: js.UndefOr[Double] = js.undefined) = this()
+
+
+	var target: Object3D = js.native
+
+
+	val isDirectionalLight: Boolean = js.native
+
+@js.native
+@JSImport("three","DirectionalLightShadow")
+class DirectionalLightShadow extends LightShadow:
+
+	val isDirectionalLightShadow: Boolean = js.native
+
+@js.native
+@JSImport("three","SpotLight")
+class SpotLight extends Light:
+	def this(color: js.UndefOr[ColorRepresentation] = js.undefined, intensity: js.UndefOr[Double] = js.undefined, distance: js.UndefOr[Double] = js.undefined, angle: js.UndefOr[Double] = js.undefined, penumbra: js.UndefOr[Double] = js.undefined, decay: js.UndefOr[Double] = js.undefined) = this()
+
+
+	var target: Object3D = js.native
+
+	var distance: Double = js.native
+	var angle: Double = js.native
+	var decay: Double = js.native
+
+	var power: Double = js.native
+	var penumbra: Double = js.native
+	val isSpotLight: Boolean = js.native
+
+@js.native
+@JSImport("three","LightProbe")
+class LightProbe extends Light:
+	def this(sh: js.UndefOr[SphericalHarmonics3] = js.undefined, intensity: js.UndefOr[Double] = js.undefined) = this()
+
+	val isLightProbe: Boolean = js.native
+	var sh: SphericalHarmonics3 = js.native
+	def fromJSON(json: js.Object): LightProbe = js.native

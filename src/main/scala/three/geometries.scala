@@ -34,46 +34,218 @@ import typings.three.lights.*
 
 
 @js.native
-@JSGlobal("THREE.RingGeometry")
-class RingGeometry extends BufferGeometry:
-	def this(innerRadius: js.UndefOr[Double] = js.undefined, outerRadius: js.UndefOr[Double] = js.undefined, thetaSegments: js.UndefOr[Double] = js.undefined, phiSegments: js.UndefOr[Double] = js.undefined, thetaStart: js.UndefOr[Double] = js.undefined, thetaLength: js.UndefOr[Double] = js.undefined) = this()
+@JSImport("three","PolyhedronGeometry")
+class PolyhedronGeometry extends BufferGeometry:
+	def this(vertices: js.Array[Double], indices: js.Array[Double], radius: js.UndefOr[Double] = js.undefined, detail: js.UndefOr[Double] = js.undefined) = this()
 
 	var parameters: AnonObject71 = js.native
 
 
 @js.native
-@JSGlobal("THREE.RingGeometry")
+@JSImport("three","PolyhedronGeometry")
+object PolyhedronGeometry extends js.Object:
+	def fromJSON(data: js.Any): PolyhedronGeometry = js.native
+
+@js.native
+@JSImport("three","OctahedronGeometry")
+class OctahedronGeometry extends PolyhedronGeometry:
+	def this(radius: js.UndefOr[Double] = js.undefined, detail: js.UndefOr[Double] = js.undefined) = this()
+
+
+
+@js.native
+@JSImport("three","OctahedronGeometry")
+object OctahedronGeometry extends js.Object:
+	def fromJSON(data: js.Any): OctahedronGeometry = js.native
+
+@js.native
+@JSImport("three","RingGeometry")
+class RingGeometry extends BufferGeometry:
+	def this(innerRadius: js.UndefOr[Double] = js.undefined, outerRadius: js.UndefOr[Double] = js.undefined, thetaSegments: js.UndefOr[Double] = js.undefined, phiSegments: js.UndefOr[Double] = js.undefined, thetaStart: js.UndefOr[Double] = js.undefined, thetaLength: js.UndefOr[Double] = js.undefined) = this()
+
+	var parameters: AnonObject72 = js.native
+
+
+@js.native
+@JSImport("three","RingGeometry")
 object RingGeometry extends js.Object:
 	def fromJSON(data: js.Any): RingGeometry = js.native
 
 @js.native
-@JSGlobal("THREE.WireframeGeometry")
-class WireframeGeometry extends BufferGeometry:
-	def this(geometry: BufferGeometry) = this()
+@JSImport("three","TorusGeometry")
+class TorusGeometry extends BufferGeometry:
+	def this(radius: js.UndefOr[Double] = js.undefined, tube: js.UndefOr[Double] = js.undefined, radialSegments: js.UndefOr[Double] = js.undefined, tubularSegments: js.UndefOr[Double] = js.undefined, arc: js.UndefOr[Double] = js.undefined) = this()
+
+	var parameters: AnonObject73 = js.native
 
 
 @js.native
-@JSGlobal("THREE.IcosahedronGeometry")
+@JSImport("three","TorusGeometry")
+object TorusGeometry extends js.Object:
+	def fromJSON(data: js.Any): TorusGeometry = js.native
+
+@js.native
+@JSImport("three","IcosahedronGeometry")
 class IcosahedronGeometry extends PolyhedronGeometry:
 	def this(radius: js.UndefOr[Double] = js.undefined, detail: js.UndefOr[Double] = js.undefined) = this()
 
 
 
 @js.native
-@JSGlobal("THREE.IcosahedronGeometry")
+@JSImport("three","IcosahedronGeometry")
 object IcosahedronGeometry extends js.Object:
 	def fromJSON(data: js.Any): IcosahedronGeometry = js.native
 
 @js.native
-@JSGlobal("THREE.CylinderGeometry")
-class CylinderGeometry extends BufferGeometry:
-	def this(radiusTop: js.UndefOr[Double] = js.undefined, radiusBottom: js.UndefOr[Double] = js.undefined, height: js.UndefOr[Double] = js.undefined, radialSegments: js.UndefOr[Double] = js.undefined, heightSegments: js.UndefOr[Double] = js.undefined, openEnded: js.UndefOr[Boolean] = js.undefined, thetaStart: js.UndefOr[Double] = js.undefined, thetaLength: js.UndefOr[Double] = js.undefined) = this()
+@JSImport("three","SphereGeometry")
+class SphereGeometry extends BufferGeometry:
+	def this(radius: js.UndefOr[Double] = js.undefined, widthSegments: js.UndefOr[Double] = js.undefined, heightSegments: js.UndefOr[Double] = js.undefined, phiStart: js.UndefOr[Double] = js.undefined, phiLength: js.UndefOr[Double] = js.undefined, thetaStart: js.UndefOr[Double] = js.undefined, thetaLength: js.UndefOr[Double] = js.undefined) = this()
 
-	var parameters: AnonObject72 = js.native
+	var parameters: AnonObject74 = js.native
 
 
 @js.native
-@JSGlobal("THREE.CylinderGeometry")
+@JSImport("three","SphereGeometry")
+object SphereGeometry extends js.Object:
+	def fromJSON(data: js.Any): SphereGeometry = js.native
+
+@js.native
+@JSImport("three","ConeGeometry")
+class ConeGeometry extends CylinderGeometry:
+	def this(radius: js.UndefOr[Double] = js.undefined, height: js.UndefOr[Double] = js.undefined, radialSegments: js.UndefOr[Double] = js.undefined, heightSegments: js.UndefOr[Double] = js.undefined, openEnded: js.UndefOr[Boolean] = js.undefined, thetaStart: js.UndefOr[Double] = js.undefined, thetaLength: js.UndefOr[Double] = js.undefined) = this()
+
+
+
+@js.native
+@JSImport("three","ConeGeometry")
+object ConeGeometry extends js.Object:
+	def fromJSON(data: js.Any): ConeGeometry = js.native
+
+@js.native
+@JSImport("three","DodecahedronGeometry")
+class DodecahedronGeometry extends PolyhedronGeometry:
+	def this(radius: js.UndefOr[Double] = js.undefined, detail: js.UndefOr[Double] = js.undefined) = this()
+
+
+
+@js.native
+@JSImport("three","DodecahedronGeometry")
+object DodecahedronGeometry extends js.Object:
+	def fromJSON(data: js.Any): DodecahedronGeometry = js.native
+
+@js.native
+@JSImport("three","ShapeGeometry")
+class ShapeGeometry extends BufferGeometry:
+	def this(shapes: Shape | js.Array[Shape], curveSegments: js.UndefOr[Double] = js.undefined) = this()
+
+
+
+@js.native
+@JSImport("three","ShapeGeometry")
+object ShapeGeometry extends js.Object:
+	def fromJSON(data: js.Any): ShapeGeometry = js.native
+
+
+trait TextGeometryParameters extends js.Object:
+	var font: Font 
+	var size: js.UndefOr[Double] = js.undefined
+	var height: js.UndefOr[Double] = js.undefined
+	var curveSegments: js.UndefOr[Double] = js.undefined
+	var bevelEnabled: js.UndefOr[Boolean] = js.undefined
+	var bevelThickness: js.UndefOr[Double] = js.undefined
+	var bevelSize: js.UndefOr[Double] = js.undefined
+	var bevelOffset: js.UndefOr[Double] = js.undefined
+	var bevelSegments: js.UndefOr[Double] = js.undefined
+
+@js.native
+@JSImport("three","TextGeometry")
+class TextGeometry extends ExtrudeGeometry:
+	def this(text: String, parameters: TextGeometryParameters) = this()
+
+	var parameters: AnonObject75 = js.native
+
+@js.native
+@JSImport("three","TorusKnotGeometry")
+class TorusKnotGeometry extends BufferGeometry:
+	def this(radius: js.UndefOr[Double] = js.undefined, tube: js.UndefOr[Double] = js.undefined, tubularSegments: js.UndefOr[Double] = js.undefined, radialSegments: js.UndefOr[Double] = js.undefined, p: js.UndefOr[Double] = js.undefined, q: js.UndefOr[Double] = js.undefined) = this()
+
+	var parameters: AnonObject76 = js.native
+
+
+@js.native
+@JSImport("three","TorusKnotGeometry")
+object TorusKnotGeometry extends js.Object:
+	def fromJSON(data: js.Any): TorusKnotGeometry = js.native
+
+@js.native
+@JSImport("three","WireframeGeometry")
+class WireframeGeometry extends BufferGeometry:
+	def this(geometry: BufferGeometry) = this()
+
+
+@js.native
+@JSImport("three","CircleGeometry")
+class CircleGeometry extends BufferGeometry:
+	def this(radius: js.UndefOr[Double] = js.undefined, segments: js.UndefOr[Double] = js.undefined, thetaStart: js.UndefOr[Double] = js.undefined, thetaLength: js.UndefOr[Double] = js.undefined) = this()
+
+	var parameters: AnonObject77 = js.native
+
+
+@js.native
+@JSImport("three","CircleGeometry")
+object CircleGeometry extends js.Object:
+	def fromJSON(data: js.Any): CircleGeometry = js.native
+
+@js.native
+@JSImport("three","PlaneGeometry")
+class PlaneGeometry extends BufferGeometry:
+	def this(width: js.UndefOr[Double] = js.undefined, height: js.UndefOr[Double] = js.undefined, widthSegments: js.UndefOr[Double] = js.undefined, heightSegments: js.UndefOr[Double] = js.undefined) = this()
+
+	var parameters: AnonObject78 = js.native
+
+
+@js.native
+@JSImport("three","PlaneGeometry")
+object PlaneGeometry extends js.Object:
+	def fromJSON(data: js.Any): PlaneGeometry = js.native
+
+@js.native
+@JSImport("three","LatheGeometry")
+class LatheGeometry extends BufferGeometry:
+	def this(points: js.Array[Vector2], segments: js.UndefOr[Double] = js.undefined, phiStart: js.UndefOr[Double] = js.undefined, phiLength: js.UndefOr[Double] = js.undefined) = this()
+
+	var parameters: AnonObject79 = js.native
+
+
+@js.native
+@JSImport("three","LatheGeometry")
+object LatheGeometry extends js.Object:
+	def fromJSON(data: js.Any): LatheGeometry = js.native
+
+@js.native
+@JSImport("three","ParametricGeometry")
+class ParametricGeometry extends BufferGeometry:
+	def this(func: js.Function3[Double,Double,Vector3,Unit], slices: Double, stacks: Double) = this()
+
+	var parameters: AnonObject80 = js.native
+
+@js.native
+@JSImport("three","EdgesGeometry")
+class EdgesGeometry extends BufferGeometry:
+	def this(geometry: BufferGeometry, thresholdAngle: js.UndefOr[Double] = js.undefined) = this()
+
+	var parameters: AnonObject81 = js.native
+
+@js.native
+@JSImport("three","CylinderGeometry")
+class CylinderGeometry extends BufferGeometry:
+	def this(radiusTop: js.UndefOr[Double] = js.undefined, radiusBottom: js.UndefOr[Double] = js.undefined, height: js.UndefOr[Double] = js.undefined, radialSegments: js.UndefOr[Double] = js.undefined, heightSegments: js.UndefOr[Double] = js.undefined, openEnded: js.UndefOr[Boolean] = js.undefined, thetaStart: js.UndefOr[Double] = js.undefined, thetaLength: js.UndefOr[Double] = js.undefined) = this()
+
+	var parameters: AnonObject82 = js.native
+
+
+@js.native
+@JSImport("three","CylinderGeometry")
 object CylinderGeometry extends js.Object:
 	def fromJSON(data: js.Any): CylinderGeometry = js.native
 
@@ -96,7 +268,7 @@ trait UVGenerator extends js.Object:
 	def generateSideWallUV(geometry: ExtrudeGeometry, vertices: js.Array[Double], indexA: Double, indexB: Double, indexC: Double, indexD: Double): js.Array[Vector2] = js.native
 
 @js.native
-@JSGlobal("THREE.ExtrudeGeometry")
+@JSImport("three","ExtrudeGeometry")
 class ExtrudeGeometry extends BufferGeometry:
 	def this(shapes: Shape | js.Array[Shape], options: js.UndefOr[ExtrudeGeometryOptions] = js.undefined) = this()
 
@@ -105,209 +277,25 @@ class ExtrudeGeometry extends BufferGeometry:
 
 
 @js.native
-@JSGlobal("THREE.ExtrudeGeometry")
+@JSImport("three","ExtrudeGeometry")
 object ExtrudeGeometry extends js.Object:
 	def fromJSON(data: js.Any): ExtrudeGeometry = js.native
 
 @js.native
-@JSGlobal("THREE.OctahedronGeometry")
-class OctahedronGeometry extends PolyhedronGeometry:
-	def this(radius: js.UndefOr[Double] = js.undefined, detail: js.UndefOr[Double] = js.undefined) = this()
-
-
-
-@js.native
-@JSGlobal("THREE.OctahedronGeometry")
-object OctahedronGeometry extends js.Object:
-	def fromJSON(data: js.Any): OctahedronGeometry = js.native
-
-@js.native
-@JSGlobal("THREE.ShapeGeometry")
-class ShapeGeometry extends BufferGeometry:
-	def this(shapes: Shape | js.Array[Shape], curveSegments: js.UndefOr[Double] = js.undefined) = this()
-
-
-
-@js.native
-@JSGlobal("THREE.ShapeGeometry")
-object ShapeGeometry extends js.Object:
-	def fromJSON(data: js.Any): ShapeGeometry = js.native
-
-@js.native
-@JSGlobal("THREE.ParametricGeometry")
-class ParametricGeometry extends BufferGeometry:
-	def this(func: js.Function3[Double,Double,Vector3,Unit], slices: Double, stacks: Double) = this()
-
-	var parameters: AnonObject73 = js.native
-
-@js.native
-@JSGlobal("THREE.DodecahedronGeometry")
-class DodecahedronGeometry extends PolyhedronGeometry:
-	def this(radius: js.UndefOr[Double] = js.undefined, detail: js.UndefOr[Double] = js.undefined) = this()
-
-
-
-@js.native
-@JSGlobal("THREE.DodecahedronGeometry")
-object DodecahedronGeometry extends js.Object:
-	def fromJSON(data: js.Any): DodecahedronGeometry = js.native
-
-@js.native
-@JSGlobal("THREE.TorusKnotGeometry")
-class TorusKnotGeometry extends BufferGeometry:
-	def this(radius: js.UndefOr[Double] = js.undefined, tube: js.UndefOr[Double] = js.undefined, tubularSegments: js.UndefOr[Double] = js.undefined, radialSegments: js.UndefOr[Double] = js.undefined, p: js.UndefOr[Double] = js.undefined, q: js.UndefOr[Double] = js.undefined) = this()
-
-	var parameters: AnonObject74 = js.native
-
-
-@js.native
-@JSGlobal("THREE.TorusKnotGeometry")
-object TorusKnotGeometry extends js.Object:
-	def fromJSON(data: js.Any): TorusKnotGeometry = js.native
-
-@js.native
-@JSGlobal("THREE.PlaneGeometry")
-class PlaneGeometry extends BufferGeometry:
-	def this(width: js.UndefOr[Double] = js.undefined, height: js.UndefOr[Double] = js.undefined, widthSegments: js.UndefOr[Double] = js.undefined, heightSegments: js.UndefOr[Double] = js.undefined) = this()
-
-	var parameters: AnonObject75 = js.native
-
-
-@js.native
-@JSGlobal("THREE.PlaneGeometry")
-object PlaneGeometry extends js.Object:
-	def fromJSON(data: js.Any): PlaneGeometry = js.native
-
-@js.native
-@JSGlobal("THREE.BoxGeometry")
+@JSImport("three","BoxGeometry")
 class BoxGeometry extends BufferGeometry:
 	def this(width: js.UndefOr[Double] = js.undefined, height: js.UndefOr[Double] = js.undefined, depth: js.UndefOr[Double] = js.undefined, widthSegments: js.UndefOr[Double] = js.undefined, heightSegments: js.UndefOr[Double] = js.undefined, depthSegments: js.UndefOr[Double] = js.undefined) = this()
-
-	var parameters: AnonObject76 = js.native
-
-
-@js.native
-@JSGlobal("THREE.BoxGeometry")
-object BoxGeometry extends js.Object:
-	def fromJSON(data: js.Any): BoxGeometry = js.native
-
-@js.native
-@JSGlobal("THREE.SphereGeometry")
-class SphereGeometry extends BufferGeometry:
-	def this(radius: js.UndefOr[Double] = js.undefined, widthSegments: js.UndefOr[Double] = js.undefined, heightSegments: js.UndefOr[Double] = js.undefined, phiStart: js.UndefOr[Double] = js.undefined, phiLength: js.UndefOr[Double] = js.undefined, thetaStart: js.UndefOr[Double] = js.undefined, thetaLength: js.UndefOr[Double] = js.undefined) = this()
-
-	var parameters: AnonObject77 = js.native
-
-
-@js.native
-@JSGlobal("THREE.SphereGeometry")
-object SphereGeometry extends js.Object:
-	def fromJSON(data: js.Any): SphereGeometry = js.native
-
-@js.native
-@JSGlobal("THREE.EdgesGeometry")
-class EdgesGeometry extends BufferGeometry:
-	def this(geometry: BufferGeometry, thresholdAngle: js.UndefOr[Double] = js.undefined) = this()
-
-	var parameters: AnonObject78 = js.native
-
-@js.native
-@JSGlobal("THREE.ConeGeometry")
-class ConeGeometry extends CylinderGeometry:
-	def this(radius: js.UndefOr[Double] = js.undefined, height: js.UndefOr[Double] = js.undefined, radialSegments: js.UndefOr[Double] = js.undefined, heightSegments: js.UndefOr[Double] = js.undefined, openEnded: js.UndefOr[Boolean] = js.undefined, thetaStart: js.UndefOr[Double] = js.undefined, thetaLength: js.UndefOr[Double] = js.undefined) = this()
-
-
-
-@js.native
-@JSGlobal("THREE.ConeGeometry")
-object ConeGeometry extends js.Object:
-	def fromJSON(data: js.Any): ConeGeometry = js.native
-
-@js.native
-@JSGlobal("THREE.CircleGeometry")
-class CircleGeometry extends BufferGeometry:
-	def this(radius: js.UndefOr[Double] = js.undefined, segments: js.UndefOr[Double] = js.undefined, thetaStart: js.UndefOr[Double] = js.undefined, thetaLength: js.UndefOr[Double] = js.undefined) = this()
-
-	var parameters: AnonObject79 = js.native
-
-
-@js.native
-@JSGlobal("THREE.CircleGeometry")
-object CircleGeometry extends js.Object:
-	def fromJSON(data: js.Any): CircleGeometry = js.native
-
-@js.native
-@JSGlobal("THREE.PolyhedronGeometry")
-class PolyhedronGeometry extends BufferGeometry:
-	def this(vertices: js.Array[Double], indices: js.Array[Double], radius: js.UndefOr[Double] = js.undefined, detail: js.UndefOr[Double] = js.undefined) = this()
-
-	var parameters: AnonObject80 = js.native
-
-
-@js.native
-@JSGlobal("THREE.PolyhedronGeometry")
-object PolyhedronGeometry extends js.Object:
-	def fromJSON(data: js.Any): PolyhedronGeometry = js.native
-
-@js.native
-@JSGlobal("THREE.LatheGeometry")
-class LatheGeometry extends BufferGeometry:
-	def this(points: js.Array[Vector2], segments: js.UndefOr[Double] = js.undefined, phiStart: js.UndefOr[Double] = js.undefined, phiLength: js.UndefOr[Double] = js.undefined) = this()
-
-	var parameters: AnonObject81 = js.native
-
-
-@js.native
-@JSGlobal("THREE.LatheGeometry")
-object LatheGeometry extends js.Object:
-	def fromJSON(data: js.Any): LatheGeometry = js.native
-
-
-trait TextGeometryParameters extends js.Object:
-	var font: Font 
-	var size: js.UndefOr[Double] = js.undefined
-	var height: js.UndefOr[Double] = js.undefined
-	var curveSegments: js.UndefOr[Double] = js.undefined
-	var bevelEnabled: js.UndefOr[Boolean] = js.undefined
-	var bevelThickness: js.UndefOr[Double] = js.undefined
-	var bevelSize: js.UndefOr[Double] = js.undefined
-	var bevelOffset: js.UndefOr[Double] = js.undefined
-	var bevelSegments: js.UndefOr[Double] = js.undefined
-
-@js.native
-@JSGlobal("THREE.TextGeometry")
-class TextGeometry extends ExtrudeGeometry:
-	def this(text: String, parameters: TextGeometryParameters) = this()
-
-	var parameters: AnonObject82 = js.native
-
-@js.native
-@JSGlobal("THREE.TorusGeometry")
-class TorusGeometry extends BufferGeometry:
-	def this(radius: js.UndefOr[Double] = js.undefined, tube: js.UndefOr[Double] = js.undefined, radialSegments: js.UndefOr[Double] = js.undefined, tubularSegments: js.UndefOr[Double] = js.undefined, arc: js.UndefOr[Double] = js.undefined) = this()
 
 	var parameters: AnonObject83 = js.native
 
 
 @js.native
-@JSGlobal("THREE.TorusGeometry")
-object TorusGeometry extends js.Object:
-	def fromJSON(data: js.Any): TorusGeometry = js.native
+@JSImport("three","BoxGeometry")
+object BoxGeometry extends js.Object:
+	def fromJSON(data: js.Any): BoxGeometry = js.native
 
 @js.native
-@JSGlobal("THREE.TetrahedronGeometry")
-class TetrahedronGeometry extends PolyhedronGeometry:
-	def this(radius: js.UndefOr[Double] = js.undefined, detail: js.UndefOr[Double] = js.undefined) = this()
-
-
-
-@js.native
-@JSGlobal("THREE.TetrahedronGeometry")
-object TetrahedronGeometry extends js.Object:
-	def fromJSON(data: js.Any): TetrahedronGeometry = js.native
-
-@js.native
-@JSGlobal("THREE.TubeGeometry")
+@JSImport("three","TubeGeometry")
 class TubeGeometry extends BufferGeometry:
 	def this(path: Curve[Vector3], tubularSegments: js.UndefOr[Double] = js.undefined, radius: js.UndefOr[Double] = js.undefined, radiusSegments: js.UndefOr[Double] = js.undefined, closed: js.UndefOr[Boolean] = js.undefined) = this()
 
@@ -318,12 +306,24 @@ class TubeGeometry extends BufferGeometry:
 
 
 @js.native
-@JSGlobal("THREE.TubeGeometry")
+@JSImport("three","TubeGeometry")
 object TubeGeometry extends js.Object:
 	def fromJSON(data: js.Any): TubeGeometry = js.native
 
 @js.native
-trait AnonObject75 extends js.Object:
+@JSImport("three","TetrahedronGeometry")
+class TetrahedronGeometry extends PolyhedronGeometry:
+	def this(radius: js.UndefOr[Double] = js.undefined, detail: js.UndefOr[Double] = js.undefined) = this()
+
+
+
+@js.native
+@JSImport("three","TetrahedronGeometry")
+object TetrahedronGeometry extends js.Object:
+	def fromJSON(data: js.Any): TetrahedronGeometry = js.native
+
+@js.native
+trait AnonObject78 extends js.Object:
 	var width: Double = js.native
 	var height: Double = js.native
 	var widthSegments: Double = js.native
@@ -335,7 +335,7 @@ trait AnonObject64 extends js.Object:
 	var properties: AnonObject85 = js.native
 
 @js.native
-trait AnonObject71 extends js.Object:
+trait AnonObject72 extends js.Object:
 	var innerRadius: Double = js.native
 	var outerRadius: Double = js.native
 	var thetaSegments: Double = js.native
@@ -349,7 +349,7 @@ trait AnonObject68 extends js.Object:
 	var properties: AnonObject86 = js.native
 
 @js.native
-trait AnonObject76 extends js.Object:
+trait AnonObject83 extends js.Object:
 	var width: Double = js.native
 	var height: Double = js.native
 	var depth: Double = js.native
@@ -358,7 +358,7 @@ trait AnonObject76 extends js.Object:
 	var depthSegments: Double = js.native
 
 @js.native
-trait AnonObject74 extends js.Object:
+trait AnonObject76 extends js.Object:
 	var radius: Double = js.native
 	var tube: Double = js.native
 	var tubularSegments: Double = js.native
@@ -367,7 +367,7 @@ trait AnonObject74 extends js.Object:
 	var q: Double = js.native
 
 @js.native
-trait AnonObject83 extends js.Object:
+trait AnonObject73 extends js.Object:
 	var radius: Double = js.native
 	var tube: Double = js.native
 	var radialSegments: Double = js.native
@@ -391,7 +391,7 @@ trait AnonObject69 extends js.Object:
 	var properties: AnonObject87 = js.native
 
 @js.native
-trait AnonObject72 extends js.Object:
+trait AnonObject82 extends js.Object:
 	var radiusTop: Double = js.native
 	var radiusBottom: Double = js.native
 	var height: Double = js.native
@@ -402,11 +402,11 @@ trait AnonObject72 extends js.Object:
 	var thetaLength: Double = js.native
 
 @js.native
-trait AnonObject78 extends js.Object:
+trait AnonObject81 extends js.Object:
 	var thresholdAngle: Double = js.native
 
 @js.native
-trait AnonObject73 extends js.Object:
+trait AnonObject80 extends js.Object:
 	var func: js.Function3[Double,Double,Vector3,Unit] = js.native
 	var slices: Double = js.native
 	var stacks: Double = js.native
@@ -417,7 +417,7 @@ trait AnonObject65 extends js.Object:
 	var properties: AnonObject88 = js.native
 
 @js.native
-trait AnonObject80 extends js.Object:
+trait AnonObject71 extends js.Object:
 	var vertices: js.Array[Double] = js.native
 	var indices: js.Array[Double] = js.native
 	var radius: Double = js.native
@@ -437,7 +437,7 @@ trait AnonObject84 extends js.Object:
 	var closed: Boolean = js.native
 
 @js.native
-trait AnonObject79 extends js.Object:
+trait AnonObject77 extends js.Object:
 	var radius: Double = js.native
 	var segments: Double = js.native
 	var thetaStart: Double = js.native
@@ -449,14 +449,14 @@ trait AnonObject66 extends js.Object:
 	var properties: AnonObject90 = js.native
 
 @js.native
-trait AnonObject81 extends js.Object:
+trait AnonObject79 extends js.Object:
 	var points: js.Array[Vector2] = js.native
 	var segments: Double = js.native
 	var phiStart: Double = js.native
 	var phiLength: Double = js.native
 
 @js.native
-trait AnonObject82 extends js.Object:
+trait AnonObject75 extends js.Object:
 	var font: Font = js.native
 	var size: Double = js.native
 	var height: Double = js.native
@@ -468,7 +468,7 @@ trait AnonObject82 extends js.Object:
 	var bevelSegments: Double = js.native
 
 @js.native
-trait AnonObject77 extends js.Object:
+trait AnonObject74 extends js.Object:
 	var radius: Double = js.native
 	var widthSegments: Double = js.native
 	var heightSegments: Double = js.native

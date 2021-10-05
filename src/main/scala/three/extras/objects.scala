@@ -34,7 +34,7 @@ import typings.three.lights.*
 
 
 @js.native
-@JSGlobal("THREE.ImmediateRenderObject")
+@JSImport("three","ImmediateRenderObject")
 class ImmediateRenderObject extends Object3D:
 	def this(material: Material) = this()
 	val isImmediateRenderObject: Boolean = js.native

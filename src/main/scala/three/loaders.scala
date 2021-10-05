@@ -34,32 +34,14 @@ import typings.three.lights.*
 
 
 @js.native
-@JSGlobal("THREE.FileLoader")
-class FileLoader extends Loader:
+@JSImport("three","ImageLoader")
+class ImageLoader extends Loader:
 	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
-	var mimeType: js.UndefOr[MimeType] = js.native
-	var responseType: js.UndefOr[String] = js.native
-	def load(url: String, onLoad: js.UndefOr[js.Function1[String | ArrayBuffer,Unit]] = js.undefined, onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): js.Any = js.native
-
-	def setMimeType(mimeType: MimeType): FileLoader = js.native
-	def setResponseType(responseType: String): FileLoader = js.native
-
-@js.native
-@JSGlobal("THREE.TextureLoader")
-class TextureLoader extends Loader:
-	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
-	def load(url: String, onLoad: js.UndefOr[js.Function1[Texture,Unit]] = js.undefined, onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): Texture = js.native
+	def load(url: String, onLoad: js.UndefOr[js.Function1[HTMLImageElement,Unit]] = js.undefined, onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): HTMLImageElement = js.native
 
 
 @js.native
-@JSGlobal("THREE.CompressedTextureLoader")
-class CompressedTextureLoader extends Loader:
-	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
-	def load(url: String, onLoad: js.Function1[CompressedTexture,Unit], onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): CompressedTexture = js.native
-
-
-@js.native
-@JSGlobal("THREE.FontLoader")
+@JSImport("three","FontLoader")
 class FontLoader extends Loader:
 	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
 	def load(url: String, onLoad: js.UndefOr[js.Function1[Font,Unit]] = js.undefined, onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): Unit = js.native
@@ -67,7 +49,7 @@ class FontLoader extends Loader:
 	def parse(json: js.Any): Font = js.native
 
 @js.native
-@JSGlobal("THREE.ObjectLoader")
+@JSImport("three","ObjectLoader")
 class ObjectLoader extends Loader:
 	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
 	def load[ObjectType](url: String, onLoad: js.UndefOr[js.Function1[ObjectType,Unit]] = js.undefined, onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[Error | ErrorEvent,Unit]] = js.undefined): Unit = js.native
@@ -81,12 +63,42 @@ class ObjectLoader extends Loader:
 	def parseImagesAsync(json: js.Any): js.Promise[AnonObject11] = js.native
 	def parseTextures(json: js.Any, images: js.Any): js.Array[Texture] = js.native
 	def parseObject[T <: Object3D](data: js.Any, geometries: js.Array[js.Any], materials: js.Array[Material], animations: js.Array[AnimationClip]): T = js.native
+
 @js.native
-@JSGlobal("THREE.DefaultLoadingManager")
+@JSImport("three","BufferGeometryLoader")
+class BufferGeometryLoader extends Loader:
+	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
+	def load(url: String, onLoad: js.Function1[InstancedBufferGeometry | BufferGeometry,Unit], onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): Unit = js.native
+
+	def parse(json: js.Any): InstancedBufferGeometry | BufferGeometry = js.native
+
+@js.native
+trait LoaderUtils extends js.Object:
+	def decodeText(array: BufferSource): String = js.native
+	def extractUrlBase(url: String): String = js.native
+@js.native
+@JSImport("three","LoaderUtils")
+val LoaderUtils: LoaderUtils = js.native
+
+@js.native
+@JSImport("three","AudioLoader")
+class AudioLoader extends Loader:
+	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
+	def load(url: String, onLoad: js.Function1[AudioBuffer,Unit], onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): Unit = js.native
+
+
+@js.native
+@JSImport("three","TextureLoader")
+class TextureLoader extends Loader:
+	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
+	def load(url: String, onLoad: js.UndefOr[js.Function1[Texture,Unit]] = js.undefined, onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): Texture = js.native
+
+@js.native
+@JSImport("three","DefaultLoadingManager")
 val DefaultLoadingManager: LoadingManager = js.native
 
 @js.native
-@JSGlobal("THREE.LoadingManager")
+@JSImport("three","LoadingManager")
 class LoadingManager extends js.Object:
 	def this(onLoad: js.UndefOr[js.Function0[Unit]] = js.undefined, onProgress: js.UndefOr[js.Function3[String,Double,Double,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[String,Unit]] = js.undefined) = this()
 	var onStart: js.UndefOr[js.Function3[String,Double,Double,Unit]] = js.native
@@ -103,47 +115,7 @@ class LoadingManager extends js.Object:
 	def getHandler(file: String): Loader = js.native
 
 @js.native
-@JSGlobal("THREE.ImageLoader")
-class ImageLoader extends Loader:
-	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
-	def load(url: String, onLoad: js.UndefOr[js.Function1[HTMLImageElement,Unit]] = js.undefined, onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): HTMLImageElement = js.native
-
-
-@js.native
-@JSGlobal("THREE.AudioLoader")
-class AudioLoader extends Loader:
-	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
-	def load(url: String, onLoad: js.Function1[AudioBuffer,Unit], onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): Unit = js.native
-
-
-@js.native
-@JSGlobal("THREE.MaterialLoader")
-class MaterialLoader extends Loader:
-	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
-	var textures: AnonObject12 = js.native
-	def load(url: String, onLoad: js.Function1[Material,Unit], onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[Error | ErrorEvent,Unit]] = js.undefined): Unit = js.native
-
-	def setTextures(textures: AnonObject12): this.type = js.native
-	def parse(json: js.Any): Material = js.native
-
-@js.native
-trait LoaderUtils extends js.Object:
-	def decodeText(array: BufferSource): String = js.native
-	def extractUrlBase(url: String): String = js.native
-@js.native
-@JSGlobal("THREE.LoaderUtils")
-val LoaderUtils: LoaderUtils = js.native
-
-@js.native
-@JSGlobal("THREE.BufferGeometryLoader")
-class BufferGeometryLoader extends Loader:
-	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
-	def load(url: String, onLoad: js.Function1[InstancedBufferGeometry | BufferGeometry,Unit], onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): Unit = js.native
-
-	def parse(json: js.Any): InstancedBufferGeometry | BufferGeometry = js.native
-
-@js.native
-@JSGlobal("THREE.AnimationLoader")
+@JSImport("three","AnimationLoader")
 class AnimationLoader extends Loader:
 	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
 	def load(url: String, onLoad: js.Function1[js.Array[AnimationClip],Unit], onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): Unit = js.native
@@ -151,21 +123,7 @@ class AnimationLoader extends Loader:
 	def parse(json: js.Any): js.Array[AnimationClip] = js.native
 
 @js.native
-@JSGlobal("THREE.CubeTextureLoader")
-class CubeTextureLoader extends Loader:
-	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
-	def load(urls: js.Array[String], onLoad: js.UndefOr[js.Function1[CubeTexture,Unit]] = js.undefined, onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): CubeTexture = js.native
-
-
-@js.native
-@JSGlobal("THREE.DataTextureLoader")
-class DataTextureLoader extends Loader:
-	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
-	def load(url: String, onLoad: js.Function2[DataTexture,js.Object,Unit], onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): DataTexture = js.native
-
-
-@js.native
-@JSGlobal("THREE.Cache")
+@JSImport("three","Cache")
 object Cache extends js.Object:
 	val enabled: Boolean = js.native
 	val files: js.Any = js.native
@@ -175,7 +133,7 @@ object Cache extends js.Object:
 	def clear(): Unit = js.native
 
 @js.native
-@JSGlobal("THREE.ImageBitmapLoader")
+@JSImport("three","ImageBitmapLoader")
 class ImageBitmapLoader extends Loader:
 	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
 	var options: js.UndefOr[js.Object] = js.native
@@ -185,7 +143,7 @@ class ImageBitmapLoader extends Loader:
 
 
 @js.native
-@JSGlobal("THREE.Loader")
+@JSImport("three","Loader")
 class Loader extends js.Object:
 	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
 	var crossOrigin: String = js.native
@@ -193,13 +151,55 @@ class Loader extends js.Object:
 	var path: String = js.native
 	var resourcePath: String = js.native
 	var manager: LoadingManager = js.native
-	var requestHeader: AnonObject13 = js.native
+	var requestHeader: AnonObject12 = js.native
 	def loadAsync(url: String, onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined): js.Promise[js.Any] = js.native
 	def setCrossOrigin(crossOrigin: String): this.type = js.native
 	def setWithCredentials(value: Boolean): this.type = js.native
 	def setPath(path: String): this.type = js.native
 	def setResourcePath(resourcePath: String): this.type = js.native
-	def setRequestHeader(requestHeader: AnonObject13): this.type = js.native
+	def setRequestHeader(requestHeader: AnonObject12): this.type = js.native
+
+@js.native
+@JSImport("three","FileLoader")
+class FileLoader extends Loader:
+	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
+	var mimeType: js.UndefOr[MimeType] = js.native
+	var responseType: js.UndefOr[String] = js.native
+	def load(url: String, onLoad: js.UndefOr[js.Function1[String | ArrayBuffer,Unit]] = js.undefined, onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): js.Any = js.native
+
+	def setMimeType(mimeType: MimeType): FileLoader = js.native
+	def setResponseType(responseType: String): FileLoader = js.native
+
+@js.native
+@JSImport("three","CubeTextureLoader")
+class CubeTextureLoader extends Loader:
+	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
+	def load(urls: js.Array[String], onLoad: js.UndefOr[js.Function1[CubeTexture,Unit]] = js.undefined, onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): CubeTexture = js.native
+
+
+@js.native
+@JSImport("three","CompressedTextureLoader")
+class CompressedTextureLoader extends Loader:
+	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
+	def load(url: String, onLoad: js.Function1[CompressedTexture,Unit], onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): CompressedTexture = js.native
+
+
+@js.native
+@JSImport("three","MaterialLoader")
+class MaterialLoader extends Loader:
+	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
+	var textures: AnonObject13 = js.native
+	def load(url: String, onLoad: js.Function1[Material,Unit], onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[Error | ErrorEvent,Unit]] = js.undefined): Unit = js.native
+
+	def setTextures(textures: AnonObject13): this.type = js.native
+	def parse(json: js.Any): Material = js.native
+
+@js.native
+@JSImport("three","DataTextureLoader")
+class DataTextureLoader extends Loader:
+	def this(manager: js.UndefOr[LoadingManager] = js.undefined) = this()
+	def load(url: String, onLoad: js.Function2[DataTexture,js.Object,Unit], onProgress: js.UndefOr[js.Function1[ProgressEvent,Unit]] = js.undefined, onError: js.UndefOr[js.Function1[ErrorEvent,Unit]] = js.undefined): DataTexture = js.native
+
 
 @js.native
 trait AnonObject11 extends js.Object:
@@ -212,11 +212,11 @@ trait AnonObject10 extends js.Object:
 	def apply(key: String): InstancedBufferGeometry | BufferGeometry = js.native
 
 @js.native
-trait AnonObject13 extends js.Object:
+trait AnonObject12 extends js.Object:
 	@JSBracketAccess
 	def apply(header: String): String = js.native
 
 @js.native
-trait AnonObject12 extends js.Object:
+trait AnonObject13 extends js.Object:
 	@JSBracketAccess
 	def apply(key: String): Texture = js.native
