@@ -13,22 +13,27 @@ Absolutely no guarantees are made about reliability here; steal 'em if they work
 Full example of project setup: https://github.com/dcascaval/scala-threejs-facades-example
 
 - Scala:
-  - Add `addSbtPlugin("com.codecommit" % "sbt-github-packages" % "0.5.3")` to `project/plugins.sbt`
-  - Add `libraryDependencies += "org.cascaval" %%% "three-typings" % "0.131.0-SNAPSHOT"` to `build.sbt`.
-  - export a `GITHUB_TOKEN` environment variable that can read from the Github Package Registry (create one at `Settings > Developer Settings > Personal Access Tokens` with the `read:packages` permission). For documentation on other ways to provide authentication, see the [sbt-github-packages documentation](https://github.com/djspiewak/sbt-github-packages).
+  - Add `libraryDependencies += "io.github.dcascaval" %%% "three-typings" % "0.131.0"` to `build.sbt`.
+
  
 - JS:
-  - Use webpack to package `three` into a bundle along with your other dependencies, or simply include `three.min.js` (along with any of the examples files you want to use, e.g. `OrbitControls`) in your html.
-  - `three.min.js` can be obtained from `node_modules` after running `npm install` or `yarn add`, or directly [from the source](https://github.com/mrdoob/three.js/blob/dev/build/three.min.js)
-  - Sometimes including the following snippet is needed to make everything play nicely.
+  - Include the output of ScalaJSBundler into your `index.html`. 
+    - By default, this is: 
+      ```html
+      <script type="text/javascript" src="./target/scala-3.0.0/scalajs-bundler/main/example-fastopt-bundle.js"></script>
+      ```
+    - If you use ScalaJSBundler's library bundling mode (see example project), this looks like: 
+      ```html
+        <script type="text/javascript" src="./target/scala-3.0.0/scalajs-bundler/main/example-fastopt-library.js"></script>
+        <script type="text/javascript" src="./target/scala-3.0.0/scalajs-bundler/main/example-fastopt-loader.js"></script>
+        <script type="text/javascript" src="./target/scala-3.0.0/scalajs-bundler/main/example-fastopt.js"></script>
+      ```
+  - (Potentially) including the following snippet is sometimes needed to make everything play nicely.
     ```html
     <script>
       window.global = window;
     </script>
     ```
-    
-Alternatively, if you don't want to use GH Packages, you can clone this repo, run `sbt publishLocal` to publish to a local ivy repository
-  - import into your ScalaJS project: `libraryDependencies += "org.cascaval" %%% "three-typings" % "0.131.0-SNAPSHOT"`
   - (Potentially) resolve any issues with package naming by adding: `scalacOptions ++= Seq("-Yresolve-term-conflict:package")`. ([Discussion](https://stackoverflow.com/questions/8984730/package-contains-object-and-package-with-same-name))
 
 
@@ -45,8 +50,7 @@ Other tools, such as [ScalablyTyped](https://scalablytyped.org/docs/readme.html)
 This project is functional (compiles and runs!), and replicates several of the basic THREE.js examples with minimal casting and no namespacing issues. That said, this project does not resemble anything production-ready. Primarily this is because:
 
 - There are no tests, let alone automated tests, to verify that the API surface is covered correctly.
-- As described above these bindings assume _all_ of THREE.js is in the global scope, as opposed to using modules and allowing tree-shaking to do its thing. Minified, the core `three.min.js` is 602kb at the time of writing. Moreover you will need to include any code from [the examples](https://github.com/mrdoob/three.js/tree/dev/examples/js) manually. This includes a number of features you might want, like `OrbitControls`.
-- There is no guarantee that any of the above will ever be supported
+- This project does not provide bindings for all of the examples ourside the core, though it's likely we will expand to more and more over time.
 - There are some cases where mutating super types can break type safety (see below.)
 
 ### Special Cases
